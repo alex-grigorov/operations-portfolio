@@ -55,6 +55,15 @@ export const snapSections: SnapSection[] = [
           "Operated crimping, wire-stripping, and assembly machinery in a fast-paced line.",
         ],
       },
+      {
+        role: "Public Relations Coordinator",
+        highlights: [
+          "Supported PR campaign research, analyzed effectiveness data, and reported findings to clients.",
+          "Created press releases and media materials for client news, events, and products.",
+          "Ensured materials were accurate and visually polished before publication.",
+          "Distributed releases to targeted media outlets.",
+        ],
+      },
     ],
   },
   {
