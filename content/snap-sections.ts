@@ -264,7 +264,7 @@ export const snapSections: SnapSection[] = [
           src: "/projects/geo-driver-load-stops.png",
           alt: "Geo Driver load stops and arrive",
           description:
-            "Load stops view for the active PRO: pickup and delivery sequence with **Arrive** actions that notify dispatch when the driver reaches a stop—closing the loop between field activity and the operations desk.",
+            "Load stops view for the active PRO: pickup and delivery sequence with Arrive actions that notify dispatch when the driver reaches a stop—closing the loop between field activity and the operations desk.",
         },
         {
           id: "geo-driver-inspection-front",
