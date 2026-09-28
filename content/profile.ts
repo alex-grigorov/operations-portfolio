@@ -21,6 +21,21 @@ export type Project = {
   internalOnly?: boolean;
 };
 
+export type SocialPlatform =
+  | "linkedin"
+  | "github"
+  | "email"
+  | "x"
+  | "instagram"
+  | "globe";
+
+export type SocialLink = {
+  platform: SocialPlatform;
+  /** Full URL, or mailto:you@email.com for email */
+  url: string;
+  label: string;
+};
+
 export type Profile = {
   name: string;
   headline: string;
@@ -30,6 +45,8 @@ export type Profile = {
   phone: string;
   linkedIn: string;
   github: string;
+  /** Top-right icons — leave url empty to hide a link */
+  socialLinks: SocialLink[];
   summary: string;
   skills: { label: string; items: string[] }[];
   experience: Experience[];
@@ -46,6 +63,23 @@ export const profile: Profile = {
   phone: "",
   linkedIn: "",
   github: "",
+  socialLinks: [
+    {
+      platform: "linkedin",
+      url: "https://linkedin.com/in/your-profile",
+      label: "LinkedIn",
+    },
+    {
+      platform: "github",
+      url: "https://github.com/your-username",
+      label: "GitHub",
+    },
+    {
+      platform: "email",
+      url: "mailto:you@email.com",
+      label: "Email",
+    },
+  ],
   summary: "",
   skills: [],
   experience: [],

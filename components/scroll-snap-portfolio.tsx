@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { snapSections } from "@/content/snap-sections";
+import { SocialLinks } from "@/components/social-links";
 import { cn } from "@/lib/utils";
 
 export function ScrollSnapPortfolio() {
@@ -91,14 +92,17 @@ export function ScrollSnapPortfolio() {
         ))}
       </nav>
 
-      <p
-        className="fixed left-5 top-6 z-50 font-mono text-sm tabular-nums tracking-[0.25em] text-foreground sm:left-8 sm:top-8 sm:text-base"
-        aria-live="polite"
-        aria-atomic="true"
-      >
-        {String(active + 1).padStart(2, "0")} /{" "}
-        {String(snapSections.length).padStart(2, "0")}
-      </p>
+      <div className="fixed left-5 right-5 top-6 z-50 flex items-start justify-between gap-4 sm:left-8 sm:right-8 sm:top-8">
+        <p
+          className="font-mono text-sm tabular-nums tracking-[0.25em] text-foreground sm:text-base"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {String(active + 1).padStart(2, "0")} /{" "}
+          {String(snapSections.length).padStart(2, "0")}
+        </p>
+        <SocialLinks className="shrink-0" />
+      </div>
 
       <main
         ref={scrollerRef}
