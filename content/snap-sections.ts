@@ -189,6 +189,20 @@ export const snapSections: SnapSection[] = [
           description:
             "Completed Shipments module for closeout history and follow-ups: searchable records by unit, PRO, driver, trailer, and customer; date-range filters; KPI counts (total, weekly, monthly); and trip metrics including deadhead versus loaded miles, transit time, duration, and accessorized status for post-delivery review.",
         },
+        {
+          id: "trailer-management",
+          src: "/projects/fleet-hub-trailer-management.png",
+          alt: "Trailer Management yard matrix",
+          description:
+            "Trailer Management view: yard and customer locations in a status matrix (reloaded, pending, empty, dropped, stale) with live counts, search and filters, export, yard-check upload with a working yard-report reader, custom trailer tracking, and drop-trailer workflows. Highlights trailers sitting too long and supports ping visibility for driver follow-up.",
+        },
+        {
+          id: "trailer-driver-ping",
+          src: "/projects/fleet-hub-trailer-actions.png",
+          alt: "Trailer actions and driver ping menu",
+          description:
+            "Per-trailer actions: change status, update drop location, copy a maps link, edit notes, recover a trailer, and Ping to Geo Driver—pushing status, exact drop location, and assisted navigation to the driver mobile app so field teams get the same context dispatch sees on the desk.",
+        },
       ],
     },
   },

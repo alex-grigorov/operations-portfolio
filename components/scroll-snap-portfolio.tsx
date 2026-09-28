@@ -175,7 +175,7 @@ export function ScrollSnapPortfolio() {
               section.experiences
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : section.projectShowcase
-                  ? "justify-start overflow-hidden pb-6 pt-[6vh] sm:pt-[7vh]"
+                  ? "justify-start pb-16 pt-[6vh] sm:pb-20 sm:pt-[7vh]"
                   : "justify-center py-20",
             )}
           >
@@ -185,7 +185,7 @@ export function ScrollSnapPortfolio() {
                 section.experiences
                   ? "max-w-4xl px-1"
                   : section.projectShowcase
-                    ? "w-full max-w-3xl items-stretch px-2"
+                    ? "w-full max-w-2xl items-stretch px-2"
                     : section.paragraphs
                     ? "max-w-2xl px-2"
                     : "max-w-lg",
