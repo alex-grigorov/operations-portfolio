@@ -28,14 +28,14 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         {showcase.summary}
       </p>
 
-      <div className="mx-auto mt-6 flex w-full max-w-md flex-col gap-3 sm:max-w-lg">
+      <div className="mx-auto mt-6 grid w-full max-w-5xl grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5 md:grid-cols-5 lg:grid-cols-6">
         {showcase.screenshots.map((shot) => (
           <button
             key={shot.id}
             type="button"
             onClick={() => openShot(shot)}
             aria-label={`Enlarge ${shot.alt}`}
-            className="group w-full shrink-0 overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] transition hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+            className="group min-w-0 overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] transition hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
           >
             <div className="relative aspect-video w-full">
               <Image
@@ -44,7 +44,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
                 fill
                 unoptimized
                 className="object-cover object-center transition duration-200 group-hover:opacity-95"
-                sizes="(max-width: 640px) 100vw, 512px"
+                sizes="(max-width: 1024px) 20vw, 140px"
               />
             </div>
           </button>

@@ -185,7 +185,7 @@ export function ScrollSnapPortfolio() {
                 section.experiences
                   ? "max-w-4xl px-1"
                   : section.projectShowcase
-                    ? "w-full max-w-2xl items-stretch px-2"
+                    ? "w-full max-w-5xl items-stretch px-2"
                     : section.paragraphs
                     ? "max-w-2xl px-2"
                     : "max-w-lg",
