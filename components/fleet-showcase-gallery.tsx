@@ -8,7 +8,6 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { cn } from "@/lib/utils";
 
 type FleetShowcaseGalleryProps = {
   showcase: ProjectShowcase;
@@ -29,33 +28,25 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         {showcase.summary}
       </p>
 
-      <div
-        className={cn(
-          "mx-auto mt-6 grid w-full max-w-2xl gap-3",
-          showcase.screenshots.length === 1
-            ? "grid-cols-1 place-items-center sm:max-w-xs"
-            : "grid-cols-2 sm:grid-cols-3",
-        )}
-      >
+      <div className="mx-auto mt-6 flex w-full max-w-3xl flex-wrap items-start justify-start gap-3">
         {showcase.screenshots.map((shot) => (
           <button
             key={shot.id}
             type="button"
             onClick={() => openShot(shot)}
-            className="group overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] text-left transition hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+            aria-label={`Enlarge ${shot.alt}`}
+            className="group w-36 shrink-0 overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] transition hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 sm:w-44"
           >
             <div className="relative aspect-video w-full">
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                className="object-cover object-top transition duration-200 group-hover:scale-[1.02]"
-                sizes="(max-width: 640px) 45vw, 200px"
+                unoptimized
+                className="object-cover object-center transition duration-200 group-hover:opacity-95"
+                sizes="176px"
               />
             </div>
-            <p className="px-2 py-1.5 font-mono text-[0.625rem] tracking-[0.15em] text-muted-foreground uppercase sm:text-[0.6875rem]">
-              Tap to enlarge
-            </p>
           </button>
         ))}
       </div>
@@ -68,12 +59,14 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
           {active && (
             <>
               <DialogTitle className="sr-only">{active.alt}</DialogTitle>
-              <div className="relative aspect-video w-full bg-muted/30">
+              <div className="relative w-full bg-muted/30">
                 <Image
                   src={active.src}
                   alt={active.alt}
-                  fill
-                  className="object-contain object-center"
+                  width={1600}
+                  height={900}
+                  unoptimized
+                  className="h-auto max-h-[70vh] w-full object-contain object-center"
                   sizes="(max-width: 768px) 100vw, 768px"
                   priority
                 />

@@ -107,7 +107,7 @@ export const snapSections: SnapSection[] = [
       screenshots: [
         {
           id: "sign-in",
-          src: "/projects/geo-logistics-dispatch-login.png",
+          src: "/projects/fleet-hub-sign-in.png",
           alt: "Fleet hub sign-in screen",
           description:
             "Authentication entry point with a live Mapbox map in the background, animating a route across the U.S. to give dispatch immediate geographic context. Three production-ready sign-in paths—one-time code, magic link, and password—each fully implemented and tested. Visual design aligns with company branding (logo, color, and typography) for a consistent operations-facing experience.",
