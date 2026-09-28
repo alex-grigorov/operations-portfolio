@@ -140,6 +140,55 @@ export const snapSections: SnapSection[] = [
           description:
             "AI-assisted shift briefing panel summarizing fleet disposition (on load, on duty, off duty) with freshness status and regeneration when data is stale. Expandable sections cover weather and road conditions, fuel, Sylectus compliance dates, completed loads, trailer yard status, and external market intelligence—giving each shift a structured operational snapshot before work begins.",
         },
+        {
+          id: "fleet-map",
+          src: "/projects/fleet-hub-fleet-map.png",
+          alt: "Fleet Map operations view",
+          description:
+            "Fleet Map workspace over a live Mapbox basemap with real-time asset pins. Unit cards expose trip data (PRO/TO, references, origin and destination, appointments) and one-click actions for CDL/ID, phone, residence, turn-by-turn to the next stop, broker email drafts, and hours-of-service. Includes Active Fleet and Unassigned Loads tabs, Sylectus sync, working filters and search, a draggable/closable unit list, a custom planning sheet for dispatch sort order, and an MX tab for Mexican freight moved on partner carriers.",
+        },
+        {
+          id: "map-layer-filters",
+          src: "/projects/fleet-hub-map-layers.png",
+          alt: "Fleet Map layer and status filters",
+          description:
+            "Map layer panel for toggling truck and trailer visibility by operational status—on load, on duty, available, planned, busy, off duty—and trailer states such as paired, not paired, reloaded, empty, and pending. Supports light map styling with live counts so dispatch can filter the map to the assets that matter for the current decision.",
+        },
+        {
+          id: "map-overlays",
+          src: "/projects/fleet-hub-map-overlays.png",
+          alt: "Map style and overlay controls",
+          description:
+            "Map presentation controls: Light, Dark, and Satellite basemaps plus operational overlays. Optional route-and-weather context when opening a truck detail, and traffic layers including flow, incidents, truck stops, border crossings, and customer locations—configurable per dispatcher preference.",
+        },
+        {
+          id: "map-search",
+          src: "/projects/fleet-hub-map-search.png",
+          alt: "Map location search",
+          description:
+            "Geographic search with autocomplete over the Mapbox map. Dispatch can jump to a city, address, or point of interest, then evaluate coverage from that location instead of panning manually across regions.",
+        },
+        {
+          id: "nearest-units",
+          src: "/projects/fleet-hub-nearest-units.png",
+          alt: "Nearest units by status",
+          description:
+            "After choosing a location, the hub lists the closest units filtered by selected status (for example available trucks), with distance from the search point—supporting rapid assignment and coverage checks without leaving the map.",
+        },
+        {
+          id: "unassigned-loads",
+          src: "/projects/fleet-hub-unassigned-loads.png",
+          alt: "Unassigned loads panel",
+          description:
+            "Unassigned Loads queue with origin/destination, appointment windows, mileage, service type, and availability versus planned status. Gives dispatch a dedicated lane to match open freight to fleet capacity from the same Fleet Map screen.",
+        },
+        {
+          id: "completed-shipments",
+          src: "/projects/fleet-hub-completed-shipments.png",
+          alt: "Completed shipments closeout history",
+          description:
+            "Completed Shipments module for closeout history and follow-ups: searchable records by unit, PRO, driver, trailer, and customer; date-range filters; KPI counts (total, weekly, monthly); and trip metrics including deadhead versus loaded miles, transit time, duration, and accessorized status for post-delivery review.",
+        },
       ],
     },
   },

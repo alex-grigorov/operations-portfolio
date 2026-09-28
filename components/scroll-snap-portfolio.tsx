@@ -175,7 +175,7 @@ export function ScrollSnapPortfolio() {
               section.experiences
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : section.projectShowcase
-                  ? "justify-start overflow-hidden pb-6 pt-[8vh] sm:pt-[9vh]"
+                  ? "justify-start overflow-hidden pb-6 pt-[6vh] sm:pt-[7vh]"
                   : "justify-center py-20",
             )}
           >
