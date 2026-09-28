@@ -128,10 +128,10 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "work-schedule",
-          src: "/projects/fleet-hub-work-schedule.png",
-          alt: "Work schedule and shift timeline",
+          src: "/projects/fleet-hub-work-schedule-calendar.png",
+          alt: "Work schedule calendar",
           description:
-            "Work schedule view with a 24-hour timeline across 1st, 2nd, and 3rd shifts, assigned personnel per rotation, and clear highlighting of the active shift. Surfaces absences and scheduled time off, plus a live countdown to the next shift change—built to support continuous dispatch coverage and shift-to-shift continuity.",
+            "Full work-schedule calendar: week-by-week grids for 1st, 2nd, and 3rd shifts with assigned staff, absences and paid leave, active-shift indicator, and countdown to the next rotation. Supports copy from last week, PDF export, and in-app editing so dispatch coverage stays visible and maintainable over time.",
         },
         {
           id: "shift-briefing",
@@ -202,6 +202,41 @@ export const snapSections: SnapSection[] = [
           alt: "Trailer actions and driver ping menu",
           description:
             "Per-trailer actions: change status, update drop location, copy a maps link, edit notes, recover a trailer, and Ping to Geo Driver—pushing status, exact drop location, and assisted navigation to the driver mobile app so field teams get the same context dispatch sees on the desk.",
+        },
+        {
+          id: "compliance-import",
+          src: "/projects/fleet-hub-compliance-import.png",
+          alt: "Sylectus compliance report import",
+          description:
+            "Compliance Import module: upload daily Sylectus compliance reports (CSV, XLSX, XLS) via drag-and-drop or file picker. Parsed data refreshes fleet compliance dates across the hub so asset and driver due dates stay aligned with TMS exports without manual re-entry.",
+        },
+        {
+          id: "settings-display",
+          src: "/projects/fleet-hub-settings-display.png",
+          alt: "Settings display and navigation preferences",
+          description:
+            "Settings — display and navigation: timezone, 12/24-hour clock, seconds on timestamps, date format, cursor style, panel versus tab-bar navigation, default Fleet Map sidebar state, and Light/Dark map theme—saved per user for a consistent workspace.",
+        },
+        {
+          id: "settings-fleet-map",
+          src: "/projects/fleet-hub-settings-fleet-map.png",
+          alt: "Settings fleet map and trailer preferences",
+          description:
+            "Settings — Fleet Map and trailers: North America map lock, trailer layer default, truck status filters, default sidebar card filters (including MX visibility), sidebar sort order (auto by status, custom drag order, or Sylectus appointment time), and Trailer Management layout (standard navigator versus spreadsheet grid).",
+        },
+        {
+          id: "settings-admin",
+          src: "/projects/fleet-hub-settings-admin.png",
+          alt: "Settings notifications and administration",
+          description:
+            "Settings — notifications and administration: alert sounds with team sound library, desktop notifications, trailer view preferences, customer accessorial reference for Sylectus/Ascent entry, and Team & User Management for invites, roles, and access control across the platform.",
+        },
+        {
+          id: "driver-app-control",
+          src: "/projects/fleet-hub-driver-app-control.png",
+          alt: "Geo Driver App control center",
+          description:
+            "Geo Driver App Control Center: review driver submissions from the mobile app—load documents, asset inspections, fuel receipts, and reports—with search and filters by driver, truck, PRO, type, and date. Access management ties field users to what they can upload; document retention and expiry are tracked for dispatch review.",
         },
       ],
     },
