@@ -41,9 +41,18 @@ export const snapSections: SnapSection[] = [
       {
         role: "Gas Station Sales & Forecourt Associate",
         highlights: [
-          "Operated POS cash registers—cash, card, and mobile payments—with accurate drawer balancing.",
-          "Full-service forecourt: fueling vehicles, monitoring pumps, and following fuel safety protocols.",
-          "Retail inventory, restocking, and facility standards during high-volume shifts.",
+          "POS registers—cash, card, and mobile payments—with accurate drawer balancing.",
+          "Forecourt fueling, pump monitoring, and fuel safety protocols.",
+          "Retail inventory, restocking, and facility standards on high-volume shifts.",
+        ],
+      },
+      {
+        role: "Electrical Assembly Operator",
+        highlights: [
+          "Assembled high-/low-voltage cabinets, control panels, and sub-assemblies from schematics.",
+          "Wired components, terminal blocks, breakers, and relay systems with hand and power tools.",
+          "Inspected units for wiring quality, structural integrity, and ISO standards.",
+          "Operated crimping, wire-stripping, and assembly machinery in a fast-paced line.",
         ],
       },
     ],

@@ -169,14 +169,21 @@ export function ScrollSnapPortfolio() {
             ref={(node) => {
               sectionRefs.current[index] = node;
             }}
-            className="snap-section relative flex min-h-dvh w-full flex-col items-center justify-center bg-background px-6 py-20 sm:px-12"
+            className={cn(
+              "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
+              section.experiences
+                ? "justify-start pb-12 pt-[12vh] sm:pt-[14vh]"
+                : "justify-center py-20",
+            )}
           >
             <div
               className={cn(
                 "flex flex-col items-center text-center",
-                section.paragraphs || section.experiences
-                  ? "max-w-2xl px-2"
-                  : "max-w-lg",
+                section.experiences
+                  ? "max-w-lg px-1"
+                  : section.paragraphs
+                    ? "max-w-2xl px-2"
+                    : "max-w-lg",
               )}
             >
               <h2
@@ -192,17 +199,20 @@ export function ScrollSnapPortfolio() {
                 {section.title}
               </h2>
               {section.experiences && (
-                <div className="mt-8 w-full space-y-10 border-t border-foreground/10 pt-8 text-left">
+                <div className="mt-6 w-full space-y-6 border-t border-foreground/10 pt-6 text-left">
                   {section.experiences.map((job) => (
-                    <div key={job.role} className="space-y-4">
-                      <h3 className="text-center font-medium text-base text-foreground sm:text-lg">
+                    <div
+                      key={job.role}
+                      className="space-y-2 border-b border-foreground/5 pb-6 last:border-b-0 last:pb-0"
+                    >
+                      <h3 className="text-center text-sm font-medium text-foreground sm:text-base">
                         {job.role}
                       </h3>
-                      <div className="space-y-3">
+                      <div className="space-y-1.5">
                         {job.highlights.map((line) => (
                           <p
                             key={line}
-                            className="font-serif text-lg leading-[1.75] text-foreground/90 sm:text-xl sm:leading-[1.8]"
+                            className="font-serif text-[0.9375rem] leading-snug text-foreground/90 sm:text-base sm:leading-normal"
                           >
                             {line}
                           </p>
