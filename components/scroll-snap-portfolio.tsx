@@ -61,7 +61,7 @@ export function ScrollSnapPortfolio() {
   }, [active, scrollToIndex]);
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden bg-black text-white">
+    <div className="relative h-dvh w-full overflow-hidden bg-background text-foreground">
       <nav
         aria-label="Section navigation"
         className="fixed right-5 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3 sm:right-8"
@@ -74,23 +74,23 @@ export function ScrollSnapPortfolio() {
             aria-current={active === index ? "true" : undefined}
             onClick={() => scrollToIndex(index)}
             className={cn(
-              "h-2.5 w-2.5 rounded-full border border-white/30 transition-all duration-300",
+              "h-2 w-2 rounded-full border border-foreground/25 transition-all duration-300",
               active === index
-                ? "scale-125 bg-white"
-                : "bg-white/20 hover:bg-white/50",
+                ? "scale-125 bg-foreground"
+                : "bg-foreground/15 hover:bg-foreground/40",
             )}
           />
         ))}
       </nav>
 
-      <div className="fixed left-5 top-6 z-50 font-mono text-xs tracking-[0.2em] text-white/70 sm:left-8 sm:top-8">
+      <div className="fixed left-5 top-6 z-50 text-xs tracking-wide text-muted-foreground sm:left-8 sm:top-8">
         {String(active + 1).padStart(2, "0")} /{" "}
         {String(snapSections.length).padStart(2, "0")}
       </div>
 
       <main
         ref={scrollerRef}
-        className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto overscroll-y-contain"
+        className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto overscroll-y-contain bg-background"
       >
         {snapSections.map((section, index) => (
           <section
@@ -99,54 +99,39 @@ export function ScrollSnapPortfolio() {
             ref={(node) => {
               sectionRefs.current[index] = node;
             }}
-            className={cn(
-              "snap-section relative flex min-h-dvh w-full flex-col items-center justify-center px-6 py-20 sm:px-12",
-              section.panelClass,
-            )}
+            className="snap-section flex min-h-dvh w-full flex-col items-center justify-center bg-background px-6 py-20 sm:px-12"
           >
-            {section.image && (
-              <>
-                <Image
-                  src={section.image}
-                  alt=""
-                  fill
-                  className="object-cover opacity-40"
-                  sizes="100vw"
-                  priority={index === 2}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60" />
-              </>
-            )}
-
-            <div className="relative z-10 flex max-w-6xl flex-col items-center text-center">
-              <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-white/60 mix-blend-difference">
-                {section.label}
-              </p>
+            <div className="flex max-w-lg flex-col items-center text-center">
               <h2
                 className={cn(
-                  "max-w-[14ch] text-[clamp(2.75rem,11vw,9rem)] font-semibold leading-[0.92] tracking-tight",
-                  section.blendTitle &&
-                    "text-white mix-blend-difference",
+                  "font-medium tracking-tight text-foreground",
+                  index === 0
+                    ? "text-2xl sm:text-3xl"
+                    : "text-2xl sm:text-3xl",
                 )}
               >
                 {section.title}
               </h2>
               {section.subtitle && (
-                <p
-                  className={cn(
-                    "mt-8 max-w-md text-sm leading-relaxed sm:text-base",
-                    section.blendTitle
-                      ? "text-white/90 mix-blend-difference"
-                      : "text-white/80",
-                  )}
-                >
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {section.subtitle}
                 </p>
+              )}
+              {section.image && (
+                <div className="mt-8 w-full max-w-md overflow-hidden rounded-lg border border-border">
+                  <Image
+                    src={section.image}
+                    alt={section.imageAlt ?? ""}
+                    width={800}
+                    height={450}
+                    className="h-auto w-full"
+                  />
+                </div>
               )}
             </div>
 
             {index === 0 && (
-              <p className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 animate-pulse font-mono text-[10px] uppercase tracking-[0.4em] text-black/50 mix-blend-difference">
+              <p className="absolute bottom-10 text-xs text-muted-foreground">
                 Scroll or use arrow keys
               </p>
             )}
