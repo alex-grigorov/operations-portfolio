@@ -13,11 +13,11 @@ export type Project = {
   summary: string;
   role: string;
   stack: string[];
-  /** Public URL if you have one; omit for internal tools */
   liveUrl?: string;
-  /** Case-study bullets — use outcomes, not confidential data */
+  /** Path under /public for portfolio screenshots */
+  screenshot?: string;
+  screenshotCaption?: string;
   highlights: string[];
-  /** How to present work from a past employer */
   showcaseNotes: string;
   internalOnly?: boolean;
 };
@@ -38,99 +38,104 @@ export type Profile = {
   education: { school: string; credential: string; year: string }[];
 };
 
-/** Edit this file — it drives the site and printable resume. */
+/**
+ * Replace placeholders with your real details before applying to jobs.
+ * The site and downloadable PDF both read from this file.
+ */
 export const profile: Profile = {
   name: "Your Name",
-  headline: "Software engineer · AI-assisted product development",
-  location: "City, Country · Open to remote",
-  openTo: ["Full-time remote", "Contract", "US / EU time zones"],
+  headline: "Full-stack developer · logistics & internal tools · open to remote",
+  location: "United States · Remote only",
+  openTo: [
+    "Full-time remote",
+    "Junior / mid-level software roles",
+    "Fast learner — ready to ramp on your stack",
+  ],
   email: "you@email.com",
-  phone: "+1 000 000 0000",
+  phone: "+1 (000) 000-0000",
   linkedIn: "https://linkedin.com/in/your-handle",
   github: "https://github.com/your-handle",
   summary:
-    "Engineer who ships web products end-to-end — from dispatch and operations tools to customer-facing apps. Comfortable pairing modern frameworks with AI-assisted workflows (spec → implementation → review) while keeping quality, security, and maintainability in focus.",
+    "Developer who shipped a production dispatch platform for logistics operations — map-backed UI, multi-method sign-in, and workflows for internal teams. Looking for a legitimate remote role where I can contribute immediately, learn your codebase, and grow with the team.",
   skills: [
     {
-      label: "Core",
-      items: ["TypeScript", "React", "Next.js", "Node.js", "REST APIs", "SQL"],
-    },
-    {
-      label: "AI & tooling",
+      label: "Development",
       items: [
-        "Cursor / agentic coding",
-        "Prompt design for dev tasks",
-        "Evaluating model output",
-        "Documentation from code",
+        "JavaScript / TypeScript",
+        "React",
+        "Web APIs",
+        "SQL",
+        "Git",
+        "Update with your stack",
       ],
     },
     {
-      label: "Delivery",
-      items: ["CI/CD", "Code review", "Stakeholder demos", "Internal tools"],
+      label: "Product & ops",
+      items: [
+        "Internal tools",
+        "Dispatch / logistics UX",
+        "Auth flows (password, magic link, OTP)",
+        "Map-based interfaces",
+      ],
+    },
+    {
+      label: "Ways of working",
+      items: [
+        "AI-assisted development (Cursor)",
+        "Clear communication",
+        "Documentation",
+        "Code review ready",
+      ],
     },
   ],
   experience: [
     {
-      company: "Previous employer (update me)",
-      title: "Software Engineer",
-      location: "Remote",
-      start: "2023",
-      end: "2025",
+      company: "Geo Logistics (former employer — update title/dates)",
+      title: "Software Developer",
+      location: "Remote / Hybrid",
+      start: "Start year",
+      end: "End year",
       highlights: [
-        "Built and maintained an internal dispatch web app used by operations daily.",
-        "Reduced manual coordination by automating status updates and assignment views.",
-        "Collaborated with non-technical stakeholders to iterate on workflows.",
-      ],
-    },
-    {
-      company: "Earlier role (optional)",
-      title: "Developer",
-      location: "On-site / Hybrid",
-      start: "2021",
-      end: "2023",
-      highlights: [
-        "Replace this block or delete it once you add real history.",
+        "Built and maintained Geo Logistics Dispatch — internal platform for coordinating field operations.",
+        "Delivered sign-in experiences (password, magic link, and code) and map-centric UI used by dispatch staff.",
+        "Partnered with operations stakeholders to iterate on workflows that replaced manual coordination.",
+        "Add 1–2 bullets with real metrics (time saved, users, load handled) when you have them.",
       ],
     },
   ],
   projects: [
     {
-      slug: "dispatch-operations-platform",
-      title: "Internal dispatch & operations platform",
+      slug: "geo-logistics-dispatch",
+      title: "Geo Logistics Dispatch",
       summary:
-        "Web application for coordinating field dispatch — schedules, assignments, and status tracking for internal teams.",
-      role: "Primary builder / full-stack contributor (update to match your role)",
-      stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Update stack"],
-      highlights: [
-        "Designed role-based views so dispatchers and managers see the right data without clutter.",
-        "Integrated real-time or near-real-time updates for assignment state (describe what you actually shipped).",
-        "Handled edge cases in routing and handoffs that previously lived in spreadsheets.",
+        "Internal dispatch web application for logistics operations — branded sign-in over a live map context, built for daily use by dispatch teams.",
+      role: "Developer on the team that built and shipped the product (update to your exact role)",
+      stack: [
+        "React",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Maps API",
+        "Update stack",
       ],
+      screenshot: "/projects/geo-logistics-dispatch-login.png",
+      screenshotCaption:
+        "Sign-in screen with map-backed context (screenshot shared for portfolio — credentials and live data not exposed).",
       internalOnly: true,
-      showcaseNotes:
-        "You can list this project even after leaving the company if you describe your contribution honestly, avoid secrets (credentials, customer PII, proprietary algorithms), and use sanitized screenshots or a redacted demo. A one-page case study on your portfolio often works better than a live link recruiters cannot access.",
-    },
-    {
-      slug: "ai-dev-workflow",
-      title: "AI-assisted development portfolio (this site)",
-      summary:
-        "Personal site with printable resume, project case studies, and a small interactive demo of structured AI-style output for job materials.",
-      role: "Solo project",
-      stack: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui"],
-      liveUrl: undefined,
       highlights: [
-        "Single source of truth in content/profile.ts for resume and web.",
-        "Print-optimized resume route for PDF export from the browser.",
-        "Demonstrates how you communicate about AI tooling to hiring managers.",
+        "Multi-method authentication: password, magic link, and one-time code tabs on a single sign-in flow.",
+        "Operations-focused branding and dark UI designed for dispatch environments.",
+        "Map-integrated login and dashboard context centered on active service regions.",
+        "Production app used internally for dispatch — not a demo or tutorial project.",
       ],
       showcaseNotes:
-        "Use this to show you can ship polished UI quickly — relevant for remote hiring loops that skim links before interviews.",
+        "Past employers often allow portfolio case studies if you stick to your contribution, avoid customer PII, and use screenshots like this login view rather than sharing accounts. You do not need to link a public login for recruiters to take you seriously.",
     },
   ],
   education: [
     {
-      school: "Your university or bootcamp",
-      credential: "Degree or certificate",
+      school: "Your school, bootcamp, or self-taught + projects",
+      credential: "Degree, certificate, or relevant coursework",
       year: "Year",
     },
   ],

@@ -1,30 +1,26 @@
-# Remote job portfolio & resume
+# Remote job portfolio + resume PDF
 
-A small Next.js site for a **remote job search**: landing page, **print/PDF resume**, project case studies (including internal tools), and a demo of AI-style resume bullet drafting.
+Minimal personal site: **one featured project** (Geo Logistics Dispatch), **printable resume** for job boards.
 
-## Quick start
-
-1. Edit **`content/profile.ts`** with your name, contact info, experience, and projects.
-2. Run the dev server:
+## Run locally
 
 ```bash
 npm install
 npm run dev -- -p 43123
 ```
 
-3. Open `/resume` and use **Save as PDF (print)** → choose “Save as PDF” in the print dialog.
+Open http://localhost:43123
 
-## Should you use a website?
+## Before you apply anywhere
 
-For remote roles, a **clean link** (this site or GitHub Pages/Vercel) helps when recruiters skim before a screen. You still need a **one-page PDF resume** for ATS uploads — the `/resume` route is formatted for that.
+1. Edit **`content/profile.ts`** — your name, email, phone, LinkedIn, dates, and stack.
+2. Go to **`/resume`**:
+   - **Print → Save as PDF** — best for Indeed / LinkedIn (text stays selectable for ATS).
+   - **Download PDF for job boards** — quick file when a form only wants a PDF attachment.
 
-You **can** showcase the dispatch app you built at a previous employer if you:
+## Showcasing Geo Logistics Dispatch
 
-- Describe **your** contribution and outcomes, not the company’s secrets.
-- Use **redacted screenshots** (no customer PII, credentials, or live internal URLs unless you have permission).
-- Label it **“Internal operations platform (former employer)”** and offer to walk through architecture in an interview.
-
-When in doubt, ask your former manager in writing if a anonymized portfolio case study is OK.
+The login screenshot lives in `public/projects/`. You can list this on your resume and portfolio even after leaving the company if you describe **your work**, avoid live credentials, and skip customer PII. The case study page explains that for recruiters.
 
 ## Deploy
 
@@ -32,13 +28,4 @@ When in doubt, ask your former manager in writing if a anonymized portfolio case
 npm run build
 ```
 
-Deploy to [Vercel](https://vercel.com) or any Node host. Set your custom domain on the resume and LinkedIn.
-
-## Project structure
-
-| Path | Purpose |
-|------|---------|
-| `content/profile.ts` | Single source of truth for CV + site |
-| `/` | Portfolio landing |
-| `/resume` | Printable CV |
-| `/projects/[slug]` | Case studies |
+Deploy to Vercel (or similar) and put the URL on LinkedIn and your resume header.
