@@ -213,7 +213,7 @@ export function ScrollSnapPortfolio() {
                           {job.highlights.map((line) => (
                             <p
                               key={line}
-                              className="font-handwriting text-base leading-snug text-foreground/95 sm:text-lg sm:leading-normal"
+                              className="font-serif text-sm leading-relaxed text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed"
                             >
                               {line}
                             </p>
