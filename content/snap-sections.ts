@@ -39,19 +39,11 @@ export const snapSections: SnapSection[] = [
     title: "Professional Experience",
     experiences: [
       {
-        role: "Truck Dispatcher & Fleet Operations",
+        role: "Gas Station Sales & Forecourt Associate",
         highlights: [
-          "Three years coordinating loads, drivers, and day-to-day fleet operations.",
-          "Daily use of Sylectus (TMS), Samsara GPS, and ELD workflows.",
-          "Booked shipments, negotiated rates with carriers and brokers, and tracked freight through delivery.",
-        ],
-      },
-      {
-        role: "Public Relations Coordinator",
-        highlights: [
-          "PR research, campaign metrics, and client reporting.",
-          "Press releases and media materials for news, events, and products.",
-          "Quality-checked visuals; distributed to targeted outlets.",
+          "POS—cash, card, mobile—and drawer balancing.",
+          "Forecourt fueling, pumps, and safety protocols.",
+          "Inventory, restocking, and facility standards.",
         ],
       },
       {
@@ -63,11 +55,19 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
-        role: "Gas Station Sales & Forecourt Associate",
+        role: "Public Relations Coordinator",
         highlights: [
-          "POS—cash, card, mobile—and drawer balancing.",
-          "Forecourt fueling, pumps, and safety protocols.",
-          "Inventory, restocking, and facility standards.",
+          "PR research, campaign metrics, and client reporting.",
+          "Press releases and media materials for news, events, and products.",
+          "Quality-checked visuals; distributed to targeted outlets.",
+        ],
+      },
+      {
+        role: "Truck Dispatcher & Fleet Operations",
+        highlights: [
+          "Three years coordinating loads, drivers, and day-to-day fleet operations.",
+          "Daily use of Sylectus (TMS), Samsara GPS, and ELD workflows.",
+          "Booked shipments, negotiated rates with carriers and brokers, and tracked freight through delivery.",
         ],
       },
     ],
