@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { snapSections } from "@/content/snap-sections";
 import { SocialLinks } from "@/components/social-links";
+import { FleetShowcaseGallery } from "@/components/fleet-showcase-gallery";
 import { cn } from "@/lib/utils";
 
 function sectionScrollTop(container: HTMLElement, section: HTMLElement) {
@@ -173,7 +174,9 @@ export function ScrollSnapPortfolio() {
               "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
-                : "justify-center py-20",
+                : section.projectShowcase
+                  ? "justify-start overflow-hidden pb-6 pt-[8vh] sm:pt-[9vh]"
+                  : "justify-center py-20",
             )}
           >
             <div
@@ -181,7 +184,9 @@ export function ScrollSnapPortfolio() {
                 "flex flex-col items-center text-center",
                 section.experiences
                   ? "max-w-4xl px-1"
-                  : section.paragraphs
+                  : section.projectShowcase
+                    ? "max-w-3xl px-2"
+                    : section.paragraphs
                     ? "max-w-2xl px-2"
                     : "max-w-lg",
               )}
@@ -193,7 +198,9 @@ export function ScrollSnapPortfolio() {
                     ? "text-4xl sm:text-5xl md:text-6xl"
                     : section.experiences
                       ? "text-2xl sm:text-3xl"
-                      : section.paragraphs
+                      : section.projectShowcase
+                        ? "max-w-2xl text-xl leading-tight sm:text-2xl md:text-3xl"
+                        : section.paragraphs
                         ? "text-3xl sm:text-4xl"
                         : "text-2xl sm:text-3xl",
                 )}
@@ -254,6 +261,9 @@ export function ScrollSnapPortfolio() {
                   )}
                 </div>
               )}
+              {section.projectShowcase && (
+                <FleetShowcaseGallery showcase={section.projectShowcase} />
+              )}
               {section.tagline && (
                 <p className="mt-5 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
                   {section.tagline}
@@ -271,12 +281,12 @@ export function ScrollSnapPortfolio() {
                   ))}
                 </div>
               )}
-              {!section.titleOnly && section.subtitle && (
+              {!section.titleOnly && section.subtitle && !section.projectShowcase && (
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {section.subtitle}
                 </p>
               )}
-              {!section.titleOnly && section.image && (
+              {!section.titleOnly && section.image && !section.projectShowcase && (
                 <div className="mt-8 w-full max-w-md overflow-hidden rounded-lg border border-border">
                   <Image
                     src={section.image}

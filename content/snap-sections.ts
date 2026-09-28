@@ -3,6 +3,19 @@ export type ExperienceEntry = {
   highlights: string[];
 };
 
+export type ShowcaseScreenshot = {
+  id: string;
+  src: string;
+  alt: string;
+  /** Shown under the enlarged image in the lightbox */
+  description: string;
+};
+
+export type ProjectShowcase = {
+  summary: string;
+  screenshots: ShowcaseScreenshot[];
+};
+
 export type SnapSection = {
   id: string;
   label: string;
@@ -16,6 +29,7 @@ export type SnapSection = {
   experiences?: ExperienceEntry[];
   /** Full-width row below the 2×2 grid (horizontal rule only) */
   experienceSpotlight?: ExperienceEntry;
+  projectShowcase?: ProjectShowcase;
 };
 
 export const snapSections: SnapSection[] = [
@@ -84,13 +98,24 @@ export const snapSections: SnapSection[] = [
     },
   },
   {
-    id: "work",
-    label: "Work",
-    title: "Operations hub",
-    subtitle:
-      "Self-built internal platform with API integrations (Sylectus, Samsara, ELD)—developed with Cursor, ChatGPT, and AI-assisted workflows",
-    image: "/projects/geo-logistics-dispatch-login.png",
-    imageAlt: "Geo Logistics Dispatch sign-in screen",
+    id: "fleet-hub",
+    label: "Project",
+    title: "Fleet Operations Hub Project Showcase",
+    projectShowcase: {
+      summary:
+        "Internal fleet and dispatch platform I built with AI-assisted development—API-connected data from Sylectus, Samsara, ELD, and other systems in one workspace. Tap a preview to enlarge and read what each area does.",
+      screenshots: [
+        {
+          id: "sign-in",
+          src: "/projects/geo-logistics-dispatch-login.png",
+          alt: "Fleet hub sign-in screen",
+          description:
+            "Secure sign-in over a live map context for the active service region. Password, magic link, and one-time code options so dispatch and operations can log in from the office or the field.",
+        },
+        // Add more entries when you upload screenshots to public/projects/:
+        // { id: "dashboard", src: "/projects/your-file.png", alt: "...", description: "..." },
+      ],
+    },
   },
   {
     id: "contact",
