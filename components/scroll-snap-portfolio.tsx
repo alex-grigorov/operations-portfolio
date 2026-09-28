@@ -172,7 +172,7 @@ export function ScrollSnapPortfolio() {
             className={cn(
               "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
-                ? "justify-start pb-12 pt-[12vh] sm:pt-[14vh]"
+                ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : "justify-center py-20",
             )}
           >
@@ -191,21 +191,23 @@ export function ScrollSnapPortfolio() {
                   "font-medium tracking-tight text-foreground",
                   index === 0
                     ? "text-4xl sm:text-5xl md:text-6xl"
-                    : section.paragraphs || section.experiences
-                      ? "text-3xl sm:text-4xl"
-                      : "text-2xl sm:text-3xl",
+                    : section.experiences
+                      ? "text-2xl sm:text-3xl"
+                      : section.paragraphs
+                        ? "text-3xl sm:text-4xl"
+                        : "text-2xl sm:text-3xl",
                 )}
               >
                 {section.title}
               </h2>
               {section.experiences && (
-                <div className="mt-6 w-full border-t border-foreground/10 pt-6">
+                <div className="mt-3 w-full border-t border-foreground/10 pt-3 sm:mt-4 sm:pt-4">
                   <div className="grid grid-cols-1 text-left sm:grid-cols-2">
                     {section.experiences.map((job, jobIndex) => (
                       <article
                         key={job.role}
                         className={cn(
-                          "flex h-full flex-col px-4 py-5 sm:px-6 sm:py-6",
+                          "flex h-full flex-col px-3 py-3 sm:px-5 sm:py-4",
                           jobIndex % 2 === 0 && "sm:border-r sm:border-foreground/15",
                           (jobIndex < 2 || !section.experienceSpotlight) &&
                             "border-b border-foreground/15",
@@ -220,11 +222,11 @@ export function ScrollSnapPortfolio() {
                         <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
                           {job.role}
                         </h3>
-                        <ul className="mt-3 list-outside list-disc space-y-2 pl-4 marker:text-foreground sm:pl-5">
+                        <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
                           {job.highlights.map((line) => (
                             <li
                               key={line}
-                              className="font-serif text-sm leading-relaxed text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed"
+                              className="font-serif text-xs leading-snug text-foreground/90 sm:text-sm sm:leading-relaxed"
                             >
                               {line}
                             </li>
@@ -234,15 +236,15 @@ export function ScrollSnapPortfolio() {
                     ))}
                   </div>
                   {section.experienceSpotlight && (
-                    <article className="border-t border-foreground/15 px-4 py-6 sm:px-6 sm:py-8">
-                      <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
+                    <article className="border-t border-foreground/15 px-3 py-3 sm:px-5 sm:py-4">
+                      <h3 className="text-center font-mono text-[0.6875rem] font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-xs">
                         {section.experienceSpotlight.role}
                       </h3>
-                      <ul className="mx-auto mt-4 max-w-md list-outside list-disc space-y-2 pl-4 marker:text-foreground sm:max-w-lg sm:pl-5">
+                      <ul className="mx-auto mt-2 max-w-md list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:max-w-lg sm:pl-4">
                         {section.experienceSpotlight.highlights.map((line) => (
                           <li
                             key={line}
-                            className="font-serif text-sm leading-relaxed text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed"
+                            className="font-serif text-xs leading-snug text-foreground/90 sm:text-sm sm:leading-relaxed"
                           >
                             {line}
                           </li>
