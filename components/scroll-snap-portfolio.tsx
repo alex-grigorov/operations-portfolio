@@ -115,7 +115,7 @@ export function ScrollSnapPortfolio() {
           >
             <div className="flex max-w-lg flex-col items-center text-center">
               {section.eyebrow && (
-                <p className="mb-3 text-sm font-medium tracking-wide text-muted-foreground">
+                <p className="mb-4 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
                   {section.eyebrow}
                 </p>
               )}
@@ -130,7 +130,7 @@ export function ScrollSnapPortfolio() {
                 {section.title}
               </h2>
               {section.tagline && (
-                <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+                <p className="mt-5 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
                   {section.tagline}
                 </p>
               )}
