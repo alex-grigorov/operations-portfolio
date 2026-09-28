@@ -1,57 +1,111 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { snapSections } from "@/content/snap-sections";
 import { SocialLinks } from "@/components/social-links";
 import { cn } from "@/lib/utils";
+
+function sectionScrollTop(container: HTMLElement, section: HTMLElement) {
+  return (
+    section.getBoundingClientRect().top -
+    container.getBoundingClientRect().top +
+    container.scrollTop
+  );
+}
 
 export function ScrollSnapPortfolio() {
   const scrollerRef = useRef<HTMLElement>(null);
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [active, setActive] = useState(0);
-  const isScrollingRef = useRef(false);
+  const isAnimatingRef = useRef(false);
 
   const updateActiveFromScroll = useCallback(() => {
     const root = scrollerRef.current;
-    if (!root || isScrollingRef.current) return;
+    if (!root) return;
 
-    const viewportMid = root.scrollTop + root.clientHeight / 2;
+    const centerLine = root.getBoundingClientRect().top + root.clientHeight / 2;
     let nextActive = 0;
     let closest = Number.POSITIVE_INFINITY;
 
     sectionRefs.current.forEach((el, index) => {
       if (!el) return;
-      const sectionMid = el.offsetTop + el.clientHeight / 2;
-      const distance = Math.abs(viewportMid - sectionMid);
+      const rect = el.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const distance = Math.abs(sectionCenter - centerLine);
       if (distance < closest) {
         closest = distance;
         nextActive = index;
       }
     });
 
-    setActive(nextActive);
+    setActive((prev) => (prev === nextActive ? prev : nextActive));
   }, []);
 
-  const scrollToIndex = useCallback((index: number) => {
-    const el = sectionRefs.current[index];
-    if (!el) return;
-    isScrollingRef.current = true;
-    setActive(index);
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => {
-      isScrollingRef.current = false;
-      updateActiveFromScroll();
-    }, 650);
-  }, [updateActiveFromScroll]);
+  const scrollToIndex = useCallback(
+    (index: number) => {
+      const root = scrollerRef.current;
+      const el = sectionRefs.current[index];
+      if (!root || !el) return;
+
+      isAnimatingRef.current = true;
+      setActive(index);
+      root.scrollTo({
+        top: sectionScrollTop(root, el),
+        behavior: "smooth",
+      });
+
+      window.setTimeout(() => {
+        isAnimatingRef.current = false;
+        updateActiveFromScroll();
+      }, 800);
+    },
+    [updateActiveFromScroll],
+  );
+
+  useLayoutEffect(() => {
+    document.documentElement.classList.add("overflow-hidden");
+    document.body.classList.add("overflow-hidden");
+    return () => {
+      document.documentElement.classList.remove("overflow-hidden");
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, []);
 
   useEffect(() => {
     const root = scrollerRef.current;
     if (!root) return;
 
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        if (!isAnimatingRef.current) updateActiveFromScroll();
+      });
+    };
+
     updateActiveFromScroll();
-    root.addEventListener("scroll", updateActiveFromScroll, { passive: true });
-    return () => root.removeEventListener("scroll", updateActiveFromScroll);
+    root.addEventListener("scroll", onScroll, { passive: true });
+
+    const observer = new IntersectionObserver(
+      () => {
+        if (!isAnimatingRef.current) updateActiveFromScroll();
+      },
+      {
+        root,
+        threshold: [0, 0.35, 0.5, 0.65, 1],
+      },
+    );
+
+    sectionRefs.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      root.removeEventListener("scroll", onScroll);
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, [updateActiveFromScroll]);
 
   useEffect(() => {
