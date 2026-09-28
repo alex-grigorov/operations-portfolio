@@ -158,7 +158,7 @@ export function ScrollSnapPortfolio() {
 
             {index === 0 && (
               <p className="absolute bottom-10 font-mono text-sm tracking-[0.2em] text-muted-foreground sm:text-base">
-                Scroll to explore
+                Scroll to view other sections
               </p>
             )}
           </section>
