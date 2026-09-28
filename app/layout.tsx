@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { profile } from "@/content/profile";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Remote job portfolio",
-  description: "Resume, projects, and AI-assisted development showcase",
+  title: profile.name,
+  description: profile.name,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
