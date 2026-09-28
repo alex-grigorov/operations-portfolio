@@ -172,11 +172,6 @@ export function ScrollSnapPortfolio() {
             className="snap-section relative flex min-h-dvh w-full flex-col items-center justify-center bg-background px-6 py-20 sm:px-12"
           >
             <div className="flex max-w-lg flex-col items-center text-center">
-              {section.eyebrow && (
-                <p className="mb-4 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
-                  {section.eyebrow}
-                </p>
-              )}
               <h2
                 className={cn(
                   "font-medium tracking-tight text-foreground",
@@ -192,12 +187,12 @@ export function ScrollSnapPortfolio() {
                   {section.tagline}
                 </p>
               )}
-              {section.subtitle && (
+              {!section.titleOnly && section.subtitle && (
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {section.subtitle}
                 </p>
               )}
-              {section.image && (
+              {!section.titleOnly && section.image && (
                 <div className="mt-8 w-full max-w-md overflow-hidden rounded-lg border border-border">
                   <Image
                     src={section.image}

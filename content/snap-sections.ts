@@ -1,21 +1,27 @@
 export type SnapSection = {
   id: string;
   label: string;
-  eyebrow?: string;
   title: string;
   tagline?: string;
   subtitle?: string;
   image?: string;
   imageAlt?: string;
+  /** Only the title, centered — no subtitle or media */
+  titleOnly?: boolean;
 };
 
 export const snapSections: SnapSection[] = [
   {
-    id: "intro",
-    label: "Intro",
-    eyebrow: "Intro",
+    id: "home",
+    label: "Home",
     title: "Alex Grigorov",
     tagline: "Personal Portfolio",
+  },
+  {
+    id: "introduction",
+    label: "Introduction",
+    title: "Introduction",
+    titleOnly: true,
   },
   {
     id: "focus",
