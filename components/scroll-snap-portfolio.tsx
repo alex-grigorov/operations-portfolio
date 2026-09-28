@@ -200,11 +200,17 @@ export function ScrollSnapPortfolio() {
               </h2>
               {section.experiences && (
                 <div className="mt-6 w-full border-t border-foreground/10 pt-6">
-                  <div className="grid grid-cols-1 gap-5 text-left sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5">
-                    {section.experiences.map((job) => (
+                  <div className="grid grid-cols-1 text-left sm:grid-cols-2">
+                    {section.experiences.map((job, jobIndex) => (
                       <article
                         key={job.role}
-                        className="flex h-full flex-col rounded-lg border border-foreground/15 bg-foreground/[0.02] px-4 py-4 sm:px-5 sm:py-4"
+                        className={cn(
+                          "flex h-full flex-col px-4 py-5 sm:px-6 sm:py-6",
+                          jobIndex % 2 === 0 && "sm:border-r sm:border-foreground/15",
+                          jobIndex < 2 && "border-b border-foreground/15",
+                          jobIndex < section.experiences!.length - 1 &&
+                            "max-sm:border-b max-sm:border-foreground/15",
+                        )}
                       >
                         <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
                           {job.role}
