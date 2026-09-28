@@ -39,29 +39,35 @@ export const snapSections: SnapSection[] = [
     title: "Professional Experience",
     experiences: [
       {
-        role: "Gas Station Sales & Forecourt Associate",
+        role: "Truck Dispatcher & Fleet Operations",
         highlights: [
-          "POS registers—cash, card, and mobile payments—with accurate drawer balancing.",
-          "Forecourt fueling, pump monitoring, and fuel safety protocols.",
-          "Retail inventory, restocking, and facility standards on high-volume shifts.",
-        ],
-      },
-      {
-        role: "Electrical Assembly Operator",
-        highlights: [
-          "Assembled high-/low-voltage cabinets, control panels, and sub-assemblies from schematics.",
-          "Wired components, terminal blocks, breakers, and relay systems with hand and power tools.",
-          "Inspected units for wiring quality, structural integrity, and ISO standards.",
-          "Operated crimping, wire-stripping, and assembly machinery in a fast-paced line.",
+          "Three years coordinating loads, drivers, and day-to-day fleet operations.",
+          "Daily use of Sylectus (TMS), Samsara GPS, and ELD workflows.",
+          "Built internal ops hub with API integrations (self-developed).",
         ],
       },
       {
         role: "Public Relations Coordinator",
         highlights: [
-          "Supported PR campaign research, analyzed effectiveness data, and reported findings to clients.",
-          "Created press releases and media materials for client news, events, and products.",
-          "Ensured materials were accurate and visually polished before publication.",
-          "Distributed releases to targeted media outlets.",
+          "PR research, campaign metrics, and client reporting.",
+          "Press releases and media materials for news, events, and products.",
+          "Quality-checked visuals; distributed to targeted outlets.",
+        ],
+      },
+      {
+        role: "Electrical Assembly Operator",
+        highlights: [
+          "High-/low-voltage cabinets and panels from schematics.",
+          "Wiring, terminal blocks, breakers, and relay systems.",
+          "ISO-aligned inspections; crimping and line machinery.",
+        ],
+      },
+      {
+        role: "Gas Station Sales & Forecourt Associate",
+        highlights: [
+          "POS—cash, card, mobile—and drawer balancing.",
+          "Forecourt fueling, pumps, and safety protocols.",
+          "Inventory, restocking, and facility standards.",
         ],
       },
     ],

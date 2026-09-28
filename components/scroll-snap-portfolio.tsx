@@ -180,7 +180,7 @@ export function ScrollSnapPortfolio() {
               className={cn(
                 "flex flex-col items-center text-center",
                 section.experiences
-                  ? "max-w-lg px-1"
+                  ? "max-w-4xl px-1"
                   : section.paragraphs
                     ? "max-w-2xl px-2"
                     : "max-w-lg",
@@ -199,27 +199,29 @@ export function ScrollSnapPortfolio() {
                 {section.title}
               </h2>
               {section.experiences && (
-                <div className="mt-6 w-full space-y-6 border-t border-foreground/10 pt-6 text-left">
-                  {section.experiences.map((job) => (
-                    <div
-                      key={job.role}
-                      className="space-y-2 border-b border-foreground/5 pb-6 last:border-b-0 last:pb-0"
-                    >
-                      <h3 className="text-center text-sm font-medium text-foreground sm:text-base">
-                        {job.role}
-                      </h3>
-                      <div className="space-y-1.5">
-                        {job.highlights.map((line) => (
-                          <p
-                            key={line}
-                            className="font-serif text-[0.9375rem] leading-snug text-foreground/90 sm:text-base sm:leading-normal"
-                          >
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
+                <div className="mt-6 w-full border-t border-foreground/10 pt-6">
+                  <div className="grid grid-cols-1 gap-5 text-left sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5">
+                    {section.experiences.map((job) => (
+                      <article
+                        key={job.role}
+                        className="flex h-full flex-col rounded-lg border border-foreground/10 px-4 py-4 sm:px-5 sm:py-4"
+                      >
+                        <h3 className="text-center text-sm font-medium leading-snug text-foreground sm:text-[0.9375rem]">
+                          {job.role}
+                        </h3>
+                        <div className="mt-2.5 flex flex-1 flex-col gap-1.5">
+                          {job.highlights.map((line) => (
+                            <p
+                              key={line}
+                              className="font-serif text-[0.8125rem] leading-snug text-foreground/90 sm:text-sm sm:leading-normal"
+                            >
+                              {line}
+                            </p>
+                          ))}
+                        </div>
+                      </article>
+                    ))}
+                  </div>
                 </div>
               )}
               {section.tagline && (
