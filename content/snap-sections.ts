@@ -1,9 +1,10 @@
 export type SnapSection = {
   id: string;
   label: string;
+  eyebrow?: string;
   title: string;
+  tagline?: string;
   subtitle?: string;
-  /** Optional image shown below text (contained, not full-bleed) */
   image?: string;
   imageAlt?: string;
 };
@@ -12,7 +13,9 @@ export const snapSections: SnapSection[] = [
   {
     id: "intro",
     label: "Intro",
+    eyebrow: "Intro",
     title: "Alex Grigorov",
+    tagline: "Personal Portfolio",
   },
   {
     id: "focus",
