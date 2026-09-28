@@ -28,7 +28,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         {showcase.summary}
       </p>
 
-      <div className="mx-auto mt-6 flex w-full max-w-3xl flex-wrap items-start justify-start gap-3">
+      <div className="mx-auto mt-6 flex w-full max-w-4xl flex-wrap items-start justify-start gap-3">
         {showcase.screenshots.map((shot) => (
           <button
             key={shot.id}

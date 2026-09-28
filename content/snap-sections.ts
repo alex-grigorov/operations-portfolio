@@ -103,7 +103,7 @@ export const snapSections: SnapSection[] = [
     title: "Fleet Operations Hub Project Showcase",
     projectShowcase: {
       summary:
-        "Internal fleet and dispatch platform I built with AI-assisted development—API-connected data from Sylectus, Samsara, ELD, and other systems in one workspace. Tap a preview to enlarge and read what each area does.",
+        "Internal fleet and dispatch platform I built with AI-assisted development—API-connected data from Sylectus, Samsara, ELD, and other systems in one workspace. Select a preview to enlarge and read what each area does.",
       screenshots: [
         {
           id: "sign-in",
@@ -112,8 +112,34 @@ export const snapSections: SnapSection[] = [
           description:
             "Authentication entry point with a live Mapbox map in the background, animating a route across the U.S. to give dispatch immediate geographic context. Three production-ready sign-in paths—one-time code, magic link, and password—each fully implemented and tested. Visual design aligns with company branding (logo, color, and typography) for a consistent operations-facing experience.",
         },
-        // Add more entries when you upload screenshots to public/projects/:
-        // { id: "dashboard", src: "/projects/your-file.png", alt: "...", description: "..." },
+        {
+          id: "operations-dashboard",
+          src: "/projects/fleet-hub-dashboard.png",
+          alt: "Operations workspace dashboard",
+          description:
+            "Operations workspace landing view: live fleet KPIs (total assets, availability, unassigned loads, trailer status), collaborative shift notes with @-mention tagging for handoffs between teams, maintenance alerts fed from Samsara (overdue service by asset), and integrated entry points to the work schedule and AI shift briefing—so dispatch starts from one consolidated screen.",
+        },
+        {
+          id: "weekly-performance",
+          src: "/projects/fleet-hub-weekly-performance.png",
+          alt: "Weekly performance analytics",
+          description:
+            "Weekly performance module for completed load closeouts (Monday–Sunday, Eastern). Summary metrics for load count, loaded and deadhead miles, average closeout duration linked to Sylectus clearance-to-done workflow, and trailer tracking coverage. Includes unit-level load bars, loaded-versus-deadhead efficiency, multi-week trend comparison, and a trailer-level table for operational review.",
+        },
+        {
+          id: "work-schedule",
+          src: "/projects/fleet-hub-work-schedule.png",
+          alt: "Work schedule and shift timeline",
+          description:
+            "Work schedule view with a 24-hour timeline across 1st, 2nd, and 3rd shifts, assigned personnel per rotation, and clear highlighting of the active shift. Surfaces absences and scheduled time off, plus a live countdown to the next shift change—built to support continuous dispatch coverage and shift-to-shift continuity.",
+        },
+        {
+          id: "shift-briefing",
+          src: "/projects/fleet-hub-shift-briefing.png",
+          alt: "AI-generated shift briefing",
+          description:
+            "AI-assisted shift briefing panel summarizing fleet disposition (on load, on duty, off duty) with freshness status and regeneration when data is stale. Expandable sections cover weather and road conditions, fuel, Sylectus compliance dates, completed loads, trailer yard status, and external market intelligence—giving each shift a structured operational snapshot before work begins.",
+        },
       ],
     },
   },
