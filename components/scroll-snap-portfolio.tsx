@@ -215,16 +215,16 @@ export function ScrollSnapPortfolio() {
                         <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
                           {job.role}
                         </h3>
-                        <div className="mt-3 flex flex-1 flex-col gap-2">
+                        <ul className="mt-3 list-outside list-disc space-y-2 pl-4 marker:text-foreground sm:pl-5">
                           {job.highlights.map((line) => (
-                            <p
+                            <li
                               key={line}
                               className="font-serif text-sm leading-relaxed text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed"
                             >
                               {line}
-                            </p>
+                            </li>
                           ))}
-                        </div>
+                        </ul>
                       </article>
                     ))}
                   </div>
