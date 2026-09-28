@@ -174,7 +174,7 @@ export function ScrollSnapPortfolio() {
             <div
               className={cn(
                 "flex flex-col items-center text-center",
-                section.paragraphs ? "max-w-xl" : "max-w-lg",
+                section.paragraphs ? "max-w-2xl px-2" : "max-w-lg",
               )}
             >
               <h2
@@ -182,7 +182,9 @@ export function ScrollSnapPortfolio() {
                   "font-medium tracking-tight text-foreground",
                   index === 0
                     ? "text-4xl sm:text-5xl md:text-6xl"
-                    : "text-2xl sm:text-3xl",
+                    : section.paragraphs
+                      ? "text-3xl sm:text-4xl"
+                      : "text-2xl sm:text-3xl",
                 )}
               >
                 {section.title}
@@ -192,14 +194,18 @@ export function ScrollSnapPortfolio() {
                   {section.tagline}
                 </p>
               )}
-              {section.paragraphs?.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 48)}
-                  className="mt-6 text-left text-sm leading-relaxed text-muted-foreground sm:text-base"
-                >
-                  {paragraph}
-                </p>
-              ))}
+              {section.paragraphs && (
+                <div className="mt-8 w-full space-y-6 border-t border-foreground/10 pt-8 text-left">
+                  {section.paragraphs.map((paragraph) => (
+                    <p
+                      key={paragraph.slice(0, 48)}
+                      className="font-serif text-lg leading-[1.75] text-foreground/90 sm:text-xl sm:leading-[1.8]"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              )}
               {!section.titleOnly && section.subtitle && (
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
                   {section.subtitle}

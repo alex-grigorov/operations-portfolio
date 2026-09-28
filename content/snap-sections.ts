@@ -6,9 +6,7 @@ export type SnapSection = {
   subtitle?: string;
   image?: string;
   imageAlt?: string;
-  /** Only the title, centered — no subtitle or media */
   titleOnly?: boolean;
-  /** Multi-paragraph copy (e.g. Introduction page) */
   paragraphs?: string[];
 };
 
@@ -24,9 +22,9 @@ export const snapSections: SnapSection[] = [
     label: "Introduction",
     title: "Introduction",
     paragraphs: [
-      "I'm Alex Grigorov, with hands-on experience in truck dispatch and day-to-day logistics operations. I'm looking for remote work where that operational background matters—not strictly software engineering.",
-      "In my recent role, I helped build and use an internal web hub that brought information into one place: our TMS (Sylectus), fleet GPS (Samsara), ELD logs, and other sources—so dispatch and operations could access what they needed without jumping between systems.",
-      "I'm a high school graduate, a fast learner, and comfortable with technology because I've lived in it on the job. I'm open to remote roles in dispatch, logistics coordination, operations support, fleet/TMS-adjacent work, and similar paths with established companies.",
+      "I'm Alex Grigorov, based near Sofia, Bulgaria. I have three years of experience in truck dispatching and the full range of related fleet operations—coordinating loads and drivers, working with compliance and ELD workflows, and keeping day-to-day freight moving.",
+      "In my recent role, I built an internal web operations hub myself—not as a side experiment, but as the system our team used every day. I developed it with AI-assisted tools including Cursor, ChatGPT, and others, and wired in API connections to our TMS (Sylectus), fleet GPS (Samsara), ELD logs, and additional sources so dispatch and management could access everything from one place.",
+      "I'm open to remote roles in logistics and in other fields as well. I'm not tied to trucking-only work: I'm willing to learn new tools and industries and to show results quickly. I have a high school education, a strong work ethic, and I'm looking for a legitimate remote team where I can contribute and grow.",
     ],
   },
   {
@@ -34,14 +32,14 @@ export const snapSections: SnapSection[] = [
     label: "Focus",
     title: "Open to remote",
     subtitle:
-      "Dispatch · logistics · operations · fleet & TMS tools · coordinator and support roles",
+      "Logistics and dispatch · operations · tech-adjacent roles · open to other remote paths where I can learn and deliver",
   },
   {
     id: "work",
     label: "Work",
     title: "Operations hub",
     subtitle:
-      "Internal web app — Sylectus, Samsara, ELD, and other data in one dispatch-facing workspace",
+      "Self-built internal platform with API integrations (Sylectus, Samsara, ELD)—developed with Cursor, ChatGPT, and AI-assisted workflows",
     image: "/projects/geo-logistics-dispatch-login.png",
     imageAlt: "Geo Logistics Dispatch sign-in screen",
   },

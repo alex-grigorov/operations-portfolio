@@ -56,8 +56,8 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Alex Grigorov",
-  headline: "",
-  location: "",
+  headline: "Dispatch & fleet operations · self-built integrations hub",
+  location: "Near Sofia, Bulgaria · Open to remote",
   openTo: [],
   email: "",
   phone: "",
