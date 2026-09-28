@@ -110,7 +110,7 @@ export const snapSections: SnapSection[] = [
           src: "/projects/geo-logistics-dispatch-login.png",
           alt: "Fleet hub sign-in screen",
           description:
-            "Secure sign-in over a live map context for the active service region. Password, magic link, and one-time code options so dispatch and operations can log in from the office or the field.",
+            "Authentication entry point with a live Mapbox map in the background, animating a route across the U.S. to give dispatch immediate geographic context. Three production-ready sign-in paths—one-time code, magic link, and password—each fully implemented and tested. Visual design aligns with company branding (logo, color, and typography) for a consistent operations-facing experience.",
         },
         // Add more entries when you upload screenshots to public/projects/:
         // { id: "dashboard", src: "/projects/your-file.png", alt: "...", description: "..." },
