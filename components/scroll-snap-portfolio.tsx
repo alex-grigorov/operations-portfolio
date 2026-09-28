@@ -206,14 +206,14 @@ export function ScrollSnapPortfolio() {
                         key={job.role}
                         className="flex h-full flex-col rounded-lg border border-foreground/15 bg-foreground/[0.02] px-4 py-4 sm:px-5 sm:py-4"
                       >
-                        <h3 className="text-center text-sm font-semibold leading-snug text-foreground sm:text-base">
+                        <h3 className="text-center text-sm font-medium tracking-tight text-foreground sm:text-base">
                           {job.role}
                         </h3>
                         <div className="mt-3 flex flex-1 flex-col gap-2">
                           {job.highlights.map((line) => (
                             <p
                               key={line}
-                              className="font-serif text-sm font-medium leading-snug text-foreground sm:text-[0.9375rem] sm:leading-normal"
+                              className="text-sm font-normal leading-snug tracking-tight text-foreground/95 sm:text-[0.9375rem] sm:leading-normal"
                             >
                               {line}
                             </p>
