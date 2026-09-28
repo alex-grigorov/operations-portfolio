@@ -238,6 +238,76 @@ export const snapSections: SnapSection[] = [
           description:
             "Geo Driver App Control Center: review driver submissions from the mobile app—load documents, asset inspections, fuel receipts, and reports—with search and filters by driver, truck, PRO, type, and date. Access management ties field users to what they can upload; document retention and expiry are tracked for dispatch review.",
         },
+        {
+          id: "geo-driver-sign-in",
+          src: "/projects/geo-driver-sign-in-code.png",
+          alt: "Geo Driver mobile sign-in",
+          description:
+            "Geo Driver (Android and iOS): passwordless sign-in with a one-time code sent to the driver’s email, branded login over a map backdrop—aligned with the same fleet identity as the dispatch hub.",
+        },
+        {
+          id: "geo-driver-home",
+          src: "/projects/geo-driver-home.png",
+          alt: "Geo Driver home screen",
+          description:
+            "Driver home: welcome profile, current load PRO, assigned truck and trailer, and quick entry to Documents, Trailer Inspection, Trip Log, and Map—everything a driver needs from one screen.",
+        },
+        {
+          id: "geo-driver-documents",
+          src: "/projects/geo-driver-documents.png",
+          alt: "Geo Driver document upload by stop",
+          description:
+            "Document upload flow: choose which stop or general load folder paperwork belongs to (pickup, delivery, or load-level), then upload from the device—so dispatch receives files tied to the correct PRO and stop.",
+        },
+        {
+          id: "geo-driver-load-stops",
+          src: "/projects/geo-driver-load-stops.png",
+          alt: "Geo Driver load stops and arrive",
+          description:
+            "Load stops view for the active PRO: pickup and delivery sequence with **Arrive** actions that notify dispatch when the driver reaches a stop—closing the loop between field activity and the operations desk.",
+        },
+        {
+          id: "geo-driver-inspection-front",
+          src: "/projects/geo-driver-inspection-front.png",
+          alt: "Geo Driver trailer inspection walkthrough front",
+          description:
+            "Guided trailer inspection (18-step walkthrough): step-by-step prompts, required photo capture, OK/Issue marking, and progress tracking—example step for baseline front photos and lights.",
+        },
+        {
+          id: "geo-driver-inspection-rear",
+          src: "/projects/geo-driver-inspection-rear.png",
+          alt: "Geo Driver trailer inspection walkthrough rear",
+          description:
+            "Same inspection workflow for rear baseline photos—license plate and tail lights—with multi-photo support per stop and navigation between steps until the walkthrough is complete.",
+        },
+        {
+          id: "geo-driver-map-search",
+          src: "/projects/geo-driver-map-search.png",
+          alt: "Geo Driver map search",
+          description:
+            "In-app map with live search and autocomplete (cities, addresses, POIs). Drivers can find destinations without leaving the app, with standard zoom and recenter controls.",
+        },
+        {
+          id: "geo-driver-map-destination",
+          src: "/projects/geo-driver-map-destination.png",
+          alt: "Geo Driver destination and navigation launch",
+          description:
+            "After selecting a result, the destination sheet shows the full address with **Navigate** for in-app turn-by-turn or **Open in Google Maps** when the driver prefers an external navigator.",
+        },
+        {
+          id: "geo-driver-navigation",
+          src: "/projects/geo-driver-navigation.png",
+          alt: "Geo Driver turn-by-turn navigation",
+          description:
+            "Active navigation: voice-ready turn instructions, distance to maneuver, route on map, ETA, remaining time and miles, and quick exit—built for over-the-road trips, not just short hops.",
+        },
+        {
+          id: "geo-driver-navigation-menu",
+          src: "/projects/geo-driver-navigation-menu.png",
+          alt: "Geo Driver navigation options menu",
+          description:
+            "Navigation menu during a route: preview route, step-by-step directions, share trip, mute voice, hand off to Google Maps, navigation settings, and exit—giving drivers flexibility without losing trip context.",
+        },
       ],
     },
   },
