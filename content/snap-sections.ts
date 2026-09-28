@@ -14,6 +14,8 @@ export type ShowcaseScreenshot = {
 export type ProjectShowcase = {
   summary: string;
   screenshots: ShowcaseScreenshot[];
+  /** Short stack / credits line below the preview grid */
+  builtWith?: string;
 };
 
 export type SnapSection = {
@@ -104,6 +106,8 @@ export const snapSections: SnapSection[] = [
     projectShowcase: {
       summary:
         "Internal fleet and dispatch platform I built with AI-assisted development—API-connected data from Sylectus, Samsara, ELD, and other systems in one workspace. Select a preview to enlarge and read what each area does.",
+      builtWith:
+        "Built with AI-assisted development (Cursor, ChatGPT, and related tools) on Next.js, React, and TypeScript, with REST and webhook-style API integrations to Sylectus, Samsara, Mapbox, and other third-party services for maps, telemetry, compliance, and mobile driver workflows.",
       screenshots: [
         {
           id: "sign-in",
@@ -239,6 +243,13 @@ export const snapSections: SnapSection[] = [
             "Geo Driver App Control Center: review driver submissions from the mobile app—load documents, asset inspections, fuel receipts, and reports—with search and filters by driver, truck, PRO, type, and date. Access management ties field users to what they can upload; document retention and expiry are tracked for dispatch review.",
         },
         {
+          id: "notifications-alerts",
+          src: "/projects/fleet-hub-notifications.png",
+          alt: "Notifications bell and ETA alerts",
+          description:
+            "In-app notification center: bell badge for unread alerts, ETA-late and operational events with unit, trailer, PRO/TO context, timestamps, mark-all-read and clear-all, plus history—so dispatch sees exceptions without refreshing every screen.",
+        },
+        {
           id: "geo-driver-sign-in",
           src: "/projects/geo-driver-sign-in-code.png",
           alt: "Geo Driver mobile sign-in",
@@ -292,7 +303,7 @@ export const snapSections: SnapSection[] = [
           src: "/projects/geo-driver-map-destination.png",
           alt: "Geo Driver destination and navigation launch",
           description:
-            "After selecting a result, the destination sheet shows the full address with **Navigate** for in-app turn-by-turn or **Open in Google Maps** when the driver prefers an external navigator.",
+            "After selecting a result, the destination sheet shows the full address with Navigate for in-app turn-by-turn or Open in Google Maps when the driver prefers an external navigator.",
         },
         {
           id: "geo-driver-navigation",

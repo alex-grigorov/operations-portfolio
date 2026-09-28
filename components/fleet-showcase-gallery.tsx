@@ -51,6 +51,12 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         ))}
       </div>
 
+      {showcase.builtWith && (
+        <p className="mx-auto mt-8 max-w-2xl text-center font-serif text-xs leading-relaxed text-muted-foreground sm:text-sm sm:leading-relaxed">
+          {showcase.builtWith}
+        </p>
+      )}
+
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent
           showCloseButton
