@@ -207,8 +207,13 @@ export function ScrollSnapPortfolio() {
                         className={cn(
                           "flex h-full flex-col px-4 py-5 sm:px-6 sm:py-6",
                           jobIndex % 2 === 0 && "sm:border-r sm:border-foreground/15",
-                          jobIndex < 2 && "border-b border-foreground/15",
-                          jobIndex < section.experiences!.length - 1 &&
+                          (jobIndex < 2 || !section.experienceSpotlight) &&
+                            "border-b border-foreground/15",
+                          !section.experienceSpotlight &&
+                            jobIndex < section.experiences!.length - 1 &&
+                            "max-sm:border-b max-sm:border-foreground/15",
+                          section.experienceSpotlight &&
+                            jobIndex < section.experiences!.length - 1 &&
                             "max-sm:border-b max-sm:border-foreground/15",
                         )}
                       >
@@ -228,6 +233,23 @@ export function ScrollSnapPortfolio() {
                       </article>
                     ))}
                   </div>
+                  {section.experienceSpotlight && (
+                    <article className="border-t border-foreground/15 px-4 py-6 sm:px-6 sm:py-8">
+                      <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
+                        {section.experienceSpotlight.role}
+                      </h3>
+                      <ul className="mx-auto mt-4 max-w-md list-outside list-disc space-y-2 pl-4 marker:text-foreground sm:max-w-lg sm:pl-5">
+                        {section.experienceSpotlight.highlights.map((line) => (
+                          <li
+                            key={line}
+                            className="font-serif text-sm leading-relaxed text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed"
+                          >
+                            {line}
+                          </li>
+                        ))}
+                      </ul>
+                    </article>
+                  )}
                 </div>
               )}
               {section.tagline && (

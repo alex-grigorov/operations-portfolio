@@ -14,6 +14,8 @@ export type SnapSection = {
   titleOnly?: boolean;
   paragraphs?: string[];
   experiences?: ExperienceEntry[];
+  /** Full-width row below the 2×2 grid (horizontal rule only) */
+  experienceSpotlight?: ExperienceEntry;
 };
 
 export const snapSections: SnapSection[] = [
@@ -71,6 +73,15 @@ export const snapSections: SnapSection[] = [
         ],
       },
     ],
+    experienceSpotlight: {
+      role: "AI-Assisted Development · Fleet Operations Hub",
+      highlights: [
+        "Self-built internal web platform that unified fleet, dispatch, and compliance data in one workspace.",
+        "API integrations with Sylectus (TMS), Samsara (GPS), ELD logs, and additional operational systems.",
+        "End-to-end delivery using AI-assisted development (Cursor, ChatGPT)—from requirements through deployment.",
+        "Production-ready sign-in, structured data views, and workflows tailored to daily dispatch operations.",
+      ],
+    },
   },
   {
     id: "work",
