@@ -1,3 +1,8 @@
+export type ExperienceEntry = {
+  role: string;
+  highlights: string[];
+};
+
 export type SnapSection = {
   id: string;
   label: string;
@@ -8,6 +13,7 @@ export type SnapSection = {
   imageAlt?: string;
   titleOnly?: boolean;
   paragraphs?: string[];
+  experiences?: ExperienceEntry[];
 };
 
 export const snapSections: SnapSection[] = [
@@ -28,11 +34,19 @@ export const snapSections: SnapSection[] = [
     ],
   },
   {
-    id: "focus",
-    label: "Focus",
-    title: "Open to remote",
-    subtitle:
-      "Logistics and dispatch · operations · tech-adjacent roles · open to other remote paths where I can learn and deliver",
+    id: "experience",
+    label: "Experience",
+    title: "Professional Experience",
+    experiences: [
+      {
+        role: "Gas Station Sales & Forecourt Associate",
+        highlights: [
+          "Operated POS cash registers—cash, card, and mobile payments—with accurate drawer balancing.",
+          "Full-service forecourt: fueling vehicles, monitoring pumps, and following fuel safety protocols.",
+          "Retail inventory, restocking, and facility standards during high-volume shifts.",
+        ],
+      },
+    ],
   },
   {
     id: "work",

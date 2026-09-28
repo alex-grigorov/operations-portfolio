@@ -169,12 +169,22 @@ export function ScrollSnapPortfolio() {
             ref={(node) => {
               sectionRefs.current[index] = node;
             }}
-            className="snap-section relative flex min-h-dvh w-full flex-col items-center justify-center bg-background px-6 py-20 sm:px-12"
+            className={cn(
+              "snap-section relative flex min-h-dvh w-full flex-col bg-background px-6 sm:px-12",
+              section.experiences
+                ? "items-center justify-start pt-[14vh] pb-16 sm:pt-[16vh]"
+                : "items-center justify-center py-20",
+            )}
           >
             <div
               className={cn(
-                "flex flex-col items-center text-center",
-                section.paragraphs ? "max-w-2xl px-2" : "max-w-lg",
+                "flex w-full flex-col",
+                section.experiences
+                  ? "max-w-xl items-start text-left"
+                  : cn(
+                      "items-center text-center",
+                      section.paragraphs ? "max-w-2xl px-2" : "max-w-lg",
+                    ),
               )}
             >
               <h2
@@ -182,13 +192,34 @@ export function ScrollSnapPortfolio() {
                   "font-medium tracking-tight text-foreground",
                   index === 0
                     ? "text-4xl sm:text-5xl md:text-6xl"
-                    : section.paragraphs
-                      ? "text-3xl sm:text-4xl"
-                      : "text-2xl sm:text-3xl",
+                    : section.experiences
+                      ? "w-full text-center text-2xl sm:text-3xl"
+                      : section.paragraphs
+                        ? "text-3xl sm:text-4xl"
+                        : "text-2xl sm:text-3xl",
                 )}
               >
                 {section.title}
               </h2>
+              {section.experiences && (
+                <ul className="mt-8 w-full space-y-5">
+                  {section.experiences.map((job) => (
+                    <li
+                      key={job.role}
+                      className="border-b border-foreground/10 pb-5 last:border-b-0 last:pb-0"
+                    >
+                      <h3 className="text-sm font-medium text-foreground sm:text-base">
+                        {job.role}
+                      </h3>
+                      <ul className="mt-2 list-disc space-y-1.5 pl-4 text-sm leading-snug text-muted-foreground">
+                        {job.highlights.map((line) => (
+                          <li key={line}>{line}</li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+              )}
               {section.tagline && (
                 <p className="mt-5 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
                   {section.tagline}
