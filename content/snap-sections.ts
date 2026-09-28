@@ -43,7 +43,7 @@ export const snapSections: SnapSection[] = [
         highlights: [
           "Three years coordinating loads, drivers, and day-to-day fleet operations.",
           "Daily use of Sylectus (TMS), Samsara GPS, and ELD workflows.",
-          "Built internal ops hub with API integrations (self-developed).",
+          "Booked shipments, negotiated rates with carriers and brokers, and tracked freight through delivery.",
         ],
       },
       {
