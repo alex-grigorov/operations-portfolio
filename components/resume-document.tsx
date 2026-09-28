@@ -69,7 +69,7 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
           Experience
         </h2>
         {experience.map((job) => (
-          <div key={`${job.company}-${job.start}`} className="space-y-1">
+          <div key={job.title} className="space-y-1">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="font-semibold">
                 {job.title}
