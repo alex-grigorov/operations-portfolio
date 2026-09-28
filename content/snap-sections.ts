@@ -325,7 +325,6 @@ export const snapSections: SnapSection[] = [
   {
     id: "contact",
     label: "Contact",
-    title: "Hello",
-    subtitle: "Resume and contact details coming next",
+    title: "Contact Me",
   },
 ];

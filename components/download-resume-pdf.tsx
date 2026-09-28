@@ -3,15 +3,27 @@
 import { useState } from "react";
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import type { VariantProps } from "class-variance-authority";
 import { Download, Loader2 } from "lucide-react";
 import { profile } from "@/content/profile";
+import { cn } from "@/lib/utils";
 
 function safeFilename(name: string) {
   return name.replace(/[^\w\-]+/g, "-").replace(/-+/g, "-").toLowerCase();
 }
 
-export function DownloadResumePdf() {
+type DownloadResumePdfProps = VariantProps<typeof buttonVariants> & {
+  label?: string;
+  className?: string;
+};
+
+export function DownloadResumePdf({
+  variant = "default",
+  size = "default",
+  label = "Download PDF for job boards",
+  className,
+}: DownloadResumePdfProps) {
   const [loading, setLoading] = useState(false);
 
   async function handleDownload() {
@@ -56,16 +68,18 @@ export function DownloadResumePdf() {
   return (
     <Button
       type="button"
+      variant={variant}
+      size={size}
       onClick={handleDownload}
       disabled={loading}
-      className="print:hidden"
+      className={cn("print:hidden", className)}
     >
       {loading ? (
         <Loader2 className="size-4 animate-spin" />
       ) : (
         <Download className="size-4" />
       )}
-      Download PDF for job boards
+      {label}
     </Button>
   );
 }

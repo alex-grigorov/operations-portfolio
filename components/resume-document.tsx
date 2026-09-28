@@ -18,16 +18,22 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
         <p className="text-base font-medium text-muted-foreground">{headline}</p>
         <p className="text-sm text-muted-foreground">{location}</p>
         <p className="flex flex-wrap gap-x-3 gap-y-1 text-sm">
-          <a className="underline-offset-2 hover:underline" href={`mailto:${email}`}>
-            {email}
-          </a>
-          <span>{phone}</span>
-          <a className="underline-offset-2 hover:underline" href={linkedIn} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <a className="underline-offset-2 hover:underline" href={github} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
+          {email ? (
+            <a className="underline-offset-2 hover:underline" href={`mailto:${email}`}>
+              {email}
+            </a>
+          ) : null}
+          {phone ? <span>{phone}</span> : null}
+          {linkedIn ? (
+            <a className="underline-offset-2 hover:underline" href={linkedIn} target="_blank" rel="noreferrer">
+              LinkedIn
+            </a>
+          ) : null}
+          {github ? (
+            <a className="underline-offset-2 hover:underline" href={github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          ) : null}
         </p>
       </header>
 
@@ -66,7 +72,8 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
           <div key={`${job.company}-${job.start}`} className="space-y-1">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <h3 className="font-semibold">
-                {job.title} · {job.company}
+                {job.title}
+                {job.company ? ` · ${job.company}` : ""}
               </h3>
               <span className="text-sm text-muted-foreground">
                 {job.start} – {job.end} · {job.location}
@@ -111,7 +118,9 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
         </h2>
         {education.map((e) => (
           <p key={e.school}>
-            <span className="font-medium">{e.credential}</span>, {e.school} ({e.year})
+            <span className="font-medium">{e.credential}</span>
+            {e.school ? `, ${e.school}` : ""}
+            {e.year ? ` (${e.year})` : ""}
           </p>
         ))}
       </section>

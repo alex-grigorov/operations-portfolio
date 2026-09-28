@@ -5,6 +5,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { snapSections } from "@/content/snap-sections";
 import { SocialLinks } from "@/components/social-links";
 import { FleetShowcaseGallery } from "@/components/fleet-showcase-gallery";
+import { ContactSection } from "@/components/contact-section";
 import { cn } from "@/lib/utils";
 
 function sectionScrollTop(container: HTMLElement, section: HTMLElement) {
@@ -176,7 +177,9 @@ export function ScrollSnapPortfolio() {
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : section.projectShowcase
                   ? "justify-start pb-16 pt-[6vh] sm:pb-20 sm:pt-[7vh]"
-                  : "justify-center py-20",
+                  : section.id === "contact"
+                    ? "justify-center py-16 sm:py-20"
+                    : "justify-center py-20",
             )}
           >
             <div
@@ -186,9 +189,11 @@ export function ScrollSnapPortfolio() {
                   ? "max-w-4xl px-1"
                   : section.projectShowcase
                     ? "w-full max-w-5xl px-2"
-                    : section.paragraphs
-                    ? "max-w-2xl px-2"
-                    : "max-w-lg",
+                    : section.id === "contact"
+                      ? "w-full max-w-xl px-2"
+                      : section.paragraphs
+                        ? "max-w-2xl px-2"
+                        : "max-w-lg",
               )}
             >
               <h2
@@ -200,9 +205,11 @@ export function ScrollSnapPortfolio() {
                       ? "text-2xl sm:text-3xl"
                       : section.projectShowcase
                         ? "mx-auto max-w-2xl text-xl leading-tight sm:text-2xl md:text-3xl"
-                        : section.paragraphs
-                        ? "text-3xl sm:text-4xl"
-                        : "text-2xl sm:text-3xl",
+                        : section.id === "contact"
+                          ? "text-3xl sm:text-4xl"
+                          : section.paragraphs
+                            ? "text-3xl sm:text-4xl"
+                            : "text-2xl sm:text-3xl",
                 )}
               >
                 {section.title}
@@ -264,6 +271,7 @@ export function ScrollSnapPortfolio() {
               {section.projectShowcase && (
                 <FleetShowcaseGallery showcase={section.projectShowcase} />
               )}
+              {section.id === "contact" && <ContactSection />}
               {section.tagline && (
                 <p className="mt-5 font-mono text-sm tabular-nums tracking-[0.25em] text-muted-foreground sm:text-base">
                   {section.tagline}
