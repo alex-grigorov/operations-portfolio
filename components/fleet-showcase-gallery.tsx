@@ -66,8 +66,8 @@ function ChannelStripRow({
           aria-hidden
         />
       )}
-      <div className="flex w-full flex-col items-center justify-around gap-4 sm:flex-row sm:items-center sm:gap-10">
-        <div className="flex w-full max-w-[320px] flex-col gap-2 text-left sm:shrink-0">
+      <div className="feature-row grid w-full grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-8">
+        <div className="feature-text flex w-full flex-col gap-2 text-left md:col-span-5 md:max-w-[350px] md:justify-self-start">
           <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
             {channel.title}
           </p>
@@ -85,17 +85,23 @@ function ChannelStripRow({
           </button>
         </div>
 
-        <button
-          type="button"
-          onClick={onOpenGallery}
-          aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
+        <div
           className={cn(
-            "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
-            isMobile
-              ? "mx-auto w-[168px] sm:mx-0 sm:w-[180px]"
-              : "mx-auto w-full max-w-[400px] sm:mx-0 sm:max-w-[420px]",
+            "flex items-center justify-center md:col-span-7 md:justify-end",
+            isMobile && "md:justify-end",
           )}
         >
+          <button
+            type="button"
+            onClick={onOpenGallery}
+            aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
+            className={cn(
+              "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
+              isMobile
+                ? "w-[168px] sm:w-[180px]"
+                : "w-full max-w-[400px] md:max-w-[420px]",
+            )}
+          >
           <div
             className={cn(
               "relative w-full bg-muted/20",
@@ -114,7 +120,8 @@ function ChannelStripRow({
               sizes={isMobile ? "180px" : "420px"}
             />
           </div>
-        </button>
+          </button>
+        </div>
       </div>
     </>
   );
@@ -195,7 +202,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <div className="slide-4-previews mx-auto mt-3 flex w-full max-w-[1000px] flex-col items-center gap-6 border-t border-foreground/10 pt-4 sm:mt-4 sm:gap-8 sm:pt-5">
+      <div className="slide-4-previews mx-auto mt-3 flex w-full max-w-6xl flex-col items-stretch gap-10 border-t border-foreground/10 pt-4 sm:mt-4 sm:gap-12 sm:pt-5">
         {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
@@ -216,7 +223,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="mx-auto mt-3 max-w-2xl space-y-0.5 pb-1 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:mt-4 sm:text-xs">
+        <div className="tech-stack-footer mx-auto mt-6 max-w-2xl space-y-1 border-t border-foreground/10 pt-6 pb-10 text-center font-serif text-[0.6875rem] leading-relaxed text-muted-foreground sm:mt-8 sm:pb-12 sm:text-xs">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>
