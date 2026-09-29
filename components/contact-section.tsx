@@ -58,19 +58,19 @@ export function ContactSection() {
 
   return (
     <div className="mt-3 w-full max-w-4xl text-left sm:mt-4">
-      <p className="text-center font-serif text-sm leading-snug text-foreground/90 sm:text-base sm:leading-relaxed">
-        Based near Sofia, Bulgaria · Open to remote account operations, customer success, CRM
-        coordination, and fast-moving team workflows.
+      <p className="mx-auto max-w-2xl text-center font-serif text-sm leading-snug text-pretty text-foreground/90 sm:text-[0.9375rem] sm:leading-relaxed">
+        Based near Sofia, Bulgaria · Open to remote roles across account management, customer
+        success, CRM coordination, and logistics operations.
       </p>
 
-      <div className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-2 sm:gap-8 md:gap-10">
-        <div>
+      <div className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-[minmax(22rem,1.15fr)_minmax(0,1fr)] sm:gap-8 md:gap-10">
+        <div className="min-w-0 sm:min-w-[22rem]">
           <SectionLabel>Open to</SectionLabel>
           <ul className="mt-2.5 space-y-1.5">
             {profile.openTo.map((line) => (
               <li
                 key={line}
-                className="font-serif text-xs leading-snug text-foreground/85 sm:text-sm"
+                className="font-serif text-xs leading-relaxed text-foreground/85 sm:whitespace-nowrap sm:text-sm"
               >
                 {line}
               </li>
