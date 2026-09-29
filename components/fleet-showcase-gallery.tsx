@@ -57,11 +57,7 @@ function ChannelStripRow({
   const isMobile = channel.platform === "mobile";
 
   return (
-    <div
-      className={cn(
-        "showcase-row grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-12 lg:items-center lg:gap-8",
-      )}
-    >
+    <div className="showcase-row grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-12 lg:items-center lg:gap-8">
       <div className="showcase-text-col col-span-1 text-left lg:col-span-5">
         <p className="mb-1.5 block font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
           {channel.title}
