@@ -112,8 +112,8 @@ export function SocialLinks({ className, variant = "default" }: SocialLinksProps
     <nav
       aria-label="Social and contact links"
       className={cn(
-        "flex items-center",
-        compact ? "gap-2 max-sm:gap-1.5 sm:gap-2.5 md:gap-4" : "gap-4 sm:gap-5",
+        "flex items-center justify-end",
+        compact ? "gap-1 sm:gap-2.5 md:gap-4" : "gap-4 sm:gap-5",
         className,
       )}
     >
@@ -131,14 +131,15 @@ export function SocialLinks({ className, variant = "default" }: SocialLinksProps
             title={link.label}
             className={cn(
               "inline-flex items-center justify-center text-foreground/80 transition-colors hover:text-foreground",
-              compact && "min-h-11 min-w-11 max-sm:min-h-9 max-sm:min-w-9",
+              compact &&
+                "size-10 shrink-0 rounded-full sm:size-11",
               compact &&
                 LOW_PRIORITY_PLATFORMS.includes(link.platform) &&
                 "max-sm:hidden",
             )}
           >
             <Icon
-              className={cn(compact ? "size-4 sm:size-5" : "size-5")}
+              className={cn(compact ? "size-[1.125rem] sm:size-5" : "size-5")}
               aria-hidden
             />
           </a>

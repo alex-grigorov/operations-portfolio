@@ -205,17 +205,19 @@ export function ScrollSnapPortfolio() {
         ))}
       </nav>
 
-      <div className="safe-top fixed left-5 right-5 top-6 z-50 flex items-start justify-between gap-2 pr-10 sm:left-8 sm:right-8 sm:top-8 sm:gap-4 sm:pr-0">
-        <p
-          className="font-mono text-xs tabular-nums tracking-[0.15em] text-foreground max-sm:shrink-0 sm:text-sm sm:tracking-[0.25em] md:text-base"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {String(active + 1).padStart(2, "0")} /{" "}
-          {String(snapSections.length).padStart(2, "0")}
-        </p>
-        <SocialLinks className="shrink-0" variant="compact" />
-      </div>
+      <header className="safe-top fixed inset-x-0 top-0 z-50 px-5 pt-6 sm:px-8 sm:pt-8">
+        <div className="flex items-center justify-between gap-4">
+          <p
+            className="font-mono text-xs leading-none tabular-nums tracking-[0.15em] text-foreground sm:text-sm sm:tracking-[0.25em] md:text-base"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {String(active + 1).padStart(2, "0")} /{" "}
+            {String(snapSections.length).padStart(2, "0")}
+          </p>
+          <SocialLinks className="shrink-0" variant="compact" />
+        </div>
+      </header>
 
       <main
         ref={scrollerRef}
