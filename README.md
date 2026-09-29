@@ -13,10 +13,11 @@ Open http://localhost:43123
 
 ## Before you apply anywhere
 
-1. Edit **`content/profile.ts`** — your name, email, phone, LinkedIn, dates, and stack.
-2. Go to **`/resume`**:
+1. Edit **`content/profile.ts`** — name, email, LinkedIn, dates, stack. Keep **`phone` empty** for the public site CV (no number on the download).
+2. **Public download:** `public/downloads/Alex-Grigorov-CV-X.pdf` — Enhancv export (phone: *Available on request*). **Download CV (PDF)** on Contact and `/resume` serves this file. Copy from your PC into that path, commit, and push.
+3. Go to **`/resume`**:
    - **Print → Save as PDF** — best for Indeed / LinkedIn (text stays selectable for ATS).
-   - **Download PDF for job boards** — quick file when a form only wants a PDF attachment.
+   - **Download PDF** — uses the static file above (falls back to on-page render if missing).
 
 ## Showcasing Geo Logistics Dispatch
 
