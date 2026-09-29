@@ -156,9 +156,6 @@ export function ScrollSnapPortfolio() {
         >
           {String(active + 1).padStart(2, "0")} /{" "}
           {String(snapSections.length).padStart(2, "0")}
-          <span className="ml-2 hidden tracking-[0.2em] text-muted-foreground sm:inline">
-            · {snapSections[active]?.label}
-          </span>
         </p>
         <SocialLinks className="shrink-0" />
       </div>
