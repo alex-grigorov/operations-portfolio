@@ -240,37 +240,7 @@ export function FleetShowcaseGallery({
             <>
               <DialogTitle className="sr-only">{active.alt}</DialogTitle>
               <div className="relative min-h-0 flex-1 overflow-y-auto">
-                <div className="relative w-full bg-foreground/[0.06]">
-                  {canNavigate && (
-                    <>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        aria-label="Previous screenshot"
-                        className={cn(
-                          "absolute top-1/2 left-2 z-10 size-11 min-h-11 min-w-11 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
-                          "hover:bg-background",
-                        )}
-                        onClick={() => goTo(-1)}
-                      >
-                        <ChevronLeft className="size-5" />
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        aria-label="Next screenshot"
-                        className={cn(
-                          "absolute top-1/2 right-2 z-10 size-11 min-h-11 min-w-11 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
-                          "hover:bg-background",
-                        )}
-                        onClick={() => goTo(1)}
-                      >
-                        <ChevronRight className="size-5" />
-                      </Button>
-                    </>
-                  )}
+                <div className="w-full bg-foreground/[0.06]">
                   <Image
                     key={active.id}
                     src={active.src}
@@ -283,9 +253,19 @@ export function FleetShowcaseGallery({
                     priority
                   />
                 </div>
-                <div className="border-t border-foreground/10 px-4 py-3 sm:px-6 sm:py-4">
-                  {canNavigate && (
-                    <p className="mb-2 text-center font-mono text-[0.6875rem] tabular-nums tracking-[0.2em] text-muted-foreground sm:text-xs">
+                {canNavigate && (
+                  <div className="flex items-center justify-between gap-3 border-t border-foreground/10 bg-background px-3 py-2 sm:px-4">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="icon"
+                      aria-label="Previous screenshot"
+                      className="size-10 shrink-0 rounded-full border-foreground/20 sm:size-11"
+                      onClick={() => goTo(-1)}
+                    >
+                      <ChevronLeft className="size-5" />
+                    </Button>
+                    <p className="min-w-0 flex-1 text-center font-mono text-[0.6875rem] tabular-nums tracking-[0.2em] text-muted-foreground sm:text-xs">
                       {String(activeIndex + 1).padStart(2, "0")} /{" "}
                       {String(galleryShots.length).padStart(2, "0")}
                       <span className="mx-2 hidden text-foreground/20 md:inline">·</span>
@@ -293,7 +273,19 @@ export function FleetShowcaseGallery({
                         Arrow keys to browse
                       </span>
                     </p>
-                  )}
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="icon"
+                      aria-label="Next screenshot"
+                      className="size-10 shrink-0 rounded-full border-foreground/20 sm:size-11"
+                      onClick={() => goTo(1)}
+                    >
+                      <ChevronRight className="size-5" />
+                    </Button>
+                  </div>
+                )}
+                <div className="border-t border-foreground/10 px-4 py-3 sm:px-6 sm:py-4">
                   <p className="font-serif text-sm leading-relaxed text-foreground/95 sm:text-base sm:leading-relaxed">
                     {captionLine(active.description)}
                   </p>
