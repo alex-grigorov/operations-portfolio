@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+.ghpat
+.git-askpass.sh
 
 # debug
 npm-debug.log*
