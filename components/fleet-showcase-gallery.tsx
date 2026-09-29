@@ -46,7 +46,6 @@ type ChannelStripRowProps = {
   hero: ShowcaseScreenshot;
   galleryCount: number;
   onOpenGallery: () => void;
-  rowClassName?: string;
 };
 
 function ChannelStripRow({
@@ -54,22 +53,20 @@ function ChannelStripRow({
   hero,
   galleryCount,
   onOpenGallery,
-  rowClassName,
 }: ChannelStripRowProps) {
   const isMobile = channel.platform === "mobile";
 
   return (
     <div
       className={cn(
-        "showcase-row grid grid-cols-1 items-start gap-6 sm:grid-cols-12 sm:gap-8",
-        rowClassName,
+        "showcase-row grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-12 lg:items-center lg:gap-8",
       )}
     >
-      <div className="showcase-text-col col-span-1 pt-2 text-left sm:col-span-5">
-        <p className="mb-2 block font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
+      <div className="showcase-text-col col-span-1 text-left lg:col-span-5">
+        <p className="mb-1.5 block font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
           {channel.title}
         </p>
-        <p className="mb-3 font-serif text-xs leading-snug text-foreground/90 sm:text-base sm:font-normal sm:leading-snug">
+        <p className="mb-2 font-serif text-xs leading-snug text-foreground/90 sm:text-sm sm:leading-snug">
           {channel.caption}
         </p>
         <button
@@ -83,34 +80,25 @@ function ChannelStripRow({
         </button>
       </div>
 
-      <div className="showcase-graphic-col col-span-1 flex items-start justify-center sm:col-span-7 sm:justify-end sm:pr-8">
+      <div className="showcase-graphic-col col-span-1 flex items-center justify-center lg:col-span-7 lg:justify-end lg:pr-8">
         <button
           type="button"
           onClick={onOpenGallery}
           aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
-          className={cn(
-            "group shrink-0 overflow-hidden rounded-xl border border-foreground/15 bg-foreground/[0.02] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
-            isMobile ? "w-[240px] rounded-2xl" : "w-full max-w-[480px]",
-          )}
+          className="group flex max-w-full items-center justify-center overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
         >
-          <div
+          <Image
+            src={hero.src}
+            alt={hero.alt}
+            width={960}
+            height={600}
+            unoptimized
             className={cn(
-              "relative w-full bg-muted/20",
-              isMobile ? "aspect-[9/16]" : "aspect-[16/10]",
+              "max-h-[200px] w-auto max-w-full object-contain object-center transition duration-200 group-hover:opacity-95 md:max-h-[min(220px,24vh)]",
+              isMobile && "rounded-2xl",
             )}
-          >
-            <Image
-              src={hero.src}
-              alt={hero.alt}
-              fill
-              unoptimized
-              className={cn(
-                "transition duration-200 group-hover:opacity-95",
-                isMobile ? "object-cover object-top" : "object-cover object-center",
-              )}
-              sizes={isMobile ? "240px" : "480px"}
-            />
-          </div>
+            sizes="(max-width: 768px) 90vw, 480px"
+          />
         </button>
       </div>
     </div>
@@ -172,13 +160,14 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
   }, [open, canNavigate, goTo]);
 
   return (
-    <div className="flex min-h-0 w-full flex-1 flex-col">
-      <p className="mx-auto mt-1 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
+    <div className="flex min-h-0 w-full flex-1 flex-col justify-between overflow-hidden md:gap-2">
+      <div className="shrink-0">
+      <p className="mx-auto mt-0.5 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {showcase.summary}
       </p>
 
       {showcase.featureHighlights && showcase.featureHighlights.length > 0 && (
-        <div className="mx-auto mt-1.5 w-full max-w-5xl">
+        <div className="mx-auto mt-1 w-full max-w-5xl">
           <ul className="flex flex-nowrap items-center justify-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2">
             {showcase.featureHighlights.map((label) => (
               <li
@@ -191,8 +180,9 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
           </ul>
         </div>
       )}
+      </div>
 
-      <div className="slide-4-previews mx-auto mt-2 w-full max-w-5xl border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:pt-3">
+      <div className="showcase-rows mx-auto my-2 flex w-full min-h-0 max-w-5xl flex-col gap-3 border-t border-foreground/10 pt-2 md:my-3 md:gap-4 md:pt-3">
         {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
@@ -202,13 +192,12 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
           return (
             <div key={channel.platform}>
               {index > 0 && (
-                <hr className="my-8 border-foreground/10" aria-hidden />
+                <hr className="mb-3 border-foreground/10 md:mb-4" aria-hidden />
               )}
               <ChannelStripRow
                 channel={channel}
                 hero={hero}
                 galleryCount={list.length}
-                rowClassName={index === 0 ? "mb-12" : "mb-16"}
                 onOpenGallery={() => openGallery(channel.platform)}
               />
             </div>
@@ -217,7 +206,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-6 pb-12 text-center font-serif text-xs leading-relaxed text-muted-foreground">
+        <div className="tech-stack-footer mx-auto shrink-0 max-w-2xl space-y-0.5 px-2 pt-3 pb-2 text-center font-serif text-[0.6875rem] leading-relaxed text-muted-foreground md:pt-4 md:pb-4 md:text-xs">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>
