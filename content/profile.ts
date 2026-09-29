@@ -76,7 +76,7 @@ export const profile: Profile = {
     "Dispatch & logistics coordination",
     "Crypto / trading-adjacent teams (Telegram-first)",
   ],
-  email: "",
+  email: "contact@alex-grigorov.com",
   phone: "",
   /** Header icon + contact row — with or without @ */
   telegram: "alexgrigorov12",
@@ -95,7 +95,7 @@ export const profile: Profile = {
     },
     {
       platform: "email",
-      url: "mailto:you@email.com",
+      url: "mailto:contact@alex-grigorov.com",
       label: "Email",
     },
   ],
