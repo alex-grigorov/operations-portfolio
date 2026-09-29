@@ -6,6 +6,7 @@ import { snapSections } from "@/content/snap-sections";
 import { SocialLinks } from "@/components/social-links";
 import { FleetShowcaseGallery } from "@/components/fleet-showcase-gallery";
 import { ContactSection } from "@/components/contact-section";
+import { formatExperienceMeta } from "@/lib/format-experience-meta";
 import { cn } from "@/lib/utils";
 
 function sectionScrollTop(container: HTMLElement, section: HTMLElement) {
@@ -243,8 +244,8 @@ export function ScrollSnapPortfolio() {
                           {job.role}
                         </h3>
                         {job.meta && (
-                          <p className="mt-1.5 font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed">
-                            {job.meta}
+                          <p className="mt-1.5 font-serif text-[0.625rem] leading-snug text-muted-foreground sm:text-[0.6875rem]">
+                            {formatExperienceMeta(job.meta)}
                           </p>
                         )}
                         <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
@@ -266,8 +267,8 @@ export function ScrollSnapPortfolio() {
                         {section.experienceSpotlight.role}
                       </h3>
                       {section.experienceSpotlight.meta && (
-                        <p className="mt-1.5 font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed">
-                          {section.experienceSpotlight.meta}
+                        <p className="mt-1.5 font-serif text-[0.625rem] leading-snug text-muted-foreground sm:text-[0.6875rem]">
+                          {formatExperienceMeta(section.experienceSpotlight.meta)}
                         </p>
                       )}
                       <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
