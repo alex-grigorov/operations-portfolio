@@ -286,19 +286,24 @@ export function ScrollSnapPortfolio() {
               {section.experiences && (
                 <div className="mt-3 w-full border-t border-foreground/10 pt-3 sm:mt-4 sm:pt-4">
                   <div className="grid grid-cols-1 text-left sm:grid-cols-2">
-                    {section.experiences.map((job, jobIndex) => (
+                    {section.experiences.map((job, jobIndex) => {
+                      const jobCount = section.experiences!.length;
+                      const gridRow = Math.floor(jobIndex / 2);
+                      const lastGridRow = Math.floor((jobCount - 1) / 2);
+                      const isLastOddTile =
+                        jobCount % 2 === 1 && jobIndex === jobCount - 1;
+
+                      return (
                       <article
                         key={job.role}
                         className={cn(
                           "flex h-full flex-col px-2.5 py-3 sm:px-3.5 sm:py-4",
-                          jobIndex % 2 === 0 && "sm:border-r sm:border-foreground/15",
-                          (jobIndex < 2 || !section.experienceSpotlight) &&
-                            "border-b border-foreground/15",
-                          !section.experienceSpotlight &&
-                            jobIndex < section.experiences!.length - 1 &&
-                            "max-sm:border-b max-sm:border-foreground/15",
-                          section.experienceSpotlight &&
-                            jobIndex < section.experiences!.length - 1 &&
+                          jobIndex % 2 === 0 &&
+                            !isLastOddTile &&
+                            "sm:border-r sm:border-foreground/15",
+                          isLastOddTile && "sm:col-span-2",
+                          gridRow < lastGridRow && "border-b border-foreground/15",
+                          jobIndex < jobCount - 1 &&
                             "max-sm:border-b max-sm:border-foreground/15",
                         )}
                       >
@@ -324,7 +329,8 @@ export function ScrollSnapPortfolio() {
                           ))}
                         </ul>
                       </article>
-                    ))}
+                    );
+                    })}
                   </div>
                   {section.experienceSpotlight && (
                     <article className="border-t border-foreground/15 px-3 py-3 text-left sm:px-5 sm:py-4">
