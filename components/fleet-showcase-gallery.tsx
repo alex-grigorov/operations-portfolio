@@ -46,7 +46,7 @@ type ChannelStripRowProps = {
   hero: ShowcaseScreenshot;
   galleryCount: number;
   onOpenGallery: () => void;
-  showDivider?: boolean;
+  rowClassName?: string;
 };
 
 function ChannelStripRow({
@@ -54,49 +54,45 @@ function ChannelStripRow({
   hero,
   galleryCount,
   onOpenGallery,
-  showDivider,
+  rowClassName,
 }: ChannelStripRowProps) {
   const isMobile = channel.platform === "mobile";
 
   return (
-    <>
-      {showDivider && (
-        <div
-          className="-my-0.5 h-px w-full bg-foreground/10"
-          aria-hidden
-        />
+    <div
+      className={cn(
+        "showcase-row grid grid-cols-1 items-start gap-6 sm:grid-cols-12 sm:gap-8",
+        rowClassName,
       )}
-      <div className="showcase-row flex w-full flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
-        <div className="showcase-text-col flex w-full flex-col gap-1 pt-0.5 text-left md:w-[320px] md:max-w-[320px] md:shrink-0">
-          <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
-            {channel.title}
-          </p>
-          <p className="font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
-            {channel.caption}
-          </p>
-          <button
-            type="button"
-            onClick={onOpenGallery}
-            className="inline-flex w-fit items-center gap-1 font-mono text-[0.625rem] tracking-wide text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline sm:text-xs"
-          >
-            View {channel.platform === "web" ? "web" : "mobile"} gallery (
-            {galleryCount})
-            <ArrowRight className="size-3.5 shrink-0" aria-hidden />
-          </button>
-        </div>
+    >
+      <div className="showcase-text-col col-span-1 pt-2 text-left sm:col-span-5">
+        <p className="mb-2 block font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
+          {channel.title}
+        </p>
+        <p className="mb-3 font-serif text-xs leading-snug text-foreground/90 sm:text-base sm:font-normal sm:leading-snug">
+          {channel.caption}
+        </p>
+        <button
+          type="button"
+          onClick={onOpenGallery}
+          className="inline-flex w-fit items-center gap-1 font-mono text-[0.625rem] tracking-wide text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline sm:text-xs"
+        >
+          View {channel.platform === "web" ? "web" : "mobile"} gallery (
+          {galleryCount})
+          <ArrowRight className="size-3.5 shrink-0" aria-hidden />
+        </button>
+      </div>
 
-        <div className="showcase-graphic-col flex w-full items-start justify-center md:w-[520px] md:max-w-[55%] md:shrink-0 md:justify-end">
-          <button
-            type="button"
-            onClick={onOpenGallery}
-            aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
-            className={cn(
-              "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
-              isMobile
-                ? "w-[172px] sm:w-[188px]"
-                : "w-full max-w-[360px]",
-            )}
-          >
+      <div className="showcase-graphic-col col-span-1 flex items-start justify-center sm:col-span-7 sm:justify-end sm:pr-8">
+        <button
+          type="button"
+          onClick={onOpenGallery}
+          aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
+          className={cn(
+            "group shrink-0 overflow-hidden rounded-xl border border-foreground/15 bg-foreground/[0.02] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
+            isMobile ? "w-[240px] rounded-2xl" : "w-full max-w-[480px]",
+          )}
+        >
           <div
             className={cn(
               "relative w-full bg-muted/20",
@@ -109,16 +105,15 @@ function ChannelStripRow({
               fill
               unoptimized
               className={cn(
-                "rounded-lg transition duration-200 group-hover:opacity-95",
+                "transition duration-200 group-hover:opacity-95",
                 isMobile ? "object-cover object-top" : "object-cover object-center",
               )}
-              sizes={isMobile ? "188px" : "420px"}
+              sizes={isMobile ? "240px" : "480px"}
             />
           </div>
-          </button>
-        </div>
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -197,7 +192,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <div className="slide-4-previews mx-auto mt-2 flex w-full max-w-6xl flex-1 flex-col items-stretch gap-4 border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:gap-5 sm:pt-3">
+      <div className="slide-4-previews mx-auto mt-2 w-full max-w-5xl border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:pt-3">
         {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
@@ -205,20 +200,24 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
           if (!hero) return null;
 
           return (
-            <ChannelStripRow
-              key={channel.platform}
-              channel={channel}
-              hero={hero}
-              galleryCount={list.length}
-              showDivider={index > 0}
-              onOpenGallery={() => openGallery(channel.platform)}
-            />
+            <div key={channel.platform}>
+              {index > 0 && (
+                <hr className="my-8 border-foreground/10" aria-hidden />
+              )}
+              <ChannelStripRow
+                channel={channel}
+                hero={hero}
+                galleryCount={list.length}
+                rowClassName={index === 0 ? "mb-12" : "mb-16"}
+                onOpenGallery={() => openGallery(channel.platform)}
+              />
+            </div>
           );
         })}
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-6 pb-12 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:pt-10 sm:pb-12 sm:text-xs">
+        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-6 pb-12 text-center font-serif text-xs leading-relaxed text-muted-foreground">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>
