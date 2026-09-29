@@ -142,7 +142,6 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overscroll-behavior-y: auto;
-  scroll-padding-top: max(5.5rem, calc(env(safe-area-inset-top) + 4.75rem));
 }
 
 .snap-section {

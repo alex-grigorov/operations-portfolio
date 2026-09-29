@@ -183,10 +183,10 @@ export function ScrollSnapPortfolio() {
   }, [active, scrollToIndex]);
 
   return (
-    <div className="relative h-dvh w-full overflow-hidden bg-background text-foreground">
+    <div className="relative flex h-dvh w-full flex-col overflow-hidden bg-background text-foreground">
       <nav
         aria-label="Section navigation"
-        className="fixed right-3 top-1/2 z-50 flex -translate-y-1/2 scale-90 flex-col gap-3 sm:right-8 sm:scale-100"
+        className="pointer-events-auto fixed right-3 top-1/2 z-50 flex -translate-y-1/2 scale-90 flex-col gap-3 sm:right-8 sm:scale-100"
       >
         {snapSections.map((section, index) => (
           <button
@@ -205,7 +205,7 @@ export function ScrollSnapPortfolio() {
         ))}
       </nav>
 
-      <header className="safe-top fixed inset-x-0 top-0 z-50 px-5 pt-6 sm:px-8 sm:pt-8">
+      <header className="safe-top relative z-50 shrink-0 px-5 pb-3 pt-6 sm:px-8 sm:pt-8">
         <div className="flex items-center justify-between gap-4">
           <p
             className="font-mono text-xs leading-none tabular-nums tracking-[0.15em] text-foreground sm:text-sm sm:tracking-[0.25em] md:text-base"
@@ -222,7 +222,7 @@ export function ScrollSnapPortfolio() {
       <main
         ref={scrollerRef}
         aria-label="Portfolio deck"
-        className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto bg-background"
+        className="snap-scroll min-h-0 w-full flex-1 overflow-x-hidden overflow-y-auto bg-background"
       >
         {snapSections.map((section, index) => (
           <section
@@ -232,18 +232,18 @@ export function ScrollSnapPortfolio() {
               sectionRefs.current[index] = node;
             }}
             className={cn(
-              "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
+              "snap-section relative flex min-h-full w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
-                ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pt-[7vh] md:pb-4"
+                ? "snap-section-loose justify-start overflow-x-hidden pb-8 pt-4 sm:pt-6 md:pb-4"
                 : section.projectShowcase
-                  ? "snap-section-loose showcase-section min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] md:h-dvh md:max-h-dvh md:min-h-dvh md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
+                  ? "snap-section-loose showcase-section justify-start overflow-x-hidden pb-8 pt-2 md:h-full md:max-h-full md:min-h-full md:overflow-hidden md:pb-6 md:pt-3"
                   : section.id === "contact"
-                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-10 md:justify-center"
-                  : section.paragraphs
-                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-12 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-16"
-                    : section.id === "home"
-                      ? "justify-center pb-16 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-20"
-                      : "justify-center pb-20 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))]",
+                    ? "snap-section-loose justify-start overflow-x-hidden pb-[max(2rem,env(safe-area-inset-bottom))] pt-4 sm:pb-10 sm:pt-6 md:justify-center"
+                    : section.paragraphs
+                      ? "snap-section-loose justify-start overflow-x-hidden pb-12 pt-4 sm:pb-16 sm:pt-6"
+                      : section.id === "home"
+                        ? "justify-center py-10 sm:py-14"
+                        : "justify-center py-12 sm:py-16",
             )}
           >
             <div
