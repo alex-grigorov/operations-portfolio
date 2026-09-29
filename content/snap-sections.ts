@@ -65,7 +65,7 @@ export const snapSections: SnapSection[] = [
         role: "Dispatch Specialist · Operations Coordinator",
         meta: "Dispatch On Demand · Hybrid · 2023 – 2026",
         highlights: [
-          "Geo Logistics LLC—US-based freight hauling operation (Dispatch On Demand).",
+          "Geo Logistics LLC—US-based freight hauling operation.",
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
           "Real-time tracking and dashboard reporting; kept account records accurate and current.",
           "High-touch phone, email, and messaging with clients, brokers, and field operators.",
