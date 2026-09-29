@@ -77,44 +77,45 @@ export const snapSections: SnapSection[] = [
     experiences: [
       {
         role: "Operations Analyst · Logistics & Account Data (Remote)",
-        meta: "Geo Logistics LLC · Jul 2026 – Sep 2026 · Pernik, Bulgaria",
+        meta: "Geo Logistics LLC (Roseville, MI) · Jan 2026 – Sep 2026 · Pernik, Bulgaria",
         highlights: [
-          "Account data quality, dispatch-adjacent reporting, and workflow clarity for US-based freight ops.",
-          "Primary POC for live accounts—updates, escalations, and accurate load records.",
-          "Operational reporting and handoffs across dispatch, management, and partners.",
+          "Live freight and account ops data—load status, KPIs, and tracking for US-based hauling.",
+          "Owned account and load record accuracy on dashboards and partner-facing operational data.",
+          "Primary POC for active accounts; supported dispatch and booking with data-driven updates.",
         ],
       },
       {
         role: "Senior Dispatcher & Operations Specialist (Hybrid)",
         meta: "Dispatch On Demand · Jun 2023 – Dec 2025 · Pernik, Bulgaria",
         highlights: [
-          "High-volume dispatch—tracking, booking, rate negotiation, and multi-channel client comms.",
-          "Real-time dashboards and load accuracy across TMS and partner systems.",
-          "Built AI-assisted internal ops hub and Geo Driver mobile workflows used in production.",
+          "End-to-end account coordination and dispatch workflows for Geo Logistics LLC.",
+          "Real-time tracking, dashboard reporting, and high-touch phone, email, and messaging.",
+          "Booked freight and negotiated rates through final delivery.",
         ],
       },
       {
         role: "CRM & Client Operations Coordinator (Remote)",
-        meta: "Workhour Ltd. · Jan 2023 – Apr 2023 · Pernik, Bulgaria",
+        meta: "Workhour Ltd. (Toronto, Canada) · Jan 2023 – Apr 2023 · Pernik, Bulgaria",
         highlights: [
-          "Client database records and CRM-style data hygiene for outbound communications.",
-          "Segmented lists and structured messaging workflows for operational deliverables.",
+          "Client database records and campaign metrics in internal CRM systems.",
+          "Clean CRM-style data for outreach; segmented lists and automated targeted outreach.",
         ],
       },
       {
-        role: "Gas Station Sales & Operations (On-site)",
-        meta: "Largo International Ltd. · Mar 2018 – May 2022 · Pernik, Bulgaria",
+        role: "Electrical Assembly Operator (On-site)",
+        meta: "AQ Electric AD · Jun 2022 – Nov 2022 · Pernik, Bulgaria",
         highlights: [
-          "High-volume POS and front-line service under daily time pressure.",
-          "Inventory, forecourt safety, and reliable shift handoffs.",
+          "Precision assembly under QA standards and tight production deadlines.",
+          "Coordinated with team leads; accurate production and inventory logs.",
         ],
       },
     ],
     experienceSpotlight: {
-      role: "Key builds · Internal ops hub & Geo Driver app",
+      role: "Promoted to Operations Analyst · Geo Logistics LLC",
       highlights: [
-        "Shipped production web hub and mobile driver workflows—APIs, notifications, dispatch automation.",
-        "Promoted to Operations Analyst after owning account data, reporting, and AI-assisted internal tools.",
+        "Earned promotion by owning account data quality, dispatch-adjacent reporting, and cross-team workflow clarity—plus informal operations advisor on handoffs and AI-assisted tools adoption.",
+        "Built internal ops hub solo with AI-assisted development—production web and mobile (APIs, notifications, dispatch automation).",
+        "Launched Geo Driver app—driver documents, inspections, and load stops sync with dispatch dashboards in real time.",
       ],
     },
   },
