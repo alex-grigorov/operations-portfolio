@@ -136,7 +136,7 @@ export const snapSections: SnapSection[] = [
           platform: "web",
           title: "Web platform hub",
           caption: "Dispatch dashboard, live map telemetry, and ops workspace.",
-          heroScreenshotId: "fleet-map",
+          heroScreenshotId: "weekly-performance",
         },
         {
           platform: "mobile",
