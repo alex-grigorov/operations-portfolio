@@ -134,17 +134,17 @@ export const profile: Profile = {
   ],
   experience: [
     {
-      company: "Dispatch On Demand · Geo Logistics LLC",
-      title: "Dispatch Specialist · Operations Coordinator",
+      company: "Geo Logistics LLC",
+      title: "Operations Analyst · Logistics & Account Data",
       location: "Hybrid · Pernik, Bulgaria",
       start: "Jun 2023",
       end: "Sep 2026",
       highlights: [
-        "Managed end-to-end account coordination and dispatch workflows for Geo Logistics LLC (US-based freight hauling operation).",
-        "Primary point of contact for high-volume accounts—live status, schedule changes, and route disruptions.",
-        "Maintained accurate account data across internal dashboards and partner systems.",
+        "Analyzed live freight operations data—tracking, dashboards, and account records—for a US-based hauling operation.",
+        "Primary point of contact for high-volume accounts; status updates, schedule changes, and route disruptions.",
+        "Maintained accurate account and load data across internal dashboards and partner systems.",
         "High-touch communication via phone, email, and messaging with clients, brokers, and field operators.",
-        "Built structured daily logs and updates; improved handoffs between ops, management, and partners.",
+        "Built structured daily logs and reporting; improved handoffs between ops, management, and partners.",
         "Built and maintained internal operations hub and Geo Driver mobile app used in production.",
       ],
     },

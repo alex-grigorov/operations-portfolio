@@ -76,10 +76,10 @@ export const snapSections: SnapSection[] = [
     title: "Professional Experience",
     experiences: [
       {
-        role: "Dispatch Specialist · Operations Coordinator",
-        meta: "Dispatch On Demand · Hybrid · Jun 2023 – Sep 2026 · Pernik, Bulgaria",
+        role: "Operations Analyst · Logistics & Account Data",
+        meta: "Geo Logistics LLC · Hybrid · Jun 2023 – Sep 2026 · Pernik, Bulgaria",
         highlights: [
-          "Managed end-to-end account coordination and dispatch workflows for Geo Logistics LLC (US-based freight hauling operation).",
+          "Operations analysis for a US-based freight hauling operation—dispatch workflows, account coordination, and live load data.",
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
           "Real-time tracking and dashboard reporting; kept account records accurate and current.",
           "High-touch phone, email, and messaging with clients, brokers, and field operators.",
