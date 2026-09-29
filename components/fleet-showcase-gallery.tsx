@@ -62,12 +62,12 @@ function ChannelStripRow({
     <>
       {showDivider && (
         <div
-          className="h-px w-full max-w-md bg-foreground/10 sm:max-w-none"
+          className="-my-0.5 h-px w-full bg-foreground/10"
           aria-hidden
         />
       )}
-      <div className="feature-row grid w-full grid-cols-1 items-center gap-6 md:grid-cols-12 md:gap-8">
-        <div className="feature-text flex w-full flex-col gap-2 text-left md:col-span-5 md:max-w-[350px] md:justify-self-start">
+      <div className="feature-row grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-6">
+        <div className="feature-text flex w-full flex-col gap-1 text-left md:col-span-5 md:max-w-[350px] md:justify-self-start">
           <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
             {channel.title}
           </p>
@@ -98,14 +98,14 @@ function ChannelStripRow({
             className={cn(
               "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
               isMobile
-                ? "w-[168px] sm:w-[180px]"
-                : "w-full max-w-[400px] md:max-w-[420px]",
+                ? "h-[196px] w-[110px] sm:h-[208px] sm:w-[117px]"
+                : "w-full max-w-[340px] md:max-w-[360px]",
             )}
           >
           <div
             className={cn(
               "relative w-full bg-muted/20",
-              isMobile ? "aspect-[9/16]" : "aspect-[16/10]",
+              isMobile ? "h-full" : "aspect-[16/10]",
             )}
           >
             <Image
@@ -183,12 +183,12 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
 
   return (
     <>
-      <p className="mx-auto mt-2 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:mt-3 sm:text-sm sm:leading-relaxed">
+      <p className="mx-auto mt-1 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {showcase.summary}
       </p>
 
       {showcase.featureHighlights && showcase.featureHighlights.length > 0 && (
-        <div className="mx-auto mt-2 w-full max-w-5xl sm:mt-3">
+        <div className="mx-auto mt-1.5 w-full max-w-5xl">
           <ul className="flex flex-nowrap items-center justify-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2">
             {showcase.featureHighlights.map((label) => (
               <li
@@ -202,7 +202,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <div className="slide-4-previews mx-auto mt-3 flex w-full max-w-6xl flex-col items-stretch gap-10 border-t border-foreground/10 pt-4 sm:mt-4 sm:gap-12 sm:pt-5">
+      <div className="slide-4-previews mx-auto mt-2 flex w-full max-w-6xl flex-col items-stretch gap-4 border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:gap-5 sm:pt-3">
         {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
@@ -223,7 +223,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="tech-stack-footer mx-auto mt-6 max-w-2xl space-y-1 border-t border-foreground/10 pt-6 pb-10 text-center font-serif text-[0.6875rem] leading-relaxed text-muted-foreground sm:mt-8 sm:pb-12 sm:text-xs">
+        <div className="tech-stack-footer mx-auto mt-2 max-w-2xl space-y-0.5 border-t border-foreground/10 pt-2.5 pb-1 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:mt-3 sm:pt-3 sm:text-xs">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>
