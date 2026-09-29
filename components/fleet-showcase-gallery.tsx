@@ -178,7 +178,7 @@ export function FleetShowcaseGallery({
   }, [open, canNavigate, goTo]);
 
   return (
-    <div className="flex min-h-0 w-full flex-1 flex-col justify-between overflow-hidden max-md:gap-3 md:gap-2">
+    <div className="flex w-full flex-1 flex-col justify-between gap-4 md:min-h-0 md:overflow-hidden md:gap-2">
       <div className="shrink-0">
       <p className="mx-auto mt-0.5 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {showcase.summary}

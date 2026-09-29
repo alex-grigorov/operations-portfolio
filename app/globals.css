@@ -141,12 +141,17 @@
 .snap-scroll {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: auto;
 }
 
 .snap-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+/** Tall slides: allow one gesture to advance to the next section. */
+.snap-section-loose {
+  scroll-snap-stop: normal;
 }
 
 @media print {

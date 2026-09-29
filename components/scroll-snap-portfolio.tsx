@@ -220,7 +220,7 @@ export function ScrollSnapPortfolio() {
       <main
         ref={scrollerRef}
         aria-label="Portfolio deck"
-        className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto overscroll-y-contain bg-background"
+        className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto bg-background"
       >
         {snapSections.map((section, index) => (
           <section
@@ -232,11 +232,11 @@ export function ScrollSnapPortfolio() {
             className={cn(
               "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
-                ? "min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(6vh,calc(env(safe-area-inset-top)+4.5rem))] max-md:overflow-y-auto max-md:overscroll-y-contain sm:pt-[7vh] md:overflow-hidden md:pb-4"
+                ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(6vh,calc(env(safe-area-inset-top)+4.5rem))] sm:pt-[7vh] md:pb-4"
                 : section.projectShowcase
-                  ? "showcase-section h-dvh max-h-dvh min-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pt-[2.5vh] pb-8 max-md:overflow-y-auto md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
+                  ? "snap-section-loose showcase-section min-h-dvh justify-start overflow-x-hidden pt-[2.5vh] pb-8 md:h-dvh md:max-h-dvh md:min-h-dvh md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
                   : section.id === "contact"
-                    ? "min-h-dvh justify-start overflow-x-hidden py-8 pb-[max(2rem,env(safe-area-inset-bottom))] max-md:overflow-y-auto max-md:overscroll-y-contain sm:py-10 md:justify-center md:overflow-hidden"
+                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden py-8 pb-[max(2rem,env(safe-area-inset-bottom))] sm:py-10 md:justify-center"
                     : "justify-center py-20",
             )}
           >
@@ -246,7 +246,7 @@ export function ScrollSnapPortfolio() {
                 section.experiences
                   ? "w-full max-w-5xl items-stretch px-1 text-left"
                   : section.projectShowcase
-                    ? "slide-4-container flex h-full min-h-0 w-full max-w-5xl flex-1 flex-col justify-between overflow-hidden px-2 max-md:overflow-y-visible md:box-border"
+                    ? "slide-4-container flex w-full max-w-5xl flex-1 flex-col justify-between gap-4 px-2 md:h-full md:min-h-0 md:overflow-hidden md:box-border"
                     : section.id === "contact"
                       ? "w-full max-w-4xl px-2"
                       : section.paragraphs
