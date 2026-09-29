@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type {
@@ -17,6 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { preloadImages } from "@/lib/preload-images";
+import { ShowcaseScreenshotImage } from "@/components/showcase-screenshot-image";
 
 type FleetShowcaseGalleryProps = {
   showcase: ProjectShowcase;
@@ -94,19 +94,16 @@ function ChannelStripRow({
           aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
           className="group flex max-w-full items-center justify-center overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.06] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
         >
-          <Image
+          <ShowcaseScreenshotImage
             src={hero.src}
             alt={hero.alt}
-            width={960}
-            height={600}
-            unoptimized
+            loading="eager"
             className={cn(
               "w-auto max-w-full object-contain object-center transition duration-200 group-hover:opacity-95",
               isMobile
                 ? "max-h-[260px] rounded-2xl md:max-h-[min(300px,30vh)]"
                 : "max-h-[200px] md:max-h-[min(220px,24vh)]",
             )}
-            sizes={isMobile ? "200px" : "(max-width: 768px) 90vw, 480px"}
           />
         </button>
       </div>
@@ -270,16 +267,12 @@ export function FleetShowcaseGallery({
                       </Button>
                     </>
                   )}
-                  <Image
+                  <ShowcaseScreenshotImage
                     key={active.id}
                     src={active.src}
                     alt={active.alt}
-                    width={1600}
-                    height={900}
-                    unoptimized
-                    className="h-auto max-h-[52vh] w-full object-contain object-center sm:max-h-[58vh]"
-                    sizes="(max-width: 768px) 100vw, 896px"
-                    priority
+                    loading="eager"
+                    className="mx-auto h-auto max-h-[52vh] w-auto max-w-full object-contain object-center sm:max-h-[58vh]"
                   />
                 </div>
                 <div className="border-t border-foreground/10 px-4 py-3 sm:px-6 sm:py-4">
@@ -315,13 +308,11 @@ export function FleetShowcaseGallery({
                             : "border-foreground/15 opacity-80 hover:opacity-100",
                         )}
                       >
-                        <Image
+                        <ShowcaseScreenshotImage
                           src={shot.src}
                           alt=""
-                          fill
-                          unoptimized
-                          className="object-cover object-center"
-                          sizes="72px"
+                          loading="eager"
+                          className="h-full w-full object-cover object-center"
                         />
                       </button>
                     ))}
