@@ -134,12 +134,13 @@ export const profile: Profile = {
   ],
   experience: [
     {
-      company: "",
-      title: "Dispatch Specialist / Operations Coordinator",
-      location: "Remote",
+      company: "Dispatch On Demand · Geo Logistics LLC",
+      title: "Dispatch Specialist · Operations Coordinator",
+      location: "Hybrid · US freight hauling",
       start: "2023",
-      end: "Present",
+      end: "2026",
       highlights: [
+        "Geo Logistics LLC—US-based freight hauling operation (Dispatch On Demand).",
         "Primary point of contact for high-volume accounts—live status, schedule changes, and route disruptions.",
         "Maintained accurate account data across internal dashboards and partner systems.",
         "High-touch communication via phone, email, and messaging with clients, brokers, and field operators.",
