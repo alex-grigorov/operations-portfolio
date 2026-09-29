@@ -5,8 +5,6 @@ import { DownloadResumePdf } from "@/components/download-resume-pdf";
 import { LinkButton } from "@/components/link-button";
 import { ResumeDocument } from "@/components/resume-document";
 import { telegramChatUrl, telegramDisplayHandle } from "@/lib/telegram";
-import { cn } from "@/lib/utils";
-
 function contactEmail(): string | null {
   const fromProfile = profile.email.trim();
   if (fromProfile) return fromProfile;
