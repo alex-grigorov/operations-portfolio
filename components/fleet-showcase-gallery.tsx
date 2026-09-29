@@ -66,8 +66,8 @@ function ChannelStripRow({
           aria-hidden
         />
       )}
-      <div className="feature-row grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-6">
-        <div className="feature-text flex w-full flex-col gap-1 text-left md:col-span-5 md:max-w-[350px] md:justify-self-start">
+      <div className="showcase-row flex w-full flex-col gap-4 md:flex-row md:items-start md:justify-between md:gap-8">
+        <div className="showcase-text-col flex w-full flex-col gap-1 pt-0.5 text-left md:w-[320px] md:max-w-[320px] md:shrink-0">
           <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
             {channel.title}
           </p>
@@ -85,12 +85,7 @@ function ChannelStripRow({
           </button>
         </div>
 
-        <div
-          className={cn(
-            "flex items-center justify-center md:col-span-7 md:justify-end",
-            isMobile && "md:justify-end",
-          )}
-        >
+        <div className="showcase-graphic-col flex w-full items-start justify-center md:w-[520px] md:max-w-[55%] md:shrink-0 md:justify-end">
           <button
             type="button"
             onClick={onOpenGallery}
@@ -99,7 +94,7 @@ function ChannelStripRow({
               "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
               isMobile
                 ? "w-[172px] sm:w-[188px]"
-                : "w-full max-w-[340px] md:max-w-[360px]",
+                : "w-full max-w-[360px]",
             )}
           >
           <div
@@ -223,7 +218,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-4 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:pt-5 sm:text-xs">
+        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-6 pb-12 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:pt-10 sm:pb-12 sm:text-xs">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>

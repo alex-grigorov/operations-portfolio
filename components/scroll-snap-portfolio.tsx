@@ -178,7 +178,7 @@ export function ScrollSnapPortfolio() {
               section.experiences
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : section.projectShowcase
-                  ? "max-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pb-6 pt-[2.75vh] sm:pb-8 sm:pt-[3.25vh]"
+                  ? "showcase-section max-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pb-16 pt-[2.75vh] sm:pb-16 sm:pt-[3.25vh]"
                   : section.id === "contact"
                     ? "max-h-dvh justify-center overflow-hidden py-8 sm:py-10"
                     : "justify-center py-20",
