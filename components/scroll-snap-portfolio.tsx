@@ -240,11 +240,11 @@ export function ScrollSnapPortfolio() {
                             "max-sm:border-b max-sm:border-foreground/15",
                         )}
                       >
-                        <h3 className="font-mono text-[0.625rem] font-medium leading-none tracking-[0.08em] text-foreground sm:text-[0.6875rem]">
+                        <h3 className="font-mono text-xs font-medium leading-tight tracking-[0.1em] text-foreground sm:text-sm">
                           {job.role}
                         </h3>
                         {job.meta && (
-                          <p className="mt-1.5 font-serif text-[0.625rem] leading-snug text-muted-foreground sm:text-[0.6875rem]">
+                          <p className="mt-1.5 font-serif text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
                             {formatExperienceMeta(job.meta)}
                           </p>
                         )}
@@ -263,11 +263,11 @@ export function ScrollSnapPortfolio() {
                   </div>
                   {section.experienceSpotlight && (
                     <article className="border-t border-foreground/15 px-3 py-3 text-left sm:px-5 sm:py-4">
-                      <h3 className="font-mono text-[0.6875rem] font-medium tracking-[0.2em] text-foreground sm:text-xs">
+                      <h3 className="font-mono text-xs font-medium leading-tight tracking-[0.1em] text-foreground sm:text-sm">
                         {section.experienceSpotlight.role}
                       </h3>
                       {section.experienceSpotlight.meta && (
-                        <p className="mt-1.5 font-serif text-[0.625rem] leading-snug text-muted-foreground sm:text-[0.6875rem]">
+                        <p className="mt-1.5 font-serif text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
                           {formatExperienceMeta(section.experienceSpotlight.meta)}
                         </p>
                       )}
