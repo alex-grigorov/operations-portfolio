@@ -2,8 +2,6 @@
 
 import { profile } from "@/content/profile";
 import { DownloadResumePdf } from "@/components/download-resume-pdf";
-import { LinkButton } from "@/components/link-button";
-import { ResumeDocument } from "@/components/resume-document";
 import { telegramChatUrl, telegramDisplayHandle } from "@/lib/telegram";
 function contactEmail(): string | null {
   const fromProfile = profile.email.trim();
@@ -149,31 +147,13 @@ export function ContactSection() {
         </div>
       </div>
 
-      <div className="mt-5 flex flex-col items-center gap-2 sm:mt-6">
+      <div className="mt-5 flex flex-col items-center sm:mt-6">
         <DownloadResumePdf
           variant="outline"
           size="lg"
           label="Download CV (PDF)"
           className="min-w-[12rem] font-mono text-xs tracking-[0.15em] uppercase"
         />
-        <LinkButton
-          href="/resume"
-          variant="ghost"
-          size="sm"
-          className="font-mono text-[0.625rem] tracking-[0.12em] text-muted-foreground uppercase hover:text-foreground"
-        >
-          View résumé online
-        </LinkButton>
-        <p className="max-w-md text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs">
-          Need selectable text for job boards? Open the online résumé and use Print → Save as PDF.
-        </p>
-      </div>
-
-      <div
-        aria-hidden
-        className="pointer-events-none fixed -left-[10000px] top-0 w-[816px] opacity-0"
-      >
-        <ResumeDocument />
       </div>
     </div>
   );
