@@ -136,7 +136,7 @@ export const profile: Profile = {
     {
       company: "Dispatch On Demand · Geo Logistics LLC",
       title: "Dispatch Specialist · Operations Coordinator",
-      location: "Hybrid · US freight hauling",
+      location: "Hybrid · United States",
       start: "2023",
       end: "2026",
       highlights: [
@@ -151,7 +151,7 @@ export const profile: Profile = {
     {
       company: "Workhour Ltd.",
       title: "Public Relations Coordinator",
-      location: "Remote · Jan 2023 – Apr 2023 · Toronto, Canada",
+      location: "Remote · Toronto, Canada",
       start: "Jan 2023",
       end: "Apr 2023",
       highlights: [
@@ -163,7 +163,7 @@ export const profile: Profile = {
     {
       company: "AQ Electric AD",
       title: "Electrical Assembly & Quality Technician",
-      location: "Pernik, Bulgaria",
+      location: "On-site · Pernik, Bulgaria",
       start: "2019",
       end: "2021",
       highlights: [
@@ -175,7 +175,7 @@ export const profile: Profile = {
     {
       company: "",
       title: "Gas Station Sales & Operations",
-      location: "Pernik, Bulgaria",
+      location: "On-site · Pernik, Bulgaria",
       start: "2018",
       end: "2019",
       highlights: [
