@@ -149,11 +149,11 @@ export const profile: Profile = {
       ],
     },
     {
-      company: "",
-      title: "Public Relations · Client Communications",
-      location: "Bulgaria",
-      start: "2021",
-      end: "2023",
+      company: "Workhour Ltd.",
+      title: "Public Relations Coordinator",
+      location: "Remote · Jan 2023 – Apr 2023 · Toronto, Canada",
+      start: "Jan 2023",
+      end: "Apr 2023",
       highlights: [
         "Managed client-facing communication assets, campaign metrics, and stakeholder reporting.",
         "Press releases and media materials with accuracy and visual quality.",

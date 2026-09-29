@@ -74,7 +74,7 @@ export const snapSections: SnapSection[] = [
       },
       {
         role: "Public Relations Coordinator",
-        meta: "Client communications · Agency accounts · Bulgaria · 2021 – 2023",
+        meta: "Workhour Ltd. · Remote · Jan 2023 – Apr 2023 · Toronto, Canada",
         highlights: [
           "Managed client-facing communication assets, campaign metrics, and stakeholder reporting.",
           "Press releases and promotional materials—accuracy and presentation mattered.",
@@ -83,7 +83,7 @@ export const snapSections: SnapSection[] = [
       },
       {
         role: "Electrical Assembly Operator",
-        meta: "AQ Electric AD · Pernik, Bulgaria · 2019 – 2021",
+        meta: "AQ Electric AD · On-site · 2019 – 2021 · Pernik, Bulgaria",
         highlights: [
           "Precision workflows under QA standards and tight production deadlines.",
           "Cross-functional coordination to reduce line errors and bottlenecks.",
@@ -92,7 +92,7 @@ export const snapSections: SnapSection[] = [
       },
       {
         role: "Gas Station Sales & Operations",
-        meta: "Company name · Pernik, Bulgaria · 2018 – 2019",
+        meta: "Company name · On-site · 2018 – 2019 · Pernik, Bulgaria",
         highlights: [
           "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
           "Resolved on-site complaints calmly; kept service standards under rush periods.",
