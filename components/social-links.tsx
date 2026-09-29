@@ -130,7 +130,7 @@ export function SocialLinks({ className, variant = "default" }: SocialLinksProps
             aria-label={link.label}
             title={link.label}
             className={cn(
-              "inline-flex items-center justify-center text-foreground/80 transition-colors hover:text-foreground",
+              "relative z-[60] inline-flex touch-manipulation items-center justify-center text-foreground/80 transition-colors hover:text-foreground active:text-foreground",
               compact &&
                 "size-10 shrink-0 rounded-full sm:size-11",
               compact &&

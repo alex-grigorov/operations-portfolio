@@ -205,7 +205,7 @@ export function ScrollSnapPortfolio() {
         ))}
       </nav>
 
-      <header className="safe-top relative z-50 shrink-0 px-5 pb-3 pt-6 sm:px-8 sm:pt-8">
+      <header className="safe-top pointer-events-auto relative z-[60] shrink-0 px-5 pb-3 pt-6 sm:px-8 sm:pt-8">
         <div className="flex items-center justify-between gap-4">
           <p
             className="font-mono text-xs leading-none tabular-nums tracking-[0.15em] text-foreground sm:text-sm sm:tracking-[0.25em] md:text-base"

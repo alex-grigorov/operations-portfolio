@@ -80,12 +80,12 @@ export const profile: Profile = {
   phone: "",
   /** Header icon + contact row — with or without @ */
   telegram: "alexgrigorov12",
-  linkedIn: "https://linkedin.com/in/your-profile",
+  linkedIn: "https://www.linkedin.com/in/alex-grigorov/",
   github: "https://github.com/alex-grigorov",
   socialLinks: [
     {
       platform: "linkedin",
-      url: "https://linkedin.com/in/your-profile",
+      url: "https://www.linkedin.com/in/alex-grigorov/",
       label: "LinkedIn",
     },
     {
