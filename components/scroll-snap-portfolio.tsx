@@ -188,7 +188,7 @@ export function ScrollSnapPortfolio() {
               className={cn(
                 "flex flex-col items-center text-center",
                 section.experiences
-                  ? "max-w-5xl px-1"
+                  ? "w-full max-w-5xl items-stretch px-1 text-left"
                   : section.projectShowcase
                     ? "w-full max-w-5xl px-2"
                     : section.id === "contact"
@@ -209,7 +209,7 @@ export function ScrollSnapPortfolio() {
                   index === 0
                     ? "text-4xl sm:text-5xl md:text-6xl"
                     : section.experiences
-                      ? "text-2xl sm:text-3xl"
+                      ? "w-full text-center text-2xl sm:text-3xl"
                       : section.projectShowcase
                         ? "mx-auto max-w-2xl text-xl leading-tight sm:text-2xl md:text-3xl"
                         : section.id === "contact"

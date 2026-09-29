@@ -63,9 +63,9 @@ export const snapSections: SnapSection[] = [
     experiences: [
       {
         role: "Dispatch Specialist · Operations Coordinator",
-        meta: "Dispatch On Demand · Hybrid · 2023 – 2026 · Pernik, Bulgaria",
+        meta: "Dispatch On Demand · Hybrid · Jun 2023 – Sep 2026 · Pernik, Bulgaria",
         highlights: [
-          "Geo Logistics LLC—US-based freight hauling operation.",
+          "Managed end-to-end account coordination and dispatch workflows for Geo Logistics LLC (US-based freight hauling operation).",
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
           "Real-time tracking and dashboard reporting; kept account records accurate and current.",
           "High-touch phone, email, and messaging with clients, brokers, and field operators.",
@@ -82,21 +82,21 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
-        role: "Electrical Assembly Operator",
-        meta: "AQ Electric AD · On-site · 2019 – 2021 · Pernik, Bulgaria",
-        highlights: [
-          "Precision workflows under QA standards and tight production deadlines.",
-          "Cross-functional coordination to reduce line errors and bottlenecks.",
-          "Accurate production and inventory logs in central tracking systems.",
-        ],
-      },
-      {
         role: "Gas Station Sales & Operations",
-        meta: "Largo International · On-site · Mar 2018 – Feb 2022 · Pernik, Bulgaria",
+        meta: "Largo International · On-site · Mar 2018 – May 2022 · Pernik, Bulgaria",
         highlights: [
           "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
           "Resolved on-site complaints calmly; kept service standards under rush periods.",
           "Inventory, forecourt safety, and accurate shift handoffs.",
+        ],
+      },
+      {
+        role: "Electrical Assembly Operator",
+        meta: "AQ Electric AD · On-site · Jun 2022 – Nov 2022 · Pernik, Bulgaria",
+        highlights: [
+          "Precision workflows under QA standards and tight production deadlines.",
+          "Cross-functional coordination to reduce line errors and bottlenecks.",
+          "Accurate production and inventory logs in central tracking systems.",
         ],
       },
     ],

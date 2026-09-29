@@ -137,10 +137,10 @@ export const profile: Profile = {
       company: "Dispatch On Demand · Geo Logistics LLC",
       title: "Dispatch Specialist · Operations Coordinator",
       location: "Hybrid · Pernik, Bulgaria",
-      start: "2023",
-      end: "2026",
+      start: "Jun 2023",
+      end: "Sep 2026",
       highlights: [
-        "Geo Logistics LLC—US-based freight hauling operation.",
+        "Managed end-to-end account coordination and dispatch workflows for Geo Logistics LLC (US-based freight hauling operation).",
         "Primary point of contact for high-volume accounts—live status, schedule changes, and route disruptions.",
         "Maintained accurate account data across internal dashboards and partner systems.",
         "High-touch communication via phone, email, and messaging with clients, brokers, and field operators.",
@@ -164,8 +164,8 @@ export const profile: Profile = {
       company: "AQ Electric AD",
       title: "Electrical Assembly & Quality Technician",
       location: "On-site · Pernik, Bulgaria",
-      start: "2019",
-      end: "2021",
+      start: "Jun 2022",
+      end: "Nov 2022",
       highlights: [
         "Technical workflows under strict QA and production deadlines.",
         "Coordinated with team leads to reduce line errors and bottlenecks.",
@@ -177,7 +177,7 @@ export const profile: Profile = {
       title: "Gas Station Sales & Operations",
       location: "On-site · Pernik, Bulgaria",
       start: "Mar 2018",
-      end: "Feb 2022",
+      end: "May 2022",
       highlights: [
         "Direct service to high daily customer volume; POS and transaction accuracy.",
         "Resolved on-site complaints and maintained professional service standards.",
