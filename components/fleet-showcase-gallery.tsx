@@ -62,6 +62,24 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         {showcase.summary}
       </p>
 
+      {showcase.featureHighlights && showcase.featureHighlights.length > 0 && (
+        <div className="mx-auto mt-5 max-w-3xl text-center">
+          <p className="font-mono text-[0.6875rem] font-medium tracking-[0.2em] text-foreground uppercase sm:text-xs">
+            Key features
+          </p>
+          <ul className="mt-3 flex flex-wrap items-center justify-center gap-2">
+            {showcase.featureHighlights.map((label) => (
+              <li
+                key={label}
+                className="rounded-full border border-foreground/15 bg-foreground/[0.03] px-3 py-1 font-mono text-[0.625rem] tracking-wide text-foreground/90 sm:text-[0.6875rem]"
+              >
+                {label}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <div className="mx-auto mt-6 grid w-full max-w-5xl grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5 md:grid-cols-5 lg:grid-cols-6">
         {screenshots.map((shot, index) => (
           <button
@@ -85,10 +103,11 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         ))}
       </div>
 
-      {showcase.builtWith && (
-        <p className="mx-auto mt-8 max-w-2xl text-center font-serif text-xs leading-relaxed text-muted-foreground sm:text-sm sm:leading-relaxed">
-          {showcase.builtWith}
-        </p>
+      {(showcase.techStackLine || showcase.integrationsLine) && (
+        <div className="mx-auto mt-8 max-w-2xl space-y-2 text-center font-serif text-xs leading-relaxed text-muted-foreground sm:text-sm sm:leading-relaxed">
+          {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
+          {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
+        </div>
       )}
 
       <Dialog open={open} onOpenChange={setOpen}>

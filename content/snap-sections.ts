@@ -16,8 +16,10 @@ export type ShowcaseScreenshot = {
 export type ProjectShowcase = {
   summary: string;
   screenshots: ShowcaseScreenshot[];
-  /** Short stack / credits line below the preview grid */
-  builtWith?: string;
+  /** Bold feature pills below the summary */
+  featureHighlights?: string[];
+  techStackLine?: string;
+  integrationsLine?: string;
 };
 
 export type SnapSection = {
@@ -116,9 +118,17 @@ export const snapSections: SnapSection[] = [
     title: "Fleet Operations Hub Project Showcase",
     projectShowcase: {
       summary:
-        "Proof of systems work: an internal operations platform I built end-to-end (also used in logistics)—dashboards, notifications, mobile app, and API-connected data. The same skills apply to client operations, CRM, and remote account teams. Select a preview to enlarge and read what each area does.",
-      builtWith:
-        "Built with AI-assisted development (Cursor, ChatGPT, and related tools) on Next.js, React, and TypeScript, with REST and webhook-style API integrations to Sylectus, Samsara, Mapbox, and other third-party services for maps, telemetry, compliance, and mobile driver workflows.",
+        "Proof of systems work: a functioning, full-stack operations platform I built end-to-end—dashboards, notifications, mobile driver app, and live API data. The same capability applies to client operations, CRM, and remote account teams. Select any preview to enlarge; each includes a one-sentence description of that screen.",
+      featureHighlights: [
+        "Real-time map telemetry",
+        "Automated pipeline notifications",
+        "Mobile driver workflow",
+        "Sylectus / Samsara API sync",
+      ],
+      techStackLine:
+        "Tech stack: Next.js, React, TypeScript, REST & webhooks · AI-assisted build (Cursor, ChatGPT)",
+      integrationsLine:
+        "Integrations: Mapbox, Sylectus, Samsara, telemetry & compliance APIs",
       screenshots: [
         {
           id: "sign-in",
