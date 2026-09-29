@@ -98,14 +98,14 @@ function ChannelStripRow({
             className={cn(
               "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
               isMobile
-                ? "h-[196px] w-[110px] sm:h-[208px] sm:w-[117px]"
+                ? "w-[172px] sm:w-[188px]"
                 : "w-full max-w-[340px] md:max-w-[360px]",
             )}
           >
           <div
             className={cn(
               "relative w-full bg-muted/20",
-              isMobile ? "h-full" : "aspect-[16/10]",
+              isMobile ? "aspect-[9/16]" : "aspect-[16/10]",
             )}
           >
             <Image
@@ -117,7 +117,7 @@ function ChannelStripRow({
                 "rounded-lg transition duration-200 group-hover:opacity-95",
                 isMobile ? "object-cover object-top" : "object-cover object-center",
               )}
-              sizes={isMobile ? "180px" : "420px"}
+              sizes={isMobile ? "188px" : "420px"}
             />
           </div>
           </button>
@@ -182,7 +182,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
   }, [open, canNavigate, goTo]);
 
   return (
-    <>
+    <div className="flex min-h-0 w-full flex-1 flex-col">
       <p className="mx-auto mt-1 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {showcase.summary}
       </p>
@@ -202,7 +202,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <div className="slide-4-previews mx-auto mt-2 flex w-full max-w-6xl flex-col items-stretch gap-4 border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:gap-5 sm:pt-3">
+      <div className="slide-4-previews mx-auto mt-2 flex w-full max-w-6xl flex-1 flex-col items-stretch gap-4 border-t border-foreground/10 pt-2.5 sm:mt-2.5 sm:gap-5 sm:pt-3">
         {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
@@ -223,7 +223,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
       </div>
 
       {(showcase.techStackLine || showcase.integrationsLine) && (
-        <div className="tech-stack-footer mx-auto mt-2 max-w-2xl space-y-0.5 border-t border-foreground/10 pt-2.5 pb-1 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:mt-3 sm:pt-3 sm:text-xs">
+        <div className="tech-stack-footer mx-auto mt-auto max-w-2xl space-y-0.5 px-2 pt-4 text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:pt-5 sm:text-xs">
           {showcase.techStackLine && <p>{showcase.techStackLine}</p>}
           {showcase.integrationsLine && <p>{showcase.integrationsLine}</p>}
         </div>
@@ -331,6 +331,6 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
           )}
         </DialogContent>
       </Dialog>
-    </>
+    </div>
   );
 }
