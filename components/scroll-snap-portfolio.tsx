@@ -239,7 +239,7 @@ export function ScrollSnapPortfolio() {
                             "max-sm:border-b max-sm:border-foreground/15",
                         )}
                       >
-                        <h3 className="font-mono text-xs font-medium tracking-[0.2em] text-foreground sm:text-sm">
+                        <h3 className="font-mono text-[0.6875rem] font-medium leading-tight tracking-[0.12em] text-foreground sm:text-xs">
                           {job.role}
                         </h3>
                         {job.meta && (

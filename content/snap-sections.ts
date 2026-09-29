@@ -62,8 +62,8 @@ export const snapSections: SnapSection[] = [
     title: "Professional Experience",
     experiences: [
       {
-        role: "Dispatch Specialist · Operations Coordinator",
-        meta: "Geo Logistics LLC / Dispatch On Demand · Remote · 2023 – Present",
+        role: "Dispatch Specialist",
+        meta: "Operations Coordinator · Geo Logistics LLC / Dispatch On Demand · Remote · 2023 – Present",
         highlights: [
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
           "Real-time tracking and dashboard reporting; kept account records accurate and current.",
@@ -72,8 +72,8 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
-        role: "Public Relations · Client Communications",
-        meta: "Agency / client accounts · Bulgaria · 2021 – 2023",
+        role: "Public Relations Coordinator",
+        meta: "Client communications · Agency accounts · Bulgaria · 2021 – 2023",
         highlights: [
           "Managed client-facing communication assets, campaign metrics, and stakeholder reporting.",
           "Press releases and promotional materials—accuracy and presentation mattered.",
