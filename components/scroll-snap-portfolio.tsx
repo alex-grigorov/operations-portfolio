@@ -178,7 +178,7 @@ export function ScrollSnapPortfolio() {
               section.experiences
                 ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
                 : section.projectShowcase
-                  ? "justify-start pb-16 pt-[6vh] sm:pb-20 sm:pt-[7vh]"
+                  ? "max-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pb-4 pt-[4.5vh] sm:pb-5 sm:pt-[5vh]"
                   : section.id === "contact"
                     ? "justify-center py-16 sm:py-20"
                     : "justify-center py-20",
@@ -211,7 +211,7 @@ export function ScrollSnapPortfolio() {
                     : section.experiences
                       ? "w-full text-center text-2xl sm:text-3xl"
                       : section.projectShowcase
-                        ? "mx-auto max-w-2xl text-xl leading-tight sm:text-2xl md:text-3xl"
+                        ? "mx-auto max-w-2xl text-lg leading-tight sm:text-xl md:text-2xl"
                         : section.id === "contact"
                           ? "text-3xl sm:text-4xl"
                           : section.paragraphs

@@ -118,17 +118,17 @@ export const snapSections: SnapSection[] = [
     title: "Fleet Operations Hub Project Showcase",
     projectShowcase: {
       summary:
-        "Proof of systems work: a functioning, full-stack operations platform I built end-to-end—dashboards, notifications, mobile driver app, and live API data. The same capability applies to client operations, CRM, and remote account teams. Select any preview to enlarge; each includes a one-sentence description of that screen.",
+        "Full-stack operations platform I built end-to-end—maps, notifications, mobile app, and live API data. Same systems thinking applies to client ops, CRM, and remote account teams. Click any preview for a one-sentence description.",
       featureHighlights: [
-        "Real-time map telemetry",
-        "Automated pipeline notifications",
-        "Mobile driver workflow",
-        "Sylectus / Samsara API sync",
+        "Map telemetry",
+        "Pipeline alerts",
+        "Mobile workflow",
+        "Sylectus, Samsara & pCloud integrations",
       ],
       techStackLine:
-        "Tech stack: Next.js, React, TypeScript, REST & webhooks · AI-assisted build (Cursor, ChatGPT)",
+        "Tech: Next.js, React, TypeScript, REST & webhooks · Cursor & ChatGPT",
       integrationsLine:
-        "Integrations: Mapbox, Sylectus, Samsara, telemetry & compliance APIs",
+        "APIs: Mapbox, Sylectus, Samsara, pCloud, telemetry & compliance",
       screenshots: [
         {
           id: "sign-in",
