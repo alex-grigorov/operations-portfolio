@@ -90,10 +90,12 @@ function ChannelStripRow({
             height={600}
             unoptimized
             className={cn(
-              "max-h-[200px] w-auto max-w-full object-contain object-center transition duration-200 group-hover:opacity-95 md:max-h-[min(220px,24vh)]",
-              isMobile && "rounded-2xl",
+              "w-auto max-w-full object-contain object-center transition duration-200 group-hover:opacity-95",
+              isMobile
+                ? "max-h-[260px] rounded-2xl md:max-h-[min(300px,30vh)]"
+                : "max-h-[200px] md:max-h-[min(220px,24vh)]",
             )}
-            sizes="(max-width: 768px) 90vw, 480px"
+            sizes={isMobile ? "200px" : "(max-width: 768px) 90vw, 480px"}
           />
         </button>
       </div>
