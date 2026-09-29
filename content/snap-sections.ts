@@ -142,7 +142,7 @@ export const snapSections: SnapSection[] = [
           platform: "mobile",
           title: "Mobile driver app",
           caption: "Step-by-step driver workflow—documents, arrivals, and navigation.",
-          heroScreenshotId: "geo-driver-documents",
+          heroScreenshotId: "geo-driver-navigation",
         },
       ],
       featureHighlights: [
