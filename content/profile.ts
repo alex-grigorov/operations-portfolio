@@ -49,10 +49,7 @@ export type Profile = {
   location: string;
   openTo: string[];
   email: string;
-  /** Real number — omit on public site; use on Enhancv / direct application PDFs only */
   phone: string;
-  /** Contact page label when phone is not published (plain text, not a tel: link) */
-  phonePublicNote?: string;
   /** e.g. @username — shown on contact & résumé when set */
   telegram: string;
   linkedIn: string;
@@ -81,7 +78,6 @@ export const profile: Profile = {
   ],
   email: "contact@alex-grigorov.com",
   phone: "",
-  phonePublicNote: "Available on request",
   /** Header icon + contact row — with or without @ */
   telegram: "alexgrigorov12",
   linkedIn: "https://www.linkedin.com/in/alex-grigorov/",
