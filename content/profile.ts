@@ -68,7 +68,7 @@ export const profile: Profile = {
   name: "Alex Grigorov",
   headline:
     "Operations & client success · high-volume coordination · systems builder",
-  location: "Pernik, Bulgaria · Open to remote",
+  location: "Near Sofia, Bulgaria · Open to remote",
   openTo: [
     "Account management & retention (remote)",
     "Customer success & client operations",
@@ -100,7 +100,7 @@ export const profile: Profile = {
     },
   ],
   summary:
-    "Performance-driven operations and client-success specialist with three years in high-volume dispatch and live account coordination—real-time updates, escalations, multi-channel communication, and accurate records across dashboards and partner systems. Built and deployed an internal operations hub and driver mobile app (API integrations, notifications, workflows) using AI-assisted development. Fluent English; based in Pernik, Bulgaria. Seeking remote roles in account management, retention, customer success, CRM operations, logistics, and fast-paced remote teams—including crypto-adjacent environments.",
+    "Performance-driven operations and client-success specialist with three years in high-volume dispatch and live account coordination—real-time updates, escalations, multi-channel communication, and accurate records across dashboards and partner systems. Built and deployed an internal operations hub and driver mobile app (API integrations, notifications, workflows) using AI-assisted development. Fluent English; based near Sofia, Bulgaria. Seeking remote roles in account management, retention, customer success, CRM operations, logistics, and fast-paced remote teams—including crypto-adjacent environments.",
   skills: [
     {
       label: "Client & account operations",

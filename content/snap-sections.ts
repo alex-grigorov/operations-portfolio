@@ -49,7 +49,7 @@ export const snapSections: SnapSection[] = [
     label: "Introduction",
     title: "Introduction",
     paragraphs: [
-      "I'm Alex Grigorov, based in Pernik, Bulgaria (remote-ready, fluent English). My background is high-volume operations and client-facing coordination—three years as a dispatch specialist managing live accounts, status updates, escalations, and multi-channel communication with partners and field teams under time pressure.",
+      "I'm Alex Grigorov, based near Sofia, Bulgaria (remote-ready, fluent English). My background is high-volume operations and client-facing coordination—three years as a dispatch specialist managing live accounts, status updates, escalations, and multi-channel communication with partners and field teams under time pressure.",
       "Beyond operations, I designed and built our team's internal web platform—developing dashboards, driver workflows, and API-driven data views using Cursor and ChatGPT. I structured it with CRM principles in mind: clear records, status pipelines, automated handoffs, and instant visibility into priority tasks.",
       "I leverage HubSpot and CRM workflows to bridge operations and client retention, and I thrive in high-touch remote environments across logistics, account management, customer success, and RevOps coordination—including crypto and trading-adjacent teams that prefer Telegram and fast response times.",
     ],
