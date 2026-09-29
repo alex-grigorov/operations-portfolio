@@ -173,7 +173,7 @@ export const profile: Profile = {
       ],
     },
     {
-      company: "",
+      company: "Largo International Ltd.",
       title: "Gas Station Sales & Operations",
       location: "On-site · Pernik, Bulgaria",
       start: "2018",

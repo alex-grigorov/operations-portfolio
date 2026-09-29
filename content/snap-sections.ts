@@ -92,7 +92,7 @@ export const snapSections: SnapSection[] = [
       },
       {
         role: "Gas Station Sales & Operations",
-        meta: "Company name · On-site · 2018 – 2019 · Pernik, Bulgaria",
+        meta: "Largo International Ltd. · On-site · 2018 – 2019 · Pernik, Bulgaria",
         highlights: [
           "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
           "Resolved on-site complaints calmly; kept service standards under rush periods.",
