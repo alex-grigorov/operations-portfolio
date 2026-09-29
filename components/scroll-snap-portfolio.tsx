@@ -236,7 +236,7 @@ export function ScrollSnapPortfolio() {
               section.experiences
                 ? "snap-section-loose justify-start overflow-x-hidden pb-8 pt-4 sm:pt-6 md:pb-4"
                 : section.projectShowcase
-                  ? "snap-section-loose showcase-section justify-start overflow-x-hidden pb-8 pt-2 md:h-full md:max-h-full md:min-h-full md:overflow-hidden md:pb-6 md:pt-3"
+                  ? "snap-section-loose showcase-section justify-start pb-8 pt-2 md:h-full md:max-h-full md:min-h-full md:overflow-hidden md:pb-6 md:pt-3"
                   : section.id === "contact"
                     ? "snap-section-loose justify-start overflow-x-hidden pb-[max(2rem,env(safe-area-inset-bottom))] pt-4 sm:pb-10 sm:pt-6 md:justify-center"
                     : section.paragraphs
@@ -252,7 +252,7 @@ export function ScrollSnapPortfolio() {
                 section.experiences
                   ? "w-full max-w-5xl items-stretch px-1 text-left"
                   : section.projectShowcase
-                    ? "slide-4-container flex w-full max-w-5xl flex-1 flex-col justify-between gap-4 px-2 md:h-full md:min-h-0 md:overflow-hidden md:box-border"
+                    ? "slide-4-container flex w-full max-w-5xl flex-1 flex-col justify-between gap-4 px-1 sm:px-2 md:h-full md:min-h-0 md:overflow-hidden md:box-border"
                     : section.id === "contact"
                       ? "w-full max-w-4xl px-2"
                       : section.paragraphs

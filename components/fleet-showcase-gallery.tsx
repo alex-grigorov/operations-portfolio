@@ -185,12 +185,12 @@ export function FleetShowcaseGallery({
       </p>
 
       {showcase.featureHighlights && showcase.featureHighlights.length > 0 && (
-        <div className="mx-auto mt-1 w-full max-w-5xl">
-          <ul className="flex flex-nowrap items-center justify-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-2">
+        <div className="mx-auto mt-2 w-full max-w-5xl px-1">
+          <ul className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
             {showcase.featureHighlights.map((label) => (
               <li
                 key={label}
-                className="shrink-0 rounded-full border border-foreground/15 bg-foreground/[0.03] px-2 py-0.5 font-mono text-[0.625rem] tracking-wide whitespace-nowrap text-foreground/90 sm:px-2.5 sm:py-1 sm:text-xs"
+                className="max-w-full rounded-full border border-foreground/15 bg-foreground/[0.03] px-2.5 py-1 text-center font-mono text-[0.625rem] leading-snug tracking-wide text-pretty text-foreground/90 sm:px-3 sm:py-1 sm:text-xs"
               >
                 {label}
               </li>
