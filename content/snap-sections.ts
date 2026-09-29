@@ -23,6 +23,8 @@ export type SnapSection = {
   label: string;
   title: string;
   tagline?: string;
+  /** Shown above the main title (e.g. home hero) */
+  supertitle?: string;
   subtitle?: string;
   image?: string;
   imageAlt?: string;
@@ -38,6 +40,7 @@ export const snapSections: SnapSection[] = [
   {
     id: "home",
     label: "Home",
+    supertitle: "Personal Portfolio",
     title: "Alex Grigorov",
     tagline: "Operations · Client Success · Systems",
   },

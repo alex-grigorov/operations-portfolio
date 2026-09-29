@@ -196,6 +196,11 @@ export function ScrollSnapPortfolio() {
                         : "max-w-lg",
               )}
             >
+              {section.supertitle && (
+                <p className="mb-4 font-mono text-sm tabular-nums tracking-[0.25em] text-foreground sm:mb-5 sm:text-base">
+                  {section.supertitle}
+                </p>
+              )}
               <h2
                 className={cn(
                   "font-medium tracking-tight text-foreground",
