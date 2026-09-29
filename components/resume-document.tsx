@@ -44,7 +44,7 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
               {email}
             </a>
           ) : null}
-          {phone ? <span>{phone}</span> : null}
+          {phone.trim() ? <span>{phone}</span> : null}
           {linkedIn ? (
             <a className="underline-offset-2 hover:underline" href={linkedIn} target="_blank" rel="noreferrer">
               LinkedIn

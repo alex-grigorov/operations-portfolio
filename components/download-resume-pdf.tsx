@@ -6,11 +6,28 @@ import html2canvas from "html2canvas";
 import { Button, buttonVariants } from "@/components/ui/button";
 import type { VariantProps } from "class-variance-authority";
 import { Download, Loader2 } from "lucide-react";
+import { PUBLIC_CV } from "@/content/public-cv";
 import { profile } from "@/content/profile";
 import { cn } from "@/lib/utils";
 
 function safeFilename(name: string) {
   return name.replace(/[^\w\-]+/g, "-").replace(/-+/g, "-").toLowerCase();
+}
+
+async function downloadStaticPublicCv(): Promise<boolean> {
+  const res = await fetch(PUBLIC_CV.path, { method: "GET" });
+  if (!res.ok) return false;
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = PUBLIC_CV.downloadName;
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+  return true;
 }
 
 type DownloadResumePdfProps = VariantProps<typeof buttonVariants> & {
@@ -27,11 +44,13 @@ export function DownloadResumePdf({
   const [loading, setLoading] = useState(false);
 
   async function handleDownload() {
-    const el = document.querySelector(".resume-document");
-    if (!el || !(el instanceof HTMLElement)) return;
-
     setLoading(true);
     try {
+      if (await downloadStaticPublicCv()) return;
+
+      const el = document.querySelector(".resume-document");
+      if (!el || !(el instanceof HTMLElement)) return;
+
       const canvas = await html2canvas(el, {
         scale: 2,
         useCORS: true,
