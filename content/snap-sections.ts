@@ -50,8 +50,8 @@ export const snapSections: SnapSection[] = [
     title: "Introduction",
     paragraphs: [
       "I'm Alex Grigorov, based in Pernik, Bulgaria (remote-ready, fluent English). My background is high-volume operations and client-facing coordination—three years as a dispatch specialist managing live accounts, status updates, escalations, and multi-channel communication with partners and field teams under time pressure.",
-      "I'm not only an operator: I built the internal web platform our team relied on—dashboards, notifications, mobile driver workflows, and API-connected data—using AI-assisted development (Cursor, ChatGPT) and integrations similar in spirit to CRM systems: clean records, pipelines, handoffs, and one place to see what needs action next.",
-      "I'm actively pursuing HubSpot and broader CRM skills and I'm open to remote roles across logistics, account management, customer success, retention, RevOps-style coordination, and high-touch remote teams (including crypto and trading-adjacent firms that run on Telegram and fast response times). I bring operational problem-solving, communication, and systems discipline—and I learn new tools quickly.",
+      "Beyond operations, I designed and built our team's internal web platform—developing dashboards, driver workflows, and API-driven data views using Cursor and ChatGPT. I structured it with CRM principles in mind: clear records, status pipelines, automated handoffs, and instant visibility into priority tasks.",
+      "I leverage HubSpot and CRM workflows to bridge operations and client retention, and I thrive in high-touch remote environments across logistics, account management, customer success, and RevOps coordination—including crypto and trading-adjacent teams that prefer Telegram and fast response times.",
     ],
   },
   {
@@ -98,7 +98,7 @@ export const snapSections: SnapSection[] = [
       highlights: [
         "Built internal platform (web + mobile) used daily—pipelines, alerts, and single source of truth for ops data.",
         "API integrations (TMS, GPS, ELD, maps)—same discipline as CRM hygiene and cross-tool sync.",
-        "HubSpot CRM: hands-on practice with pipelines, lists, tasks, and workflow configuration (cert in progress).",
+        "HubSpot CRM workflows—pipelines, lists, tasks, and automation—applied to bridge ops data and client follow-through.",
         "AI-assisted delivery (Cursor, ChatGPT)—from field requirements to production-ready tools.",
       ],
     },

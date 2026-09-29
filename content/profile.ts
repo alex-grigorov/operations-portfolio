@@ -31,6 +31,7 @@ export type SocialPlatform =
   | "linkedin"
   | "github"
   | "email"
+  | "telegram"
   | "x"
   | "instagram"
   | "globe";
@@ -77,7 +78,8 @@ export const profile: Profile = {
   ],
   email: "",
   phone: "",
-  telegram: "",
+  /** Header icon + contact row — with or without @ */
+  telegram: "yourusername",
   linkedIn: "https://linkedin.com/in/your-profile",
   github: "https://github.com/your-username",
   socialLinks: [
