@@ -188,7 +188,7 @@ export function ScrollSnapPortfolio() {
               className={cn(
                 "flex flex-col items-center text-center",
                 section.experiences
-                  ? "max-w-4xl px-1"
+                  ? "max-w-5xl px-1"
                   : section.projectShowcase
                     ? "w-full max-w-5xl px-2"
                     : section.id === "contact"
@@ -244,7 +244,7 @@ export function ScrollSnapPortfolio() {
                           {job.role}
                         </h3>
                         {job.meta && (
-                          <p className="mt-1.5 font-serif text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
+                          <p className="mt-1.5 max-w-full font-serif text-xs leading-snug whitespace-nowrap text-muted-foreground sm:text-[0.8125rem]">
                             {formatExperienceMeta(job.meta)}
                           </p>
                         )}
@@ -267,7 +267,7 @@ export function ScrollSnapPortfolio() {
                         {section.experienceSpotlight.role}
                       </h3>
                       {section.experienceSpotlight.meta && (
-                        <p className="mt-1.5 font-serif text-xs leading-snug text-muted-foreground sm:text-[0.8125rem]">
+                        <p className="mt-1.5 max-w-full font-serif text-xs leading-snug whitespace-nowrap text-muted-foreground sm:text-[0.8125rem]">
                           {formatExperienceMeta(section.experienceSpotlight.meta)}
                         </p>
                       )}
