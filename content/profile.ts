@@ -137,7 +137,7 @@ export const profile: Profile = {
       company: "",
       title: "Dispatch Specialist / Operations Coordinator",
       location: "Remote",
-      start: "2022",
+      start: "2023",
       end: "Present",
       highlights: [
         "Primary point of contact for high-volume accounts—live status, schedule changes, and route disruptions.",
@@ -149,22 +149,22 @@ export const profile: Profile = {
     },
     {
       company: "",
-      title: "Public Relations Coordinator",
+      title: "Public Relations · Client Communications",
       location: "Bulgaria",
-      start: "—",
-      end: "—",
+      start: "2021",
+      end: "2023",
       highlights: [
-        "Campaign research, metrics, and client-facing reports.",
+        "Managed client-facing communication assets, campaign metrics, and stakeholder reporting.",
         "Press releases and media materials with accuracy and visual quality.",
-        "Targeted distribution to media outlets.",
+        "Targeted distribution aligned to client communication strategy.",
       ],
     },
     {
-      company: "",
+      company: "AQ Electric AD",
       title: "Electrical Assembly & Quality Technician",
       location: "Pernik, Bulgaria",
-      start: "—",
-      end: "—",
+      start: "2019",
+      end: "2021",
       highlights: [
         "Technical workflows under strict QA and production deadlines.",
         "Coordinated with team leads to reduce line errors and bottlenecks.",
@@ -173,10 +173,10 @@ export const profile: Profile = {
     },
     {
       company: "",
-      title: "Service Station / Customer Operations Attendant",
+      title: "Gas Station Sales & Operations",
       location: "Pernik, Bulgaria",
-      start: "—",
-      end: "—",
+      start: "2018",
+      end: "2019",
       highlights: [
         "Direct service to high daily customer volume; POS and transaction accuracy.",
         "Resolved on-site complaints and maintained professional service standards.",

@@ -63,7 +63,7 @@ export const snapSections: SnapSection[] = [
     experiences: [
       {
         role: "Dispatch Specialist · Operations Coordinator",
-        meta: "Geo Logistics LLC / Dispatch On Demand · Remote · 2022 – Present",
+        meta: "Geo Logistics LLC / Dispatch On Demand · Remote · 2023 – Present",
         highlights: [
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
           "Real-time tracking and dashboard reporting; kept account records accurate and current.",
@@ -72,8 +72,8 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
-        role: "Public Relations Coordinator",
-        meta: "Agency / client accounts · Bulgaria · Year – Year",
+        role: "Public Relations · Client Communications",
+        meta: "Agency / client accounts · Bulgaria · 2021 – 2023",
         highlights: [
           "Managed client-facing communication assets, campaign metrics, and stakeholder reporting.",
           "Press releases and promotional materials—accuracy and presentation mattered.",
@@ -81,21 +81,21 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
-        role: "Gas Station Sales & Forecourt Associate",
-        meta: "Company name · Pernik, Bulgaria · Year – Year",
-        highlights: [
-          "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
-          "Resolved on-site complaints calmly; kept service standards under rush periods.",
-          "Inventory, forecourt safety, and accurate shift handoffs.",
-        ],
-      },
-      {
         role: "Electrical Assembly Operator",
-        meta: "AQ Electric AD · Pernik, Bulgaria · Year – Year",
+        meta: "AQ Electric AD · Pernik, Bulgaria · 2019 – 2021",
         highlights: [
           "Precision workflows under QA standards and tight production deadlines.",
           "Cross-functional coordination to reduce line errors and bottlenecks.",
           "Accurate production and inventory logs in central tracking systems.",
+        ],
+      },
+      {
+        role: "Gas Station Sales & Operations",
+        meta: "Company name · Pernik, Bulgaria · 2018 – 2019",
+        highlights: [
+          "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
+          "Resolved on-site complaints calmly; kept service standards under rush periods.",
+          "Inventory, forecourt safety, and accurate shift handoffs.",
         ],
       },
     ],
