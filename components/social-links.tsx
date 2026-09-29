@@ -1,5 +1,6 @@
 import { Globe, Mail } from "lucide-react";
-import { profile, type SocialPlatform } from "@/content/profile";
+import { profile, type SocialLink, type SocialPlatform } from "@/content/profile";
+import { telegramChatUrl } from "@/lib/telegram";
 import { cn } from "@/lib/utils";
 
 type SocialIconProps = React.ComponentProps<"svg">;
@@ -62,20 +63,45 @@ const iconByPlatform = {
   globe: GlobeIcon,
 } satisfies Record<SocialPlatform, (props: SocialIconProps) => React.JSX.Element>;
 
-function telegramProfileUrl(handle: string): string | null {
-  const user = handle.replace(/^@/, "").trim();
-  return user ? `https://t.me/${user}` : null;
-}
+const HEADER_LINK_ORDER: SocialPlatform[] = [
+  "linkedin",
+  "github",
+  "email",
+  "telegram",
+  "x",
+  "instagram",
+  "globe",
+];
 
 type SocialLinksProps = {
   className?: string;
 };
 
-export function SocialLinks({ className }: SocialLinksProps) {
-  const links = profile.socialLinks.filter((link) => link.url.trim().length > 0);
-  const telegramUrl = telegramProfileUrl(profile.telegram);
+function headerLinks(): SocialLink[] {
+  const configured = profile.socialLinks.filter(
+    (link) => link.url.trim().length > 0 && link.platform !== "telegram",
+  );
+  const telegramUrl = telegramChatUrl(profile.telegram);
+  const withTelegram: SocialLink[] = telegramUrl
+    ? [
+        ...configured,
+        {
+          platform: "telegram",
+          url: telegramUrl,
+          label: "Telegram — start chat",
+        },
+      ]
+    : configured;
 
-  if (links.length === 0 && !telegramUrl) return null;
+  return [...withTelegram].sort(
+    (a, b) => HEADER_LINK_ORDER.indexOf(a.platform) - HEADER_LINK_ORDER.indexOf(b.platform),
+  );
+}
+
+export function SocialLinks({ className }: SocialLinksProps) {
+  const links = headerLinks();
+
+  if (links.length === 0) return null;
 
   return (
     <nav
@@ -100,18 +126,6 @@ export function SocialLinks({ className }: SocialLinksProps) {
           </a>
         );
       })}
-      {telegramUrl ? (
-        <a
-          href={telegramUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Telegram"
-          title={`Telegram @${profile.telegram.replace(/^@/, "")}`}
-          className="text-foreground/80 transition-colors hover:text-foreground"
-        >
-          <TelegramIcon className="size-5" aria-hidden />
-        </a>
-      ) : null}
     </nav>
   );
 }

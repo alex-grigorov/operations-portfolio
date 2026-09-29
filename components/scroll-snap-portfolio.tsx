@@ -156,12 +156,16 @@ export function ScrollSnapPortfolio() {
         >
           {String(active + 1).padStart(2, "0")} /{" "}
           {String(snapSections.length).padStart(2, "0")}
+          <span className="ml-2 hidden tracking-[0.2em] text-muted-foreground sm:inline">
+            · {snapSections[active]?.label}
+          </span>
         </p>
         <SocialLinks className="shrink-0" />
       </div>
 
       <main
         ref={scrollerRef}
+        aria-label="Portfolio deck"
         className="snap-scroll h-dvh w-full overflow-x-hidden overflow-y-auto overscroll-y-contain bg-background"
       >
         {snapSections.map((section, index) => (
@@ -314,7 +318,7 @@ export function ScrollSnapPortfolio() {
 
             {index === 0 && (
               <p className="absolute bottom-10 font-mono text-sm tracking-[0.2em] text-muted-foreground sm:text-base">
-                Scroll to view other sections
+                Scroll to Introduction
               </p>
             )}
           </section>

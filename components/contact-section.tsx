@@ -4,6 +4,7 @@ import { profile } from "@/content/profile";
 import { DownloadResumePdf } from "@/components/download-resume-pdf";
 import { LinkButton } from "@/components/link-button";
 import { ResumeDocument } from "@/components/resume-document";
+import { telegramChatUrl, telegramDisplayHandle } from "@/lib/telegram";
 import { cn } from "@/lib/utils";
 
 function contactEmail(): string | null {
@@ -76,9 +77,16 @@ export function ContactSection() {
           <p>{profile.location}</p>
         </ContactRow>
 
-        {profile.telegram.trim() && (
+        {profile.telegram.trim() && telegramChatUrl(profile.telegram) && (
           <ContactRow label="Telegram">
-            <p>{profile.telegram.startsWith("@") ? profile.telegram : `@${profile.telegram}`}</p>
+            <a
+              href={telegramChatUrl(profile.telegram)!}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-foreground/25 underline-offset-4 transition hover:decoration-foreground/60"
+            >
+              {telegramDisplayHandle(profile.telegram)} — start chat
+            </a>
           </ContactRow>
         )}
 
