@@ -79,7 +79,7 @@ export const profile: Profile = {
   email: "",
   phone: "",
   /** Header icon + contact row — with or without @ */
-  telegram: "yourusername",
+  telegram: "alexgrigorov12",
   linkedIn: "https://linkedin.com/in/your-profile",
   github: "https://github.com/your-username",
   socialLinks: [
