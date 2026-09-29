@@ -41,68 +41,82 @@ function captionLine(description: string) {
   return match ? match[0].trim() : description.trim();
 }
 
-type ChannelPanelProps = {
+type ChannelStripRowProps = {
   channel: ProjectShowcaseChannel;
   hero: ShowcaseScreenshot;
   galleryCount: number;
-  onOpenHero: () => void;
   onOpenGallery: () => void;
+  showDivider?: boolean;
 };
 
-function ChannelPanel({
+function ChannelStripRow({
   channel,
   hero,
   galleryCount,
-  onOpenHero,
   onOpenGallery,
-}: ChannelPanelProps) {
+  showDivider,
+}: ChannelStripRowProps) {
   const isMobile = channel.platform === "mobile";
 
   return (
-    <div className="flex min-w-0 flex-col text-left">
-      <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
-        {channel.title}
-      </p>
-      <button
-        type="button"
-        onClick={onOpenHero}
-        aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
-        className={cn(
-          "group mt-2 w-full overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] transition hover:border-foreground/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
-          isMobile && "mx-auto max-w-[220px] sm:max-w-[240px]",
-        )}
-      >
+    <>
+      {showDivider && (
         <div
+          className="h-px w-full max-w-md bg-foreground/10 sm:max-w-none"
+          aria-hidden
+        />
+      )}
+      <div className="flex w-full flex-col items-center justify-around gap-4 sm:flex-row sm:items-center sm:gap-10">
+        <div className="flex w-full max-w-[320px] flex-col gap-2 text-left sm:shrink-0">
+          <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
+            {channel.title}
+          </p>
+          <p className="font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
+            {channel.caption}
+          </p>
+          <button
+            type="button"
+            onClick={onOpenGallery}
+            className="inline-flex w-fit items-center gap-1 font-mono text-[0.625rem] tracking-wide text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline sm:text-xs"
+          >
+            View {channel.platform === "web" ? "web" : "mobile"} gallery (
+            {galleryCount})
+            <ArrowRight className="size-3.5 shrink-0" aria-hidden />
+          </button>
+        </div>
+
+        <button
+          type="button"
+          onClick={onOpenGallery}
+          aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
           className={cn(
-            "relative w-full bg-muted/20",
-            isMobile ? "aspect-[9/16]" : "aspect-[16/10]",
+            "group shrink-0 overflow-hidden rounded-lg border border-foreground/15 bg-foreground/[0.02] shadow-[0_6px_15px_rgba(0,0,0,0.08)] transition hover:border-foreground/30 hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30",
+            isMobile
+              ? "mx-auto w-[168px] sm:mx-0 sm:w-[180px]"
+              : "mx-auto w-full max-w-[400px] sm:mx-0 sm:max-w-[420px]",
           )}
         >
-          <Image
-            src={hero.src}
-            alt={hero.alt}
-            fill
-            unoptimized
+          <div
             className={cn(
-              "transition duration-200 group-hover:opacity-95",
-              isMobile ? "object-cover object-top" : "object-cover object-center",
+              "relative w-full bg-muted/20",
+              isMobile ? "aspect-[9/16]" : "aspect-[16/10]",
             )}
-            sizes={isMobile ? "240px" : "(max-width: 768px) 90vw, 420px"}
-          />
-        </div>
-      </button>
-      <p className="mt-2 font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
-        {channel.caption}
-      </p>
-      <button
-        type="button"
-        onClick={onOpenGallery}
-        className="mt-2 inline-flex w-fit items-center gap-1 font-mono text-[0.625rem] tracking-wide text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline sm:text-xs"
-      >
-        View {channel.platform === "web" ? "web" : "mobile"} gallery ({galleryCount})
-        <ArrowRight className="size-3.5 shrink-0" aria-hidden />
-      </button>
-    </div>
+          >
+            <Image
+              src={hero.src}
+              alt={hero.alt}
+              fill
+              unoptimized
+              className={cn(
+                "rounded-lg transition duration-200 group-hover:opacity-95",
+                isMobile ? "object-cover object-top" : "object-cover object-center",
+              )}
+              sizes={isMobile ? "180px" : "420px"}
+            />
+          </div>
+        </button>
+      </div>
+    </>
   );
 }
 
@@ -134,16 +148,9 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
     [galleryShots.length],
   );
 
-  function openGallery(platform: ShowcasePlatform, startId?: string) {
-    const list = shotsForPlatform(screenshots, platform);
-    const startIndex = startId
-      ? Math.max(
-          0,
-          list.findIndex((shot) => shot.id === startId),
-        )
-      : 0;
+  function openGallery(platform: ShowcasePlatform) {
     setGalleryPlatform(platform);
-    setActiveIndex(startIndex >= 0 ? startIndex : 0);
+    setActiveIndex(0);
   }
 
   function handleOpenChange(next: boolean) {
@@ -188,22 +195,20 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <div className="mx-auto mt-3 grid w-full max-w-5xl grid-cols-1 gap-5 border-t border-foreground/10 pt-4 sm:mt-4 sm:grid-cols-2 sm:gap-6 sm:pt-5">
-        {channels.map((channel) => {
+      <div className="slide-4-previews mx-auto mt-3 flex w-full max-w-[1000px] flex-col items-center gap-6 border-t border-foreground/10 pt-4 sm:mt-4 sm:gap-8 sm:pt-5">
+        {channels.map((channel, index) => {
           const list = shotsForPlatform(screenshots, channel.platform);
           const hero =
             findShot(screenshots, channel.heroScreenshotId) ?? list[0];
           if (!hero) return null;
 
           return (
-            <ChannelPanel
+            <ChannelStripRow
               key={channel.platform}
               channel={channel}
               hero={hero}
               galleryCount={list.length}
-              onOpenHero={() =>
-                openGallery(channel.platform, channel.heroScreenshotId)
-              }
+              showDivider={index > 0}
               onOpenGallery={() => openGallery(channel.platform)}
             />
           );
