@@ -158,7 +158,7 @@ export const snapSections: SnapSection[] = [
       screenshots: [
         {
           id: "sign-in",
-          src: "/projects/fleet-hub-sign-in.png",
+          src: "/projects/fleet-hub-sign-in.webp",
           alt: "Fleet hub sign-in screen",
           platform: "web",
           description:
@@ -166,7 +166,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "operations-dashboard",
-          src: "/projects/fleet-hub-dashboard.png",
+          src: "/projects/fleet-hub-dashboard.webp",
           alt: "Operations workspace dashboard",
           platform: "web",
           description:
@@ -174,7 +174,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "weekly-performance",
-          src: "/projects/fleet-hub-weekly-performance.png",
+          src: "/projects/fleet-hub-weekly-performance.webp",
           alt: "Weekly performance analytics",
           platform: "web",
           description:
@@ -182,7 +182,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "work-schedule",
-          src: "/projects/fleet-hub-work-schedule-calendar.png",
+          src: "/projects/fleet-hub-work-schedule-calendar.webp",
           alt: "Work schedule calendar",
           platform: "web",
           description:
@@ -190,7 +190,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "shift-briefing",
-          src: "/projects/fleet-hub-shift-briefing.png",
+          src: "/projects/fleet-hub-shift-briefing.webp",
           alt: "AI-generated shift briefing",
           platform: "web",
           description:
@@ -198,7 +198,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "fleet-map",
-          src: "/projects/fleet-hub-fleet-map.png",
+          src: "/projects/fleet-hub-fleet-map.webp",
           alt: "Fleet Map operations view",
           platform: "web",
           description:
@@ -206,7 +206,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "map-layer-filters",
-          src: "/projects/fleet-hub-map-layers.png",
+          src: "/projects/fleet-hub-map-layers.webp",
           alt: "Fleet Map layer and status filters",
           platform: "web",
           description:
@@ -214,7 +214,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "map-overlays",
-          src: "/projects/fleet-hub-map-overlays.png",
+          src: "/projects/fleet-hub-map-overlays.webp",
           alt: "Map style and overlay controls",
           platform: "web",
           description:
@@ -222,7 +222,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "map-search",
-          src: "/projects/fleet-hub-map-search.png",
+          src: "/projects/fleet-hub-map-search.webp",
           alt: "Map location search",
           platform: "web",
           description:
@@ -230,7 +230,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "nearest-units",
-          src: "/projects/fleet-hub-nearest-units.png",
+          src: "/projects/fleet-hub-nearest-units.webp",
           alt: "Nearest units by status",
           platform: "web",
           description:
@@ -238,7 +238,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "unassigned-loads",
-          src: "/projects/fleet-hub-unassigned-loads.png",
+          src: "/projects/fleet-hub-unassigned-loads.webp",
           alt: "Unassigned loads panel",
           platform: "web",
           description:
@@ -246,7 +246,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "completed-shipments",
-          src: "/projects/fleet-hub-completed-shipments.png",
+          src: "/projects/fleet-hub-completed-shipments.webp",
           alt: "Completed shipments closeout history",
           platform: "web",
           description:
@@ -254,7 +254,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "trailer-management",
-          src: "/projects/fleet-hub-trailer-management.png",
+          src: "/projects/fleet-hub-trailer-management.webp",
           alt: "Trailer Management yard matrix",
           platform: "web",
           description:
@@ -262,7 +262,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "trailer-driver-ping",
-          src: "/projects/fleet-hub-trailer-actions.png",
+          src: "/projects/fleet-hub-trailer-actions.webp",
           alt: "Trailer actions and driver ping menu",
           platform: "web",
           description:
@@ -270,7 +270,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "compliance-import",
-          src: "/projects/fleet-hub-compliance-import.png",
+          src: "/projects/fleet-hub-compliance-import.webp",
           alt: "Sylectus compliance report import",
           platform: "web",
           description:
@@ -278,7 +278,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "settings-display",
-          src: "/projects/fleet-hub-settings-display.png",
+          src: "/projects/fleet-hub-settings-display.webp",
           alt: "Settings display and navigation preferences",
           platform: "web",
           description:
@@ -286,7 +286,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "settings-fleet-map",
-          src: "/projects/fleet-hub-settings-fleet-map.png",
+          src: "/projects/fleet-hub-settings-fleet-map.webp",
           alt: "Settings fleet map and trailer preferences",
           platform: "web",
           description:
@@ -294,7 +294,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "settings-admin",
-          src: "/projects/fleet-hub-settings-admin.png",
+          src: "/projects/fleet-hub-settings-admin.webp",
           alt: "Settings notifications and administration",
           platform: "web",
           description:
@@ -302,7 +302,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "driver-app-control",
-          src: "/projects/fleet-hub-driver-app-control.png",
+          src: "/projects/fleet-hub-driver-app-control.webp",
           alt: "Geo Driver App control center",
           platform: "web",
           description:
@@ -310,7 +310,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "notifications-alerts",
-          src: "/projects/fleet-hub-notifications.png",
+          src: "/projects/fleet-hub-notifications.webp",
           alt: "Notifications bell and ETA alerts",
           platform: "web",
           description:
@@ -318,7 +318,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-sign-in",
-          src: "/projects/geo-driver-sign-in-code.png",
+          src: "/projects/geo-driver-sign-in-code.webp",
           alt: "Geo Driver mobile sign-in",
           platform: "mobile",
           description:
@@ -326,7 +326,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-home",
-          src: "/projects/geo-driver-home.png",
+          src: "/projects/geo-driver-home.webp",
           alt: "Geo Driver home screen",
           platform: "mobile",
           description:
@@ -334,7 +334,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-documents",
-          src: "/projects/geo-driver-documents.png",
+          src: "/projects/geo-driver-documents.webp",
           alt: "Geo Driver document upload by stop",
           platform: "mobile",
           description:
@@ -342,7 +342,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-load-stops",
-          src: "/projects/geo-driver-load-stops.png",
+          src: "/projects/geo-driver-load-stops.webp",
           alt: "Geo Driver load stops and arrive",
           platform: "mobile",
           description:
@@ -350,7 +350,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-inspection-front",
-          src: "/projects/geo-driver-inspection-front.png",
+          src: "/projects/geo-driver-inspection-front.webp",
           alt: "Geo Driver trailer inspection walkthrough front",
           platform: "mobile",
           description:
@@ -358,7 +358,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-inspection-rear",
-          src: "/projects/geo-driver-inspection-rear.png",
+          src: "/projects/geo-driver-inspection-rear.webp",
           alt: "Geo Driver trailer inspection walkthrough rear",
           platform: "mobile",
           description:
@@ -366,7 +366,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-map-search",
-          src: "/projects/geo-driver-map-search.png",
+          src: "/projects/geo-driver-map-search.webp",
           alt: "Geo Driver map search",
           platform: "mobile",
           description:
@@ -374,7 +374,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-map-destination",
-          src: "/projects/geo-driver-map-destination.png",
+          src: "/projects/geo-driver-map-destination.webp",
           alt: "Geo Driver destination and navigation launch",
           platform: "mobile",
           description:
@@ -382,7 +382,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-navigation",
-          src: "/projects/geo-driver-navigation.png",
+          src: "/projects/geo-driver-navigation.webp",
           alt: "Geo Driver turn-by-turn navigation",
           platform: "mobile",
           description:
@@ -390,7 +390,7 @@ export const snapSections: SnapSection[] = [
         },
         {
           id: "geo-driver-navigation-menu",
-          src: "/projects/geo-driver-navigation-menu.png",
+          src: "/projects/geo-driver-navigation-menu.webp",
           alt: "Geo Driver navigation options menu",
           platform: "mobile",
           description:

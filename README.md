@@ -22,6 +22,12 @@ Open http://localhost:43123
 
 The login screenshot lives in `public/projects/`. You can list this on your resume and portfolio even after leaving the company if you describe **your work**, avoid live credentials, and skip customer PII. The case study page explains that for recruiters.
 
+Showcase screenshots are served as **WebP** (see `content/snap-sections.ts`). After replacing PNGs in `public/projects/`, regenerate with:
+
+```bash
+npm run convert:webp
+```
+
 ## Deploy
 
 ```bash
