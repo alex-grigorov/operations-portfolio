@@ -239,9 +239,14 @@ export function ScrollSnapPortfolio() {
                             "max-sm:border-b max-sm:border-foreground/15",
                         )}
                       >
-                        <h3 className="text-center font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
+                        <h3 className="font-mono text-xs font-medium tracking-[0.2em] text-foreground sm:text-sm">
                           {job.role}
                         </h3>
+                        {job.meta && (
+                          <p className="mt-1.5 font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed">
+                            {job.meta}
+                          </p>
+                        )}
                         <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
                           {job.highlights.map((line) => (
                             <li
@@ -256,11 +261,16 @@ export function ScrollSnapPortfolio() {
                     ))}
                   </div>
                   {section.experienceSpotlight && (
-                    <article className="border-t border-foreground/15 px-3 py-3 sm:px-5 sm:py-4">
-                      <h3 className="text-center font-mono text-[0.6875rem] font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-xs">
+                    <article className="border-t border-foreground/15 px-3 py-3 text-left sm:px-5 sm:py-4">
+                      <h3 className="font-mono text-[0.6875rem] font-medium tracking-[0.2em] text-foreground sm:text-xs">
                         {section.experienceSpotlight.role}
                       </h3>
-                      <ul className="mx-auto mt-2 max-w-md list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:max-w-lg sm:pl-4">
+                      {section.experienceSpotlight.meta && (
+                        <p className="mt-1.5 font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs sm:leading-relaxed">
+                          {section.experienceSpotlight.meta}
+                        </p>
+                      )}
+                      <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
                         {section.experienceSpotlight.highlights.map((line) => (
                           <li
                             key={line}
