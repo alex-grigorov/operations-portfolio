@@ -16,9 +16,12 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { preloadImages } from "@/lib/preload-images";
 
 type FleetShowcaseGalleryProps = {
   showcase: ProjectShowcase;
+  /** Keeps deck scroll position when the lightbox opens/closes. */
+  onDeckModalOpenChange?: (open: boolean) => void;
 };
 
 function shotsForPlatform(
@@ -67,7 +70,11 @@ function ChannelStripRow({
         </p>
         <button
           type="button"
-          onClick={onOpenGallery}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onOpenGallery();
+          }}
           className="inline-flex w-fit items-center gap-1 font-mono text-[0.625rem] tracking-wide text-foreground underline-offset-4 transition hover:text-foreground/80 hover:underline sm:text-xs"
         >
           View {channel.platform === "web" ? "web" : "mobile"} gallery (
@@ -79,9 +86,13 @@ function ChannelStripRow({
       <div className="showcase-graphic-col col-span-1 flex items-center justify-center lg:col-span-7 lg:justify-end lg:pr-8">
         <button
           type="button"
-          onClick={onOpenGallery}
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            onOpenGallery();
+          }}
           aria-label={`Open ${channel.title} gallery — ${hero.alt}`}
-          className="group flex max-w-full items-center justify-center overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.02] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+          className="group flex max-w-full items-center justify-center overflow-hidden rounded-md border border-foreground/15 bg-foreground/[0.06] shadow-md transition hover:border-foreground/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
         >
           <Image
             src={hero.src}
@@ -103,7 +114,10 @@ function ChannelStripRow({
   );
 }
 
-export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
+export function FleetShowcaseGallery({
+  showcase,
+  onDeckModalOpenChange,
+}: FleetShowcaseGalleryProps) {
   const { screenshots, channels } = showcase;
   const [galleryPlatform, setGalleryPlatform] =
     useState<ShowcasePlatform | null>(null);
@@ -132,13 +146,19 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
   );
 
   function openGallery(platform: ShowcasePlatform) {
+    onDeckModalOpenChange?.(true);
     setGalleryPlatform(platform);
     setActiveIndex(0);
   }
 
   function handleOpenChange(next: boolean) {
     if (!next) setGalleryPlatform(null);
+    onDeckModalOpenChange?.(next);
   }
+
+  useEffect(() => {
+    preloadImages(screenshots.map((shot) => shot.src));
+  }, [screenshots]);
 
   useEffect(() => {
     if (!open || !canNavigate) return;
@@ -210,7 +230,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
         </div>
       )}
 
-      <Dialog open={open} onOpenChange={handleOpenChange}>
+      <Dialog open={open} onOpenChange={handleOpenChange} modal="trap-focus">
         <DialogContent
           showCloseButton
           className="flex max-h-[92vh] flex-col overflow-hidden border-foreground/15 bg-background p-0 sm:max-w-4xl"
@@ -219,7 +239,7 @@ export function FleetShowcaseGallery({ showcase }: FleetShowcaseGalleryProps) {
             <>
               <DialogTitle className="sr-only">{active.alt}</DialogTitle>
               <div className="relative min-h-0 flex-1 overflow-y-auto">
-                <div className="relative w-full bg-muted/30">
+                <div className="relative w-full bg-foreground/[0.06]">
                   {canNavigate && (
                     <>
                       <Button

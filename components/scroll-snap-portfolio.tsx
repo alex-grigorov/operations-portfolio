@@ -22,8 +22,33 @@ export function ScrollSnapPortfolio() {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const [active, setActive] = useState(0);
   const isAnimatingRef = useRef(false);
+  const sectionVisibilityRef = useRef<number[]>(
+    snapSections.map(() => 0),
+  );
+  const deckScrollTopRef = useRef(0);
+
+  const pickActiveFromVisibility = useCallback(() => {
+    let nextActive = 0;
+    let bestRatio = -1;
+
+    sectionVisibilityRef.current.forEach((ratio, index) => {
+      if (ratio > bestRatio) {
+        bestRatio = ratio;
+        nextActive = index;
+      }
+    });
+
+    if (bestRatio >= 0.5) {
+      setActive((prev) => (prev === nextActive ? prev : nextActive));
+      return true;
+    }
+
+    return false;
+  }, []);
 
   const updateActiveFromScroll = useCallback(() => {
+    if (pickActiveFromVisibility()) return;
+
     const root = scrollerRef.current;
     if (!root) return;
 
@@ -43,7 +68,25 @@ export function ScrollSnapPortfolio() {
     });
 
     setActive((prev) => (prev === nextActive ? prev : nextActive));
-  }, []);
+  }, [pickActiveFromVisibility]);
+
+  const handleFleetGalleryOpenChange = useCallback(
+    (open: boolean) => {
+      const root = scrollerRef.current;
+      if (!root) return;
+
+      if (open) {
+        deckScrollTopRef.current = root.scrollTop;
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        root.scrollTop = deckScrollTopRef.current;
+        updateActiveFromScroll();
+      });
+    },
+    [updateActiveFromScroll],
+  );
 
   const scrollToIndex = useCallback(
     (index: number) => {
@@ -91,12 +134,21 @@ export function ScrollSnapPortfolio() {
     root.addEventListener("scroll", onScroll, { passive: true });
 
     const observer = new IntersectionObserver(
-      () => {
-        if (!isAnimatingRef.current) updateActiveFromScroll();
+      (entries) => {
+        if (isAnimatingRef.current) return;
+
+        for (const entry of entries) {
+          const index = sectionRefs.current.indexOf(entry.target as HTMLElement);
+          if (index >= 0) {
+            sectionVisibilityRef.current[index] = entry.intersectionRatio;
+          }
+        }
+
+        updateActiveFromScroll();
       },
       {
         root,
-        threshold: [0, 0.35, 0.5, 0.65, 1],
+        threshold: [0, 0.25, 0.5, 0.6, 0.75, 1],
       },
     );
 
@@ -113,6 +165,10 @@ export function ScrollSnapPortfolio() {
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
+      if (document.querySelector('[data-slot="dialog-content"][data-open]')) {
+        return;
+      }
+
       if (e.key === "ArrowDown" || e.key === "PageDown") {
         e.preventDefault();
         scrollToIndex(Math.min(active + 1, snapSections.length - 1));
@@ -286,7 +342,10 @@ export function ScrollSnapPortfolio() {
                 </div>
               )}
               {section.projectShowcase && (
-                <FleetShowcaseGallery showcase={section.projectShowcase} />
+                <FleetShowcaseGallery
+                  showcase={section.projectShowcase}
+                  onDeckModalOpenChange={handleFleetGalleryOpenChange}
+                />
               )}
               {section.id === "contact" && <ContactSection />}
               {section.tagline && (
