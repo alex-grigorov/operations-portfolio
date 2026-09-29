@@ -50,6 +50,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export function ContactSection() {
   const email = contactEmail();
   const phone = profile.phone.trim();
+  const phonePublicNote = profile.phonePublicNote?.trim() ?? "";
   const telegramUrl = profile.telegram.trim() ? telegramChatUrl(profile.telegram) : null;
   const linkedIn = linkByPlatform("linkedin");
   const github = linkByPlatform("github");
@@ -109,7 +110,7 @@ export function ContactSection() {
               </InfoRow>
             )}
 
-            {phone && (
+            {phone ? (
               <InfoRow label="Phone">
                 <a
                   href={`tel:${phone.replace(/\s/g, "")}`}
@@ -118,7 +119,11 @@ export function ContactSection() {
                   {phone}
                 </a>
               </InfoRow>
-            )}
+            ) : phonePublicNote ? (
+              <InfoRow label="Phone">
+                <span className="text-foreground/75">{phonePublicNote}</span>
+              </InfoRow>
+            ) : null}
 
             {linkedIn && (
               <InfoRow label="LinkedIn">
