@@ -15,120 +15,143 @@ function contactEmail(): string | null {
   return link.url.replace(/^mailto:/i, "").trim() || null;
 }
 
-function contactLinks() {
-  return profile.socialLinks.filter((l) => l.url.trim().length > 0);
+function linkByPlatform(platform: "linkedin" | "github" | "email") {
+  return profile.socialLinks.find((l) => l.platform === platform && l.url.trim());
 }
 
-type ContactRowProps = {
+function displayUrl(url: string) {
+  return url.replace(/^https?:\/\/(www\.)?/, "").replace(/^mailto:/i, "");
+}
+
+type InfoRowProps = {
   label: string;
   children: React.ReactNode;
-  className?: string;
 };
 
-function ContactRow({ label, children, className }: ContactRowProps) {
+function InfoRow({ label, children }: InfoRowProps) {
   return (
-    <div
-      className={cn(
-        "grid gap-2 border-b border-foreground/10 py-4 text-left sm:grid-cols-[7rem_1fr] sm:items-baseline sm:gap-6 sm:py-5",
-        className,
-      )}
-    >
-      <p className="font-mono text-xs font-medium tabular-nums tracking-[0.25em] text-foreground sm:text-sm">
+    <div className="flex items-baseline justify-between gap-3 border-b border-foreground/10 py-2 text-left">
+      <span className="shrink-0 font-mono text-[0.625rem] tracking-[0.2em] text-foreground uppercase sm:text-[0.6875rem]">
         {label}
-      </p>
-      <div className="font-serif text-base leading-relaxed text-foreground/90 sm:text-lg">
+      </span>
+      <span className="min-w-0 text-right font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {children}
-      </div>
+      </span>
     </div>
+  );
+}
+
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-xs">
+      {children}
+    </p>
   );
 }
 
 export function ContactSection() {
   const email = contactEmail();
   const phone = profile.phone.trim();
-  const links = contactLinks();
+  const telegramUrl = profile.telegram.trim() ? telegramChatUrl(profile.telegram) : null;
+  const linkedIn = linkByPlatform("linkedin");
+  const github = linkByPlatform("github");
+
+  const locationLine = "Near Sofia, BG (UTC+2)";
 
   return (
-    <div className="mt-8 w-full max-w-lg text-left">
-      <p className="text-center font-serif text-base leading-relaxed text-foreground/90 sm:text-lg">
-        Remote-ready from Bulgaria. I&apos;m happy to connect for account operations, customer
-        success, CRM coordination, logistics, or fast-moving remote teams—email, LinkedIn, or
-        Telegram.
+    <div className="mt-3 w-full max-w-4xl text-left sm:mt-4">
+      <p className="text-center font-serif text-sm leading-snug text-foreground/90 sm:text-base sm:leading-relaxed">
+        Based near Sofia, Bulgaria · Open to remote account operations, customer success, CRM
+        coordination, and fast-moving team workflows.
       </p>
 
-      {profile.openTo.length > 0 && (
-        <ul className="mt-6 space-y-2 border-t border-foreground/10 pt-6 text-left">
-          <li className="font-mono text-xs tracking-[0.25em] text-foreground uppercase">
-            Open to
-          </li>
-          {profile.openTo.map((line) => (
-            <li
-              key={line}
-              className="font-serif text-sm leading-relaxed text-foreground/85 sm:text-base"
-            >
-              {line}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="mt-8 border-t border-foreground/15">
-        <ContactRow label="Location">
-          <p>{profile.location}</p>
-        </ContactRow>
-
-        {profile.telegram.trim() && telegramChatUrl(profile.telegram) && (
-          <ContactRow label="Telegram">
-            <a
-              href={telegramChatUrl(profile.telegram)!}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-foreground/25 underline-offset-4 transition hover:decoration-foreground/60"
-            >
-              {telegramDisplayHandle(profile.telegram)} — start chat
-            </a>
-          </ContactRow>
-        )}
-
-        {email && (
-          <ContactRow label="Email">
-            <a
-              href={`mailto:${email}`}
-              className="underline decoration-foreground/25 underline-offset-4 transition hover:decoration-foreground/60"
-            >
-              {email}
-            </a>
-          </ContactRow>
-        )}
-
-        {phone && (
-          <ContactRow label="Phone">
-            <a
-              href={`tel:${phone.replace(/\s/g, "")}`}
-              className="underline decoration-foreground/25 underline-offset-4 transition hover:decoration-foreground/60"
-            >
-              {phone}
-            </a>
-          </ContactRow>
-        )}
-
-        {links
-          .filter((l) => l.platform !== "email")
-          .map((link) => (
-            <ContactRow key={link.platform} label={link.label}>
-              <a
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-foreground/25 underline-offset-4 transition hover:decoration-foreground/60"
+      <div className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-2 sm:gap-8 md:gap-10">
+        <div>
+          <SectionLabel>Open to</SectionLabel>
+          <ul className="mt-2.5 space-y-1.5">
+            {profile.openTo.map((line) => (
+              <li
+                key={line}
+                className="font-serif text-xs leading-snug text-foreground/85 sm:text-sm"
               >
-                {link.url.replace(/^https?:\/\/(www\.)?/, "")}
-              </a>
-            </ContactRow>
-          ))}
+                {line}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <SectionLabel>Direct contact</SectionLabel>
+          <div className="mt-2.5">
+            <InfoRow label="Location">
+              <span>{locationLine}</span>
+            </InfoRow>
+
+            {telegramUrl && (
+              <InfoRow label="Telegram">
+                <a
+                  href={telegramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                >
+                  {telegramDisplayHandle(profile.telegram)}
+                </a>
+              </InfoRow>
+            )}
+
+            {email && (
+              <InfoRow label="Email">
+                <a
+                  href={`mailto:${email}`}
+                  className="break-all underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                >
+                  {email}
+                </a>
+              </InfoRow>
+            )}
+
+            {phone && (
+              <InfoRow label="Phone">
+                <a
+                  href={`tel:${phone.replace(/\s/g, "")}`}
+                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                >
+                  {phone}
+                </a>
+              </InfoRow>
+            )}
+
+            {linkedIn && (
+              <InfoRow label="LinkedIn">
+                <a
+                  href={linkedIn.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                >
+                  {displayUrl(linkedIn.url)}
+                </a>
+              </InfoRow>
+            )}
+
+            {github && (
+              <InfoRow label="GitHub">
+                <a
+                  href={github.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                >
+                  {displayUrl(github.url)}
+                </a>
+              </InfoRow>
+            )}
+          </div>
+        </div>
       </div>
 
-      <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+      <div className="mt-5 flex flex-col items-center gap-2 sm:mt-6">
         <DownloadResumePdf
           variant="outline"
           size="lg"
@@ -138,19 +161,16 @@ export function ContactSection() {
         <LinkButton
           href="/resume"
           variant="ghost"
-          size="lg"
-          className="font-mono text-xs tracking-[0.15em] text-muted-foreground uppercase hover:text-foreground"
+          size="sm"
+          className="font-mono text-[0.625rem] tracking-[0.12em] text-muted-foreground uppercase hover:text-foreground"
         >
           View résumé online
         </LinkButton>
+        <p className="max-w-md text-center font-serif text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs">
+          Need selectable text for job boards? Open the online résumé and use Print → Save as PDF.
+        </p>
       </div>
 
-      <p className="mt-6 text-center font-serif text-xs leading-relaxed text-muted-foreground sm:text-sm">
-        PDF is generated from the same résumé used on the dedicated résumé page. For job boards
-        that need selectable text, open the online résumé and use Print → Save as PDF.
-      </p>
-
-      {/* Off-screen source for html2canvas PDF export */}
       <div
         aria-hidden
         className="pointer-events-none fixed -left-[10000px] top-0 w-[816px] opacity-0"

@@ -180,7 +180,7 @@ export function ScrollSnapPortfolio() {
                 : section.projectShowcase
                   ? "max-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pb-4 pt-[4.5vh] sm:pb-5 sm:pt-[5vh]"
                   : section.id === "contact"
-                    ? "justify-center py-16 sm:py-20"
+                    ? "max-h-dvh justify-center overflow-hidden py-8 sm:py-10"
                     : "justify-center py-20",
             )}
           >
@@ -192,7 +192,7 @@ export function ScrollSnapPortfolio() {
                   : section.projectShowcase
                     ? "w-full max-w-5xl px-2"
                     : section.id === "contact"
-                      ? "w-full max-w-xl px-2"
+                      ? "w-full max-w-4xl px-2"
                       : section.paragraphs
                         ? "max-w-2xl px-2"
                         : "max-w-lg",
@@ -213,7 +213,7 @@ export function ScrollSnapPortfolio() {
                       : section.projectShowcase
                         ? "mx-auto max-w-2xl text-lg leading-tight sm:text-xl md:text-2xl"
                         : section.id === "contact"
-                          ? "text-3xl sm:text-4xl"
+                          ? "text-2xl sm:text-3xl"
                           : section.paragraphs
                             ? "text-3xl sm:text-4xl"
                             : "text-2xl sm:text-3xl",
