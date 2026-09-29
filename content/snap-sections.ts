@@ -102,6 +102,14 @@ export const snapSections: SnapSection[] = [
         ],
       },
       {
+        role: "Electrical Assembly Operator (On-site)",
+        meta: "AQ Electric AD · Jun 2022 – Nov 2022 · Pernik, Bulgaria",
+        highlights: [
+          "Precision assembly under QA standards and tight production deadlines.",
+          "Coordinated with team leads; accurate production and inventory logs.",
+        ],
+      },
+      {
         role: "Gas Station Sales & Operations (On-site)",
         meta: "Largo International Ltd. · Mar 2018 – May 2022 · Pernik, Bulgaria",
         highlights: [
