@@ -21,6 +21,12 @@ export type Project = {
   internalOnly?: boolean;
 };
 
+export type Certification = {
+  name: string;
+  issuer: string;
+  year?: string;
+};
+
 export type SocialPlatform =
   | "linkedin"
   | "github"
@@ -43,6 +49,8 @@ export type Profile = {
   openTo: string[];
   email: string;
   phone: string;
+  /** e.g. @username — shown on contact & résumé when set */
+  telegram: string;
   linkedIn: string;
   github: string;
   /** Top-right icons — leave url empty to hide a link */
@@ -52,19 +60,24 @@ export type Profile = {
   experience: Experience[];
   projects: Project[];
   education: { school: string; credential: string; year: string }[];
+  certifications: Certification[];
 };
 
 export const profile: Profile = {
   name: "Alex Grigorov",
-  headline: "Dispatch & fleet operations · AI-assisted ops platform builder",
-  location: "Near Sofia, Bulgaria · Open to remote",
+  headline:
+    "Operations & client success · high-volume coordination · systems builder",
+  location: "Pernik, Bulgaria · Open to remote",
   openTo: [
-    "Remote dispatch & fleet operations",
-    "Logistics coordination",
-    "Operations roles open to learning new tools",
+    "Account management & retention (remote)",
+    "Customer success & client operations",
+    "CRM / RevOps coordination (HubSpot and similar)",
+    "Dispatch, logistics & operations coordination",
+    "Crypto / trading-adjacent remote teams (Telegram-first comms)",
   ],
   email: "",
   phone: "",
+  telegram: "",
   linkedIn: "https://linkedin.com/in/your-profile",
   github: "https://github.com/your-username",
   socialLinks: [
@@ -85,42 +98,51 @@ export const profile: Profile = {
     },
   ],
   summary:
-    "Dispatch and fleet operations professional with three years coordinating loads, drivers, and compliance workflows (Sylectus TMS, Samsara GPS, ELD). Built and deployed an internal Fleet Operations Hub and Geo Driver mobile app using AI-assisted development—unifying TMS, telematics, and field workflows via API integrations. Based near Sofia, Bulgaria; seeking remote roles in logistics and open to other industries where I can learn quickly and deliver results.",
+    "Performance-driven operations and client-success specialist with three years in high-volume dispatch and live account coordination—real-time updates, escalations, multi-channel communication, and accurate records across dashboards and partner systems. Built and deployed an internal operations hub and driver mobile app (API integrations, notifications, workflows) using AI-assisted development. Fluent English; based in Pernik, Bulgaria. Seeking remote roles in account management, retention, customer success, CRM operations, logistics, and fast-paced remote teams—including crypto-adjacent environments.",
   skills: [
     {
-      label: "Operations",
+      label: "Client & account operations",
       items: [
-        "Truck dispatch & load booking",
-        "Carrier / broker communication",
-        "Sylectus (TMS)",
-        "Samsara fleet GPS",
-        "ELD & compliance workflows",
-        "Trailer & yard tracking",
+        "Account coordination & follow-through",
+        "Escalation handling & issue resolution",
+        "High-touch phone, email & messaging",
+        "Data hygiene across platforms",
+        "Retention-minded service under SLA pressure",
       ],
     },
     {
-      label: "Technical",
+      label: "Platforms & systems",
       items: [
-        "AI-assisted development (Cursor, ChatGPT)",
-        "Next.js · React · TypeScript",
-        "REST / API integrations",
-        "Mapbox · operational dashboards",
-        "Mobile driver app (Android & iOS)",
+        "HubSpot CRM (hands-on practice; certification in progress)",
+        "Logistics TMS / GPS / ELD (Sylectus, Samsara)",
+        "Google Workspace · Excel (sort/filter, lookups)",
+        "Telegram & Discord for remote comms",
+        "AI-assisted build: Next.js, React, TypeScript, APIs",
+      ],
+    },
+    {
+      label: "Professional strengths",
+      items: [
+        "Cross-functional coordination",
+        "Structured logging & reporting",
+        "Process improvement from the floor",
+        "Quick learner on new SaaS tools",
       ],
     },
   ],
   experience: [
     {
       company: "",
-      title: "Truck Dispatcher & Fleet Operations",
+      title: "Dispatch Specialist / Operations Coordinator",
       location: "Remote",
       start: "2022",
       end: "Present",
       highlights: [
-        "Coordinated loads, drivers, and day-to-day fleet operations for three years.",
-        "Used Sylectus, Samsara, and ELD systems daily for booking, tracking, and compliance.",
-        "Negotiated rates with carriers and brokers; tracked freight through pickup and delivery.",
-        "Built and maintained an internal operations hub and driver mobile app used in production.",
+        "Primary point of contact for high-volume accounts—live status, schedule changes, and route disruptions.",
+        "Maintained accurate account data across internal dashboards and partner systems.",
+        "High-touch communication via phone, email, and messaging with clients, brokers, and field operators.",
+        "Built structured daily logs and updates; improved handoffs between ops, management, and partners.",
+        "Built and maintained internal operations hub and Geo Driver mobile app used in production.",
       ],
     },
     {
@@ -130,57 +152,78 @@ export const profile: Profile = {
       start: "—",
       end: "—",
       highlights: [
-        "Supported PR campaigns with research, metrics, and client-facing reports.",
-        "Drafted press releases and promotional materials; ensured accuracy and visual quality.",
-        "Distributed releases to targeted media outlets.",
+        "Campaign research, metrics, and client-facing reports.",
+        "Press releases and media materials with accuracy and visual quality.",
+        "Targeted distribution to media outlets.",
       ],
     },
     {
       company: "",
-      title: "Electrical Assembly Operator",
-      location: "Bulgaria",
+      title: "Electrical Assembly & Quality Technician",
+      location: "Pernik, Bulgaria",
       start: "—",
       end: "—",
       highlights: [
-        "Assembled high- and low-voltage cabinets and panels from schematics.",
-        "Installed wiring, terminal blocks, breakers, and relay systems.",
-        "Performed ISO-aligned inspections; operated crimping and line machinery.",
+        "Technical workflows under strict QA and production deadlines.",
+        "Coordinated with team leads to reduce line errors and bottlenecks.",
+        "Documented inventories and production logs with high accuracy.",
       ],
     },
     {
       company: "",
-      title: "Gas Station Sales & Forecourt Associate",
-      location: "Bulgaria",
+      title: "Service Station / Customer Operations Attendant",
+      location: "Pernik, Bulgaria",
       start: "—",
       end: "—",
       highlights: [
-        "Operated POS (cash, card, mobile) and balanced drawers.",
-        "Managed forecourt fueling, pumps, and safety protocols.",
-        "Handled inventory, restocking, and facility standards.",
+        "Direct service to high daily customer volume; POS and transaction accuracy.",
+        "Resolved on-site complaints and maintained professional service standards.",
+        "Inventory, forecourt safety, and facility standards.",
       ],
     },
   ],
   projects: [
     {
       slug: "fleet-operations-hub",
-      title: "Fleet Operations Hub & Geo Driver App",
+      title: "Custom operations & visibility platform",
       summary:
-        "Internal dispatch platform and companion mobile app integrating Sylectus, Samsara, Mapbox, and driver field workflows.",
+        "Internal hub and mobile app—dashboards, alerts, integrations, and field workflows (originally for fleet/logistics; demonstrates systems skills applicable to CRM and client ops).",
       role: "Sole builder — requirements through deployment",
-      stack: ["Next.js", "React", "TypeScript", "Mapbox", "Sylectus API", "Samsara"],
+      stack: ["Next.js", "React", "TypeScript", "Mapbox", "REST APIs"],
       internalOnly: true,
       highlights: [
-        "Unified TMS, GPS, ELD, compliance imports, fleet map, trailer management, and notifications.",
-        "Geo Driver (Android/iOS): documents, inspections, arrivals, navigation, and dispatch alerts.",
-        "Delivered with AI-assisted development (Cursor, ChatGPT) and production API integrations.",
+        "Unified data from multiple systems into one workspace with role-based access.",
+        "Notifications, pipelines-style statuses, and mobile submissions from the field.",
+        "Delivered with AI-assisted development and production API integrations.",
       ],
-      showcaseNotes: "Showcased on portfolio; built for prior employer internal use.",
+      showcaseNotes: "Detailed screenshots on portfolio home (section 04).",
+    },
+    {
+      slug: "hubspot-crm-practice",
+      title: "CRM & sales operations (HubSpot — hands-on practice)",
+      summary:
+        "Self-directed HubSpot configuration to mirror real account workflows: pipelines, segmentation, and task automation.",
+      role: "Independent learning project",
+      stack: ["HubSpot CRM", "Lists", "Workflows", "Deal pipelines"],
+      highlights: [
+        "Configured deal pipelines and stages aligned to account lifecycle.",
+        "Built contact lists/segments and task-tracking for follow-ups.",
+        "Practiced workflow automation for reminders and handoffs.",
+      ],
+      showcaseNotes: "Add HubSpot Academy certification to profile when complete.",
     },
   ],
   education: [
     {
-      school: "Bulgaria",
-      credential: "High school diploma",
+      school: "Pernik, Bulgaria",
+      credential: "Secondary education",
+      year: "",
+    },
+  ],
+  certifications: [
+    {
+      name: "HubSpot Sales Software & CRM",
+      issuer: "HubSpot Academy",
       year: "",
     },
   ],

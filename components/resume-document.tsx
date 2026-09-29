@@ -5,9 +5,30 @@ type ResumeDocumentProps = {
   compact?: boolean;
 };
 
+function headerEmail(): string {
+  if (profile.email.trim()) return profile.email.trim();
+  const link = profile.socialLinks.find((l) => l.platform === "email");
+  if (!link?.url.trim()) return "";
+  return link.url.replace(/^mailto:/i, "").trim();
+}
+
 export function ResumeDocument({ compact }: ResumeDocumentProps) {
-  const { name, headline, location, email, phone, linkedIn, github, summary, skills, experience, projects, education } =
-    profile;
+  const {
+    name,
+    headline,
+    location,
+    phone,
+    telegram,
+    linkedIn,
+    github,
+    summary,
+    skills,
+    experience,
+    projects,
+    education,
+    certifications,
+  } = profile;
+  const email = headerEmail();
 
   return (
     <article
@@ -34,6 +55,7 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
               GitHub
             </a>
           ) : null}
+          {telegram ? <span>Telegram: {telegram.startsWith("@") ? telegram : `@${telegram}`}</span> : null}
         </p>
       </header>
 
@@ -109,6 +131,28 @@ export function ResumeDocument({ compact }: ResumeDocumentProps) {
           </div>
         ))}
       </section>
+
+      {certifications.some((c) => c.name.trim()) && (
+        <>
+          <Separator className="my-5" />
+          <section className="space-y-2">
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Certifications
+            </h2>
+            <ul className="space-y-1">
+              {certifications
+                .filter((c) => c.name.trim())
+                .map((c) => (
+                  <li key={c.name}>
+                    <span className="font-medium">{c.name}</span>
+                    {c.issuer ? ` — ${c.issuer}` : ""}
+                    {c.year ? ` (${c.year})` : " (in progress)"}
+                  </li>
+                ))}
+            </ul>
+          </section>
+        </>
+      )}
 
       <Separator className="my-5" />
 

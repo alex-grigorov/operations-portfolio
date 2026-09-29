@@ -39,16 +39,16 @@ export const snapSections: SnapSection[] = [
     id: "home",
     label: "Home",
     title: "Alex Grigorov",
-    tagline: "Personal Portfolio",
+    tagline: "Operations · Client Success · Systems",
   },
   {
     id: "introduction",
     label: "Introduction",
     title: "Introduction",
     paragraphs: [
-      "I'm Alex Grigorov, based near Sofia, Bulgaria. I have three years of experience in truck dispatching and the full range of related fleet operations—coordinating loads and drivers, working with compliance and ELD workflows, and keeping day-to-day freight moving.",
-      "In my recent role, I built an internal web operations hub myself—not as a side experiment, but as the system our team used every day. I developed it with AI-assisted tools including Cursor, ChatGPT, and others, and wired in API connections to our TMS (Sylectus), fleet GPS (Samsara), ELD logs, and additional sources so dispatch and management could access everything from one place.",
-      "I'm open to remote roles in logistics and in other fields as well. I'm not tied to trucking-only work: I'm willing to learn new tools and industries and to show results quickly. I have a high school education, a strong work ethic, and I'm looking for a legitimate remote team where I can contribute and grow.",
+      "I'm Alex Grigorov, based in Pernik, Bulgaria (remote-ready, fluent English). My background is high-volume operations and client-facing coordination—three years as a dispatch specialist managing live accounts, status updates, escalations, and multi-channel communication with partners and field teams under time pressure.",
+      "I'm not only an operator: I built the internal web platform our team relied on—dashboards, notifications, mobile driver workflows, and API-connected data—using AI-assisted development (Cursor, ChatGPT) and integrations similar in spirit to CRM systems: clean records, pipelines, handoffs, and one place to see what needs action next.",
+      "I'm actively pursuing HubSpot and broader CRM skills and I'm open to remote roles across logistics, account management, customer success, retention, RevOps-style coordination, and high-touch remote teams (including crypto and trading-adjacent firms that run on Telegram and fast response times). I bring operational problem-solving, communication, and systems discipline—and I learn new tools quickly.",
     ],
   },
   {
@@ -59,43 +59,44 @@ export const snapSections: SnapSection[] = [
       {
         role: "Gas Station Sales & Forecourt Associate",
         highlights: [
-          "POS—cash, card, mobile—and drawer balancing.",
-          "Forecourt fueling, pumps, and safety protocols.",
-          "Inventory, restocking, and facility standards.",
+          "High-volume front-line service—POS, cash/card flows, and daily customer contact.",
+          "Resolved on-site complaints calmly; kept service standards under rush periods.",
+          "Inventory, forecourt safety, and accurate shift handoffs.",
         ],
       },
       {
         role: "Electrical Assembly Operator",
         highlights: [
-          "High-/low-voltage cabinets and panels from schematics.",
-          "Wiring, terminal blocks, breakers, and relay systems.",
-          "ISO-aligned inspections; crimping and line machinery.",
+          "Precision workflows under QA standards and tight production deadlines.",
+          "Cross-functional coordination to reduce line errors and bottlenecks.",
+          "Accurate production and inventory logs in central tracking systems.",
         ],
       },
       {
         role: "Public Relations Coordinator",
         highlights: [
-          "PR research, campaign metrics, and client reporting.",
-          "Press releases and media materials for news, events, and products.",
-          "Quality-checked visuals; distributed to targeted outlets.",
+          "Campaign research, metrics, and client-ready reporting.",
+          "Press releases and promotional materials—accuracy and presentation mattered.",
+          "Targeted distribution and stakeholder-facing deliverables.",
         ],
       },
       {
-        role: "Truck Dispatcher & Fleet Operations",
+        role: "Dispatch Specialist · Operations Coordinator",
         highlights: [
-          "Three years coordinating loads, drivers, and day-to-day fleet operations.",
-          "Daily use of Sylectus (TMS), Samsara GPS, and ELD workflows.",
-          "Booked shipments, negotiated rates with carriers and brokers, and tracked freight through delivery.",
+          "Primary point of contact for live accounts—status updates, schedule changes, route issues.",
+          "Real-time tracking and dashboard reporting; kept account records accurate and current.",
+          "High-touch phone, email, and messaging with clients, brokers, and field operators.",
+          "Booked freight, negotiated rates, and closed the loop through delivery.",
         ],
       },
     ],
     experienceSpotlight: {
-      role: "AI-Assisted Development · Fleet Operations Hub",
+      role: "Systems & CRM-Adjacent Development · Operations Hub",
       highlights: [
-        "Self-built internal web platform that unified fleet, dispatch, and compliance data in one workspace.",
-        "API integrations with Sylectus (TMS), Samsara (GPS), ELD logs, and additional operational systems.",
-        "End-to-end delivery using AI-assisted development (Cursor, ChatGPT)—from requirements through deployment.",
-        "Production-ready sign-in, structured data views, and workflows tailored to daily dispatch operations.",
+        "Built internal platform (web + mobile) used daily—pipelines, alerts, and single source of truth for ops data.",
+        "API integrations (TMS, GPS, ELD, maps)—same discipline as CRM hygiene and cross-tool sync.",
+        "HubSpot CRM: hands-on practice with pipelines, lists, tasks, and workflow configuration (cert in progress).",
+        "AI-assisted delivery (Cursor, ChatGPT)—from field requirements to production-ready tools.",
       ],
     },
   },
@@ -105,7 +106,7 @@ export const snapSections: SnapSection[] = [
     title: "Fleet Operations Hub Project Showcase",
     projectShowcase: {
       summary:
-        "Internal fleet and dispatch platform I built with AI-assisted development—API-connected data from Sylectus, Samsara, ELD, and other systems in one workspace. Select a preview to enlarge and read what each area does.",
+        "Proof of systems work: an internal operations platform I built end-to-end (also used in logistics)—dashboards, notifications, mobile app, and API-connected data. The same skills apply to client operations, CRM, and remote account teams. Select a preview to enlarge and read what each area does.",
       builtWith:
         "Built with AI-assisted development (Cursor, ChatGPT, and related tools) on Next.js, React, and TypeScript, with REST and webhook-style API integrations to Sylectus, Samsara, Mapbox, and other third-party services for maps, telemetry, compliance, and mobile driver workflows.",
       screenshots: [

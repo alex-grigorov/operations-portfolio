@@ -50,14 +50,37 @@ export function ContactSection() {
   return (
     <div className="mt-8 w-full max-w-lg text-left">
       <p className="text-center font-serif text-base leading-relaxed text-foreground/90 sm:text-lg">
-        Open to remote opportunities in logistics, operations, and related fields. Reach out by
-        email or LinkedIn—I respond to serious inquiries.
+        Remote-ready from Bulgaria. I&apos;m happy to connect for account operations, customer
+        success, CRM coordination, logistics, or fast-moving remote teams—email, LinkedIn, or
+        Telegram.
       </p>
+
+      {profile.openTo.length > 0 && (
+        <ul className="mt-6 space-y-2 border-t border-foreground/10 pt-6 text-left">
+          <li className="font-mono text-xs tracking-[0.25em] text-foreground uppercase">
+            Open to
+          </li>
+          {profile.openTo.map((line) => (
+            <li
+              key={line}
+              className="font-serif text-sm leading-relaxed text-foreground/85 sm:text-base"
+            >
+              {line}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div className="mt-8 border-t border-foreground/15">
         <ContactRow label="Location">
           <p>{profile.location}</p>
         </ContactRow>
+
+        {profile.telegram.trim() && (
+          <ContactRow label="Telegram">
+            <p>{profile.telegram.startsWith("@") ? profile.telegram : `@${profile.telegram}`}</p>
+          </ContactRow>
+        )}
 
         {email && (
           <ContactRow label="Email">
