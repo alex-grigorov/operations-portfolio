@@ -81,7 +81,7 @@ export const profile: Profile = {
   /** Header icon + contact row — with or without @ */
   telegram: "alexgrigorov12",
   linkedIn: "https://linkedin.com/in/your-profile",
-  github: "https://github.com/your-username",
+  github: "https://github.com/alex-grigorov",
   socialLinks: [
     {
       platform: "linkedin",
@@ -90,7 +90,7 @@ export const profile: Profile = {
     },
     {
       platform: "github",
-      url: "https://github.com/your-username",
+      url: "https://github.com/alex-grigorov",
       label: "GitHub",
     },
     {
