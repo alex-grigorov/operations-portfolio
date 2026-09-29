@@ -234,12 +234,16 @@ export function ScrollSnapPortfolio() {
             className={cn(
               "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
-                ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(6vh,calc(env(safe-area-inset-top)+4.5rem))] sm:pt-[7vh] md:pb-4"
+                ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pt-[7vh] md:pb-4"
                 : section.projectShowcase
-                  ? "snap-section-loose showcase-section min-h-dvh justify-start overflow-x-hidden pt-[2.5vh] pb-8 md:h-dvh md:max-h-dvh md:min-h-dvh md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
+                  ? "snap-section-loose showcase-section min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] md:h-dvh md:max-h-dvh md:min-h-dvh md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
                   : section.id === "contact"
-                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden py-8 pb-[max(2rem,env(safe-area-inset-bottom))] sm:py-10 md:justify-center"
-                    : "justify-center py-20",
+                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-10 md:justify-center"
+                  : section.paragraphs
+                    ? "snap-section-loose min-h-dvh justify-start overflow-x-hidden pb-12 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-16"
+                    : section.id === "home"
+                      ? "justify-center pb-16 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))] sm:pb-20"
+                      : "justify-center pb-20 pt-[max(5.5rem,calc(env(safe-area-inset-top)+4.75rem))]",
             )}
           >
             <div
@@ -252,7 +256,7 @@ export function ScrollSnapPortfolio() {
                     : section.id === "contact"
                       ? "w-full max-w-4xl px-2"
                       : section.paragraphs
-                        ? "max-w-2xl px-2"
+                        ? "w-full max-w-2xl px-2 text-left"
                         : "max-w-lg",
               )}
             >
