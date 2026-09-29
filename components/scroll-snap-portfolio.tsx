@@ -228,7 +228,7 @@ export function ScrollSnapPortfolio() {
                       <article
                         key={job.role}
                         className={cn(
-                          "flex h-full flex-col px-3 py-3 sm:px-5 sm:py-4",
+                          "flex h-full flex-col px-2.5 py-3 sm:px-3.5 sm:py-4",
                           jobIndex % 2 === 0 && "sm:border-r sm:border-foreground/15",
                           (jobIndex < 2 || !section.experienceSpotlight) &&
                             "border-b border-foreground/15",
