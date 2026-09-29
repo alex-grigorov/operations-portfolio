@@ -186,7 +186,7 @@ export function ScrollSnapPortfolio() {
     <div className="relative h-dvh w-full overflow-hidden bg-background text-foreground">
       <nav
         aria-label="Section navigation"
-        className="fixed right-5 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-3 sm:right-8"
+        className="fixed right-3 top-1/2 z-50 flex -translate-y-1/2 scale-90 flex-col gap-3 sm:right-8 sm:scale-100"
       >
         {snapSections.map((section, index) => (
           <button
@@ -205,16 +205,16 @@ export function ScrollSnapPortfolio() {
         ))}
       </nav>
 
-      <div className="fixed left-5 right-5 top-6 z-50 flex items-start justify-between gap-4 sm:left-8 sm:right-8 sm:top-8">
+      <div className="safe-top fixed left-5 right-5 top-6 z-50 flex items-start justify-between gap-2 pr-10 sm:left-8 sm:right-8 sm:top-8 sm:gap-4 sm:pr-0">
         <p
-          className="font-mono text-sm tabular-nums tracking-[0.25em] text-foreground sm:text-base"
+          className="font-mono text-xs tabular-nums tracking-[0.15em] text-foreground max-sm:shrink-0 sm:text-sm sm:tracking-[0.25em] md:text-base"
           aria-live="polite"
           aria-atomic="true"
         >
           {String(active + 1).padStart(2, "0")} /{" "}
           {String(snapSections.length).padStart(2, "0")}
         </p>
-        <SocialLinks className="shrink-0" />
+        <SocialLinks className="shrink-0" variant="compact" />
       </div>
 
       <main
@@ -232,11 +232,11 @@ export function ScrollSnapPortfolio() {
             className={cn(
               "snap-section relative flex min-h-dvh w-full flex-col items-center bg-background px-6 sm:px-12",
               section.experiences
-                ? "justify-start overflow-hidden pb-4 pt-[6vh] sm:pt-[7vh]"
+                ? "min-h-dvh justify-start overflow-x-hidden pb-8 pt-[max(6vh,calc(env(safe-area-inset-top)+4.5rem))] max-md:overflow-y-auto max-md:overscroll-y-contain sm:pt-[7vh] md:overflow-hidden md:pb-4"
                 : section.projectShowcase
                   ? "showcase-section h-dvh max-h-dvh min-h-dvh justify-start overflow-x-hidden overflow-y-auto overscroll-y-contain pt-[2.5vh] pb-8 max-md:overflow-y-auto md:overflow-hidden md:pb-10 md:pt-[2.75vh]"
                   : section.id === "contact"
-                    ? "max-h-dvh justify-center overflow-hidden py-8 sm:py-10"
+                    ? "min-h-dvh justify-start overflow-x-hidden py-8 pb-[max(2rem,env(safe-area-inset-bottom))] max-md:overflow-y-auto max-md:overscroll-y-contain sm:py-10 md:justify-center md:overflow-hidden"
                     : "justify-center py-20",
             )}
           >
@@ -246,7 +246,7 @@ export function ScrollSnapPortfolio() {
                 section.experiences
                   ? "w-full max-w-5xl items-stretch px-1 text-left"
                   : section.projectShowcase
-                    ? "slide-4-container flex h-full min-h-0 w-full max-w-5xl flex-1 flex-col justify-between overflow-hidden px-2 md:box-border"
+                    ? "slide-4-container flex h-full min-h-0 w-full max-w-5xl flex-1 flex-col justify-between overflow-hidden px-2 max-md:overflow-y-visible md:box-border"
                     : section.id === "contact"
                       ? "w-full max-w-4xl px-2"
                       : section.paragraphs
@@ -300,8 +300,11 @@ export function ScrollSnapPortfolio() {
                           {job.role}
                         </h3>
                         {job.meta && (
-                          <p className="mt-1.5 max-w-full font-serif text-xs leading-snug whitespace-nowrap text-muted-foreground sm:text-[0.8125rem]">
-                            {formatExperienceMeta(job.meta)}
+                          <p className="mt-1.5 max-w-full text-pretty break-words font-serif text-xs leading-snug text-muted-foreground max-sm:whitespace-normal sm:text-[0.8125rem] sm:whitespace-nowrap">
+                            <span className="sm:hidden">{job.meta}</span>
+                            <span className="hidden sm:inline">
+                              {formatExperienceMeta(job.meta, { compact: true })}
+                            </span>
                           </p>
                         )}
                         <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
@@ -323,8 +326,13 @@ export function ScrollSnapPortfolio() {
                         {section.experienceSpotlight.role}
                       </h3>
                       {section.experienceSpotlight.meta && (
-                        <p className="mt-1.5 max-w-full font-serif text-xs leading-snug whitespace-nowrap text-muted-foreground sm:text-[0.8125rem]">
-                          {formatExperienceMeta(section.experienceSpotlight.meta)}
+                        <p className="mt-1.5 max-w-full text-pretty break-words font-serif text-xs leading-snug text-muted-foreground max-sm:whitespace-normal sm:text-[0.8125rem] sm:whitespace-nowrap">
+                          <span className="sm:hidden">{section.experienceSpotlight.meta}</span>
+                          <span className="hidden sm:inline">
+                            {formatExperienceMeta(section.experienceSpotlight.meta, {
+                              compact: true,
+                            })}
+                          </span>
                         </p>
                       )}
                       <ul className="mt-2 list-outside list-disc space-y-1 pl-4 marker:text-foreground sm:pl-4">
@@ -384,7 +392,7 @@ export function ScrollSnapPortfolio() {
             </div>
 
             {index === 0 && (
-              <p className="absolute bottom-10 font-mono text-sm tracking-[0.2em] text-muted-foreground sm:text-base">
+              <p className="absolute bottom-[max(2.5rem,env(safe-area-inset-bottom))] font-mono text-sm tracking-[0.2em] text-muted-foreground sm:text-base">
                 Scroll to Introduction
               </p>
             )}

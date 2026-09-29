@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
 import { profile } from "@/content/profile";
 import "./globals.css";
@@ -21,6 +21,12 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   title: profile.name,
   description: profile.name,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

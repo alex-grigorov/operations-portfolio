@@ -60,7 +60,7 @@ function ChannelStripRow({
   const isMobile = channel.platform === "mobile";
 
   return (
-    <div className="showcase-row grid grid-cols-1 items-center gap-4 md:grid-cols-2 md:gap-8 lg:grid-cols-12 lg:items-center lg:gap-8">
+    <div className="showcase-row grid grid-cols-1 items-center gap-5 md:grid-cols-2 md:gap-8 lg:grid-cols-12 lg:items-center lg:gap-8">
       <div className="showcase-text-col col-span-1 text-left lg:col-span-5">
         <p className="mb-1.5 block font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-[0.6875rem]">
           {channel.title}
@@ -103,8 +103,8 @@ function ChannelStripRow({
             className={cn(
               "w-auto max-w-full object-contain object-center transition duration-200 group-hover:opacity-95",
               isMobile
-                ? "max-h-[260px] rounded-2xl md:max-h-[min(300px,30vh)]"
-                : "max-h-[200px] md:max-h-[min(220px,24vh)]",
+                ? "max-h-[240px] rounded-2xl md:max-h-[min(300px,30dvh)]"
+                : "max-h-[180px] max-md:max-h-[min(200px,22dvh)] md:max-h-[min(220px,24dvh)]",
             )}
             sizes={isMobile ? "200px" : "(max-width: 768px) 90vw, 480px"}
           />
@@ -178,7 +178,7 @@ export function FleetShowcaseGallery({
   }, [open, canNavigate, goTo]);
 
   return (
-    <div className="flex min-h-0 w-full flex-1 flex-col justify-between overflow-hidden md:gap-2">
+    <div className="flex min-h-0 w-full flex-1 flex-col justify-between overflow-hidden max-md:gap-3 md:gap-2">
       <div className="shrink-0">
       <p className="mx-auto mt-0.5 max-w-2xl text-center font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
         {showcase.summary}
@@ -190,7 +190,7 @@ export function FleetShowcaseGallery({
             {showcase.featureHighlights.map((label) => (
               <li
                 key={label}
-                className="shrink-0 rounded-full border border-foreground/15 bg-foreground/[0.03] px-2 py-0.5 font-mono text-[0.5625rem] tracking-wide whitespace-nowrap text-foreground/90 sm:px-2.5 sm:py-1 sm:text-[0.625rem]"
+                className="shrink-0 rounded-full border border-foreground/15 bg-foreground/[0.03] px-2 py-0.5 font-mono text-[0.625rem] tracking-wide whitespace-nowrap text-foreground/90 sm:px-2.5 sm:py-1 sm:text-xs"
               >
                 {label}
               </li>
@@ -233,7 +233,8 @@ export function FleetShowcaseGallery({
       <Dialog open={open} onOpenChange={handleOpenChange} modal="trap-focus">
         <DialogContent
           showCloseButton
-          className="flex max-h-[92vh] flex-col overflow-hidden border-foreground/15 bg-background p-0 sm:max-w-4xl"
+          overlayClassName="bg-black/40 max-sm:bg-black/50"
+          className="flex max-h-[92dvh] flex-col overflow-hidden border-foreground/15 bg-background p-0 max-sm:max-w-[calc(100%-1rem)] sm:max-w-4xl"
         >
           {active && (
             <>
@@ -248,7 +249,7 @@ export function FleetShowcaseGallery({
                         size="icon"
                         aria-label="Previous screenshot"
                         className={cn(
-                          "absolute top-1/2 left-2 z-10 size-9 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
+                          "absolute top-1/2 left-2 z-10 size-11 min-h-11 min-w-11 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
                           "hover:bg-background",
                         )}
                         onClick={() => goTo(-1)}
@@ -261,7 +262,7 @@ export function FleetShowcaseGallery({
                         size="icon"
                         aria-label="Next screenshot"
                         className={cn(
-                          "absolute top-1/2 right-2 z-10 size-9 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
+                          "absolute top-1/2 right-2 z-10 size-11 min-h-11 min-w-11 -translate-y-1/2 rounded-full border-foreground/20 bg-background/90 shadow-sm backdrop-blur-sm",
                           "hover:bg-background",
                         )}
                         onClick={() => goTo(1)}
@@ -277,7 +278,7 @@ export function FleetShowcaseGallery({
                     width={1600}
                     height={900}
                     unoptimized
-                    className="h-auto max-h-[52vh] w-full object-contain object-center sm:max-h-[58vh]"
+                    className="h-auto max-h-[52dvh] w-full object-contain object-center sm:max-h-[58dvh]"
                     sizes="(max-width: 768px) 100vw, 896px"
                     priority
                   />
@@ -287,8 +288,8 @@ export function FleetShowcaseGallery({
                     <p className="mb-2 text-center font-mono text-[0.6875rem] tabular-nums tracking-[0.2em] text-muted-foreground sm:text-xs">
                       {String(activeIndex + 1).padStart(2, "0")} /{" "}
                       {String(galleryShots.length).padStart(2, "0")}
-                      <span className="mx-2 text-foreground/20">·</span>
-                      <span className="tracking-normal text-foreground/50">
+                      <span className="mx-2 hidden text-foreground/20 md:inline">·</span>
+                      <span className="hidden tracking-normal text-foreground/50 md:inline">
                         Arrow keys to browse
                       </span>
                     </p>

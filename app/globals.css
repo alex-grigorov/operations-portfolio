@@ -130,9 +130,18 @@
   }
 }
 
+.safe-top {
+  padding-top: max(0px, env(safe-area-inset-top));
+}
+
+.safe-bottom {
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+
 .snap-scroll {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  overscroll-behavior-y: contain;
 }
 
 .snap-section {

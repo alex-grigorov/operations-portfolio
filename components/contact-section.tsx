@@ -29,7 +29,7 @@ type InfoRowProps = {
 function InfoRow({ label, children }: InfoRowProps) {
   return (
     <div className="flex items-baseline justify-between gap-3 border-b border-foreground/10 py-2 text-left">
-      <span className="shrink-0 font-mono text-[0.625rem] tracking-[0.2em] text-foreground uppercase sm:text-[0.6875rem]">
+      <span className="shrink-0 font-mono text-xs tracking-[0.2em] text-foreground uppercase sm:text-[0.6875rem]">
         {label}
       </span>
       <span className="min-w-0 text-right font-serif text-xs leading-snug text-foreground/90 sm:text-sm">
@@ -41,7 +41,7 @@ function InfoRow({ label, children }: InfoRowProps) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="font-mono text-[0.625rem] font-medium tracking-[0.22em] text-foreground uppercase sm:text-xs">
+    <p className="font-mono text-xs font-medium tracking-[0.22em] text-foreground uppercase">
       {children}
     </p>
   );
@@ -63,14 +63,14 @@ export function ContactSection() {
         success, CRM coordination, and logistics operations.
       </p>
 
-      <div className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 sm:grid-cols-[minmax(22rem,1.15fr)_minmax(0,1fr)] sm:gap-8 md:gap-10">
-        <div className="min-w-0 sm:min-w-[22rem]">
+      <div className="mt-4 grid grid-cols-1 gap-6 sm:mt-5 md:grid-cols-2 md:gap-10">
+        <div className="min-w-0">
           <SectionLabel>Open to</SectionLabel>
           <ul className="mt-2.5 space-y-1.5">
             {profile.openTo.map((line) => (
               <li
                 key={line}
-                className="font-serif text-xs leading-relaxed text-foreground/85 sm:whitespace-nowrap sm:text-sm"
+                className="text-pretty font-serif text-xs leading-relaxed text-foreground/85 sm:text-sm"
               >
                 {line}
               </li>
@@ -91,7 +91,7 @@ export function ContactSection() {
                   href={telegramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                  className="break-words underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
                 >
                   {telegramDisplayHandle(profile.telegram)}
                 </a>
@@ -113,7 +113,7 @@ export function ContactSection() {
               <InfoRow label="Phone">
                 <a
                   href={`tel:${phone.replace(/\s/g, "")}`}
-                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                  className="break-words underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
                 >
                   {phone}
                 </a>
@@ -126,7 +126,7 @@ export function ContactSection() {
                   href={linkedIn.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                  className="break-all underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
                 >
                   {displayUrl(linkedIn.url)}
                 </a>
@@ -139,7 +139,7 @@ export function ContactSection() {
                   href={github.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
+                  className="break-all underline decoration-foreground/25 underline-offset-2 hover:decoration-foreground/60"
                 >
                   {displayUrl(github.url)}
                 </a>

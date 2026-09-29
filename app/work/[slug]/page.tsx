@@ -40,7 +40,7 @@ export default async function WorkPage({ params }: PageProps) {
         </LinkButton>
 
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="text-3xl font-bold tracking-tight">{project.title}</h1>
+          <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{project.title}</h1>
           {project.internalOnly && (
             <Badge variant="outline">Internal operations</Badge>
           )}

@@ -1,4 +1,13 @@
-/** Single-line meta in narrow grid cells — no orphan wraps on dates or locations. */
-export function formatExperienceMeta(text: string): string {
+type FormatExperienceMetaOptions = {
+  /** Use non-breaking spaces for single-line desktop grid cells. */
+  compact?: boolean;
+};
+
+/** Meta line for experience cards — optional NBSP compaction on wider layouts. */
+export function formatExperienceMeta(
+  text: string,
+  options: FormatExperienceMetaOptions = {},
+): string {
+  if (!options.compact) return text;
   return text.replace(/ /g, "\u00A0");
 }

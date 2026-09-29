@@ -73,8 +73,11 @@ const HEADER_LINK_ORDER: SocialPlatform[] = [
   "globe",
 ];
 
+const LOW_PRIORITY_PLATFORMS: SocialPlatform[] = ["instagram", "globe"];
+
 type SocialLinksProps = {
   className?: string;
+  variant?: "default" | "compact";
 };
 
 function headerLinks(): SocialLink[] {
@@ -98,15 +101,21 @@ function headerLinks(): SocialLink[] {
   );
 }
 
-export function SocialLinks({ className }: SocialLinksProps) {
+export function SocialLinks({ className, variant = "default" }: SocialLinksProps) {
   const links = headerLinks();
 
   if (links.length === 0) return null;
 
+  const compact = variant === "compact";
+
   return (
     <nav
       aria-label="Social and contact links"
-      className={cn("flex items-center gap-4 sm:gap-5", className)}
+      className={cn(
+        "flex items-center",
+        compact ? "gap-2 max-sm:gap-1.5 sm:gap-2.5 md:gap-4" : "gap-4 sm:gap-5",
+        className,
+      )}
     >
       {links.map((link) => {
         const Icon = iconByPlatform[link.platform];
@@ -120,9 +129,18 @@ export function SocialLinks({ className }: SocialLinksProps) {
             rel={external ? "noopener noreferrer" : undefined}
             aria-label={link.label}
             title={link.label}
-            className="text-foreground/80 transition-colors hover:text-foreground"
+            className={cn(
+              "inline-flex items-center justify-center text-foreground/80 transition-colors hover:text-foreground",
+              compact && "min-h-11 min-w-11 max-sm:min-h-9 max-sm:min-w-9",
+              compact &&
+                LOW_PRIORITY_PLATFORMS.includes(link.platform) &&
+                "max-sm:hidden",
+            )}
           >
-            <Icon className="size-5" aria-hidden />
+            <Icon
+              className={cn(compact ? "size-4 sm:size-5" : "size-5")}
+              aria-hidden
+            />
           </a>
         );
       })}
