@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "convert:webp": "node scripts/convert-webp.mjs",
-    "verify:showcase-assets": "node scripts/verify-showcase-assets.mjs"
+    "convert:webp": "node scripts/convert-webp.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
