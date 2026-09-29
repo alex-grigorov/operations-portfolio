@@ -63,7 +63,7 @@ export const snapSections: SnapSection[] = [
     experiences: [
       {
         role: "Dispatch Specialist · Operations Coordinator",
-        meta: "Dispatch On Demand · Hybrid · 2023 – 2026",
+        meta: "Dispatch On Demand · Hybrid · 2023 – 2026 · Pernik, Bulgaria",
         highlights: [
           "Geo Logistics LLC—US-based freight hauling operation.",
           "Primary point of contact for live accounts—status updates, schedule changes, route issues.",

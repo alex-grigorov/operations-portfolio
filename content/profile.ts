@@ -136,7 +136,7 @@ export const profile: Profile = {
     {
       company: "Dispatch On Demand · Geo Logistics LLC",
       title: "Dispatch Specialist · Operations Coordinator",
-      location: "Hybrid · United States",
+      location: "Hybrid · Pernik, Bulgaria",
       start: "2023",
       end: "2026",
       highlights: [
